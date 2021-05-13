@@ -3,7 +3,7 @@
 console.log("init");
 var $grid = $('.grid').isotope({
   itemSelector: '.project-component',
-  layoutMode: 'fitRows',
+  layoutMode: 'masonryHorizontal',
   getSortData: {
     category: '[data-category]'
   }
@@ -28,6 +28,8 @@ $('.button-group').each(function(i, buttonGroup) {
   });
 });
 
+
+
 // var $gridIso = $('.grid-mason').isotope({
 //   itemSelector: '.grid-item',
 //   percentPosition:true,
@@ -35,7 +37,7 @@ $('.button-group').each(function(i, buttonGroup) {
 //     columnWidth:'.gridmason-alpha'
 //   }
 // });
-// 
+//
 // $gridIso.imagesLoaded().progress( function(){
 //   $gridIso.isotope('layout');
 // });
