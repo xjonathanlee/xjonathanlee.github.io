@@ -3,7 +3,7 @@
 console.log("init");
 var $grid = $('.grid').isotope({
   itemSelector: '.project-component',
-  layoutMode: 'masonryHorizontal',
+  layoutMode: 'fitRows',
   getSortData: {
     category: '[data-category]'
   }
