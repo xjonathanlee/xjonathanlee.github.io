@@ -252,7 +252,7 @@ Inherits dummy values from grid
   */
    padding: 2rem;
    margin: 0 0 1rem 0;
-   width: 100%;
+   width: 25%;
    max-width: 35rem;
    height: 20rem;
    box-shadow: 1px 3px 10px #c1c1c0;
@@ -343,6 +343,7 @@ have this make the background turn into tiles using DOM
 
    .project-component {
       margin: 1rem;
+      width:100%;
       color: #231f20;
       background-color: #ffffff;
    }
