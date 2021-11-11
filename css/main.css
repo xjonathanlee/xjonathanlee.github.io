@@ -269,7 +269,7 @@ have this make the background turn into tiles using DOM
 .project-component:focus {
    color: white;
    background-color: blue;
-   opacity:0.9;
+   opacity:0.5;
 
 }
 
