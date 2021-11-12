@@ -7,8 +7,9 @@ $(document).ready(function(){
         fadeIn: true,
         fadeOut: true,
         fadeInDuration: 200
+        console.log("I am hoeverings");
     });
-console.log("I am hoeverings");
+
 });
 
 var $grid = $('.grid').isotope({
