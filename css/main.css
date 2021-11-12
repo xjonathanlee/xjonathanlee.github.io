@@ -36,7 +36,7 @@ button{
 }
 
 button:hover, button:focus{
-  color: red;
+  color: blue;
   border:none;
 }
 
@@ -234,7 +234,7 @@ Inherits dummy values from grid
 
 .intro {
    margin-top: 10%;
-   max-width: 40rem;
+   max-width: 66rem;
 }
 
 .main-section {
@@ -269,9 +269,10 @@ have this make the background turn into tiles using DOM
 .project-component:focus {
    color: white;
    background-color: blue;
-   opacity:0.5;
+   opacity:0.9;
 
 }
+
 
 .full-bleed {
    width: 100%;

@@ -1,6 +1,16 @@
 //readjust for better values;
 // init Isotope
 console.log("init");
+
+$(document).ready(function(){
+    $('.project-thumbnail').okhover({
+        fadeIn: true,
+        fadeOut: true,
+        fadeInDuration: 200
+    });
+console.log("I am hoeverings");
+});
+
 var $grid = $('.grid').isotope({
   itemSelector: '.project-component',
   layoutMode: 'fitRows',
@@ -27,6 +37,7 @@ $('.button-group').each(function(i, buttonGroup) {
     $(this).addClass('is-checked');
   });
 });
+
 
 
 
