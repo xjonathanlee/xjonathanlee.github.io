@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonathan Lee - Portfolio</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script> -->
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/main-template.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+  <script src="js/followcursor.js"></script>
+</head>
+
+<body>
+
+  <nav class="header-nav">
+    <a href="index.html" class="nav-item">home</a>
+    <a href="about.html" class="nav-item">about</a>
+  </nav>
+
+  <section class="intro">
+    <!-- Enhance Bio with addition material + about page -->
+    <h1>I am a <a href="about.html">Photographer + Designer</a>. I am interested in
+      <a class="project-thumbnail" href="#" data-okimage="img/sample.jpeg">architecture</a>, <a class="project-thumbnail" href="#" data-okimage="img/sample2.jpg">making</a>, and <a class="project-thumbnail" href="#" data-okimage="img/sample3.jpg">photography</a>.<br><br>
+      I am currently seeking internship oppertunities.</h1>
+
+
+
+  </section>
+
+
+
+
+  <section class="main-section">
+    <div id="filters" class="button-group">
+      <button class="button-is-checked" data-filter="*">show all</button>
+      <button class="button" data-filter=".speculative">speculative design</button>
+      <button class="button" data-filter=".expdes">experience design</button>
+      <button class="button" data-filter=".artdirection">art direction</button>
+      <button class="button" data-filter=".videography">videography</button>
+    </div>
+
+    <div class="grid">
+      <a href="makePretty.html">
+        <div class="project-component speculative videography" data-category="speculative">
+          <h3>makePretty</h3>
+          <p class="project-subtitle">visual design, speculative design, videography</p>
+        </div>
+      </a>
+
+      <a href="experiments.html">
+        <div class="project-component speculative artdirection matdes" data-category="speculative, artdirection, matdes, ">
+          <h3>Experiments</h3>
+          <p class="project-subtitle">visual design, speculative design, art direction</p>
+        </div>
+      </a>
+
+      <a href="glass.html">
+        <div class="project-component artdirection videography" data-category="artdirection">
+          <h3>Glass</h3>
+          <p class="project-subtitle">user research, videography, art direction</p>
+        </div>
+      </a>
+
+      <a href="semalt.html">
+        <div class="project-component artdirection expdes" data-category="artdirection, expdes">
+          <h3>Semester In Alternate Realities</h3>
+          <p class="project-subtitle">project management, videography, art direction, experience design</p>
+        </div>
+      </a>
+
+      <a href="indafa.html">
+        <div class="project-component expdes" data-category=" expdes">
+          <h3>Indafa</h3>
+          <p class="project-subtitle">experience design, prototyping, user research</p>
+        </div>
+      </a>
+
+
+
+      <a href="photography.html" class="">
+        <div class="project-component artdirection" data-category="artdirection">
+          <h3>Photography</h3>
+          <p class="project-subtitle">visual design, art direction</p>
+        </div>
+      </a>
+
+      <a href="rbbc.html">
+        <div class="project-component speculative" data-category="speculative">
+          <h3>Royal Blood Bank of Canada</h3>
+          <p class="project-subtitle">visual design, speculative design</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
