@@ -105,40 +105,21 @@ em {
    font-style: normal;
 }
 
-.grid-mason {
-/*
-Inherits dummy values from grid
-*/
-}
-
-.grid-mason:after {
-   content: "";
-   display: block;
-   clear: both;
-}
-
 .grid{
-}
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  }
 
-.grid:after {
-   content: "";
-   display: block;
-   clear: both;
-}
-.grid-sizer,
-.grid-item{
-  width:33.333%;
-  padding:2px;
-}
 
-.grid-item{
+
+/* .grid-item{
   float:left;
 }
 /*make this dynamic*/
 .grid-item img{
   display:block;
   max-width:100%;
-}
+} */
 
 .grid-item:hover{
   filter: brightness(30%);
@@ -252,7 +233,7 @@ Inherits dummy values from grid
   */
    padding: 2rem;
    margin: 0 0 1rem 0;
-   width: 25%;
+   width: 100%;
    max-width: 35rem;
    height: 20rem;
    box-shadow: 1px 3px 10px #c1c1c0;
@@ -324,7 +305,12 @@ have this make the background turn into tiles using DOM
    box-shadow: 1px 3px 10px #c1c1c0;
 }
 
-@media (min-width: 28rem) {
+@media screen and (max-width: 23rem) {
+  .grid{
+    grid-template-columns: 1fr;
+    max-width:100%;
+  }
+
    .main-content {
       margin-left: auto;
       margin-right: auto;
@@ -344,7 +330,7 @@ have this make the background turn into tiles using DOM
 
    .project-component {
       margin: 1rem;
-      width:100%;
+      width: 90%;
       color: #231f20;
       background-color: #ffffff;
    }
@@ -359,7 +345,7 @@ have this make the background turn into tiles using DOM
    }
 
    .main-section {
-      margin-left: 2rem;
+      margin-left: 0rem;
       margin-right: 0;
    }
 }
@@ -471,26 +457,4 @@ code {
    font-family: "Roboto Mono", monospace;
 }
 
-.swatch-black {
-   color: white;
-   background-color: #231f20;
-   padding: 0.5rem;
-   width: 10rem;
-   margin: 1rem;
-}
-
-.swatch-grey {
-   background-color: #c1c1c0;
-   padding: 0.5rem;
-   width: 10rem;
-   margin: 1rem;
-}
-
-.swatch-white {
-   background-color: #ffffff;
-   border: 0.05rem solid #c1c1c0;
-   padding: 0.5rem;
-   width: 10rem;
-   margin: 1rem;
-}
 /*END OF STYLE GUIDE STYLING*/
