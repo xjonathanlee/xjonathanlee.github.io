@@ -277,6 +277,8 @@ have this make the background turn into tiles using DOM
    max-width: 45rem;
    margin-left: 2rem;
    margin-right: 2rem;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .main-content-gallery {
@@ -321,8 +323,7 @@ have this make the background turn into tiles using DOM
   }
 
    .main-content {
-      margin-left: auto;
-      margin-right: auto;
+
    }
 
    .project-title {
