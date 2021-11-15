@@ -314,7 +314,21 @@ have this make the background turn into tiles using DOM
    box-shadow: 1px 3px 10px #c1c1c0;
 }
 
-/* @media screen and (max-width:) */
+@media screen and (max-width:46.25rem){
+.main-content {
+  padding-left: 1rem;
+}
+
+.grid-about{
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
+.col2{
+  display:none;
+}
+
+}
 
 @media screen and (max-width: 24rem) {
   .grid{
@@ -323,7 +337,7 @@ have this make the background turn into tiles using DOM
   }
 
    .main-content {
-
+     padding-left: 1rem;
    }
 
    .project-title {
