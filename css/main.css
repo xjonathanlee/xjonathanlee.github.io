@@ -115,8 +115,10 @@ em {
   grid-template-columns: 1fr 1fr 1fr;
   }
 
-
-
+.grid-about{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
 /* .grid-item{
   float:left;
 }
