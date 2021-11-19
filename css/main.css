@@ -114,6 +114,7 @@ em {
 .grid{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: .5rem;
   }
 
 .grid-about{
@@ -318,7 +319,7 @@ have this make the background turn into tiles using DOM
 @media screen and (max-width:95.62rem){
   .grid{
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: .2rem;
+    grid-column-gap: 1rem;
   }
 /*  *{
     background-color:pink;
