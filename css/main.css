@@ -10,6 +10,7 @@ html{
 }
 
 body {
+  /*background-color:red;*/
    margin: 0;
    font-family: "Roboto", sans-serif;
    color: #231f20;
@@ -312,6 +313,16 @@ have this make the background turn into tiles using DOM
    height: 100%;
    margin-bottom: 1rem;
    box-shadow: 1px 3px 10px #c1c1c0;
+}
+
+@media screen and (max-width:95.62rem){
+  .grid{
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: .2rem;
+  }
+/*  *{
+    background-color:pink;
+  }*/
 }
 
 @media screen and (max-width:46.25rem){
