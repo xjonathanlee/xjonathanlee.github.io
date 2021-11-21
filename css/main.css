@@ -125,14 +125,33 @@ em {
   float:left;
 }
 /*make this dynamic*/
+
+/*
+grid masonry doesnt work like it should here switching it too flexbox masonry
+*/
+.grid-wrapper{
+  display: flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5rem;
+}
+
 .grid-item img{
+  padding: .5rem;
   display:block;
+  vertical-align: middle;
   max-width:100%;
-} */
+}
 
 .grid-item:hover{
   filter: brightness(30%);
   transition: all 0.3s ease-out;
+}
+
+.column{
+  flex:33%;
+  max-width: 33%;
+  padding:.5rem;
 }
 
 .gridmason-alpha{
@@ -284,7 +303,7 @@ have this make the background turn into tiles using DOM
 }
 
 .main-content-gallery {
-   max-width: 45rem;
+   /* max-width: 66rem; */
    margin-left: 2rem;
    margin-right: 2rem;
 }
