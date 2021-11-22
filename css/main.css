@@ -144,7 +144,7 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
 }
 
 .grid-item:hover{
-  filter: brightness(30%);
+  filter: brightness(150%);
   transition: all 0.3s ease-out;
 }
 
@@ -343,6 +343,11 @@ have this make the background turn into tiles using DOM
 /*  *{
     background-color:pink;
   }*/
+  .column{
+    flex:50%;
+    max-width: 50%;
+    padding:.5rem;
+  }
 }
 
 @media screen and (max-width:46.25rem){
@@ -370,7 +375,11 @@ have this make the background turn into tiles using DOM
    .main-content {
      padding-left: 1rem;
    }
-
+   .column{
+     flex:100%;
+     max-width: 100%;
+     padding:.5rem;
+   }
    .project-title {
       margin-left: 0;
    }
