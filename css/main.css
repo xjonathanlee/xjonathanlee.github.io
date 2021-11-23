@@ -366,6 +366,13 @@ have this make the background turn into tiles using DOM
 
 }
 
+@media screen and(max-width:32rem){
+  .grid{
+    grid-template-columns: 1fr;
+    max-width:100%;
+  }
+}
+
 @media screen and (max-width: 24rem) {
   .grid{
     grid-template-columns: 1fr;
