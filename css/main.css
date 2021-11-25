@@ -22,7 +22,7 @@ body {
 }
 
 section {
-   margin: 2rem;
+   margin: 2.5rem;
 }
 
 button{
@@ -39,6 +39,7 @@ button{
 button:hover, button:focus{
   color: blue;
   border:none;
+  cursor:crosshair;
 }
 
 .button-group{
@@ -78,6 +79,24 @@ a:hover,
 a:active,
 a:focus {
    color: #c1c1c0;
+   cursor:crosshair;
+}
+
+.introtest {
+  color:white;
+}
+
+#s:hover + .introp1 {
+  display:block;
+  visibility:visible;
+}
+
+#s:hover + .aaa{
+  display:none;
+}
+
+.aaa{
+  color:white;
 }
 
 p {
@@ -146,6 +165,7 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
 .grid-item:hover{
   filter: brightness(150%);
   transition: all 0.3s ease-out;
+  cursor:crosshair;
 }
 
 .column{
@@ -225,11 +245,37 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
 
 .alternate-h1 {
    color: white;
+   max-width: 40rem;
 }
+
+.introp1{
+  display:none;
+}
+
+.introp2{
+  border: 1px solid white;
+  width:33%;
+  display:none;
+  visibility:hidden;
+}
+
+.introp3{
+  border: 1px solid white;
+  width:33%;
+  display:none;
+}
+
+.introp4{
+  border: 1px solid white;
+  width:33%;
+  display:none;
+}
+
 
 .about-paragraph {
    color: white;
    margin-left: 0;
+   max-width: 32rem;
    margin-top: 2rem;
 }
 
@@ -247,7 +293,7 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
 }
 
 .main-section {
-   margin-top: 15%;
+   margin-top: 5%;
    margin-bottom: 5rem;
    margin-left: 2rem;
    margin-right: 2rem;
@@ -279,6 +325,7 @@ have this make the background turn into tiles using DOM
    color: white;
    background-color: blue;
    opacity:0.9;
+   cursor:crosshair;
 
 }
 
@@ -367,6 +414,9 @@ have this make the background turn into tiles using DOM
 }
 
 @media screen and(max-width:32rem){
+section{
+  margin: 2rem;
+}
   .grid{
     grid-template-columns: 1fr;
     max-width:100%;
@@ -374,10 +424,16 @@ have this make the background turn into tiles using DOM
 }
 
 @media screen and (max-width: 24rem) {
+  section{
+    margin: 2rem;
+  }
+
   .grid{
     grid-template-columns: 1fr;
     max-width:100%;
   }
+
+
 
    .main-content {
      padding-left: 1rem;
