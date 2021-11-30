@@ -197,6 +197,7 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
   }
 
 .header-nav {
+  text-align: right;
    margin: 1rem;
    padding-left: 2rem;
 }
@@ -212,6 +213,7 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
    letter-spacing: 0.1rem;
    font-size: 1rem;
    margin-right: 1rem;
+   text-decoration: none;
 }
 
 .nav-item-bottom-margin {
