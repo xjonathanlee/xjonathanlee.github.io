@@ -18,7 +18,7 @@
     base.init = function(){
       base.options = $.extend({}, $.okhover.options, options);
 
-      if (!base.options.el) $('body').append('<div id="ok-bg" style="width:100%;height:100%;background:scroll no-repeat;z-index:-1;position:fixed;top:0;left:0;"></div>');
+      if (!base.options.el) $('body').append('<div id="ok-bg" style="width:100%;height:100%;background:scroll no-repeat;z-index:-1;position:fixed;top:-15rem;left:0;"></div>');
 
       base.build();
     };
@@ -76,7 +76,7 @@
 
   $.okhover.options = {
     fadeIn: false,
-    fadeOut: false,
+    fadeOut: true,
     fadeInDuration: 400,
     fadeOutDuration: 400,
     zIndex: -1,

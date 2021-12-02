@@ -304,9 +304,8 @@ grid masonry doesnt work like it should here switching it too flexbox masonry
 .project-component {
    display: inline-block;
    text-decoration: none;
-   color: #231f20; /*
-  //background-color:
-  */
+   color: #231f20;
+   background-color: white;
    padding: 2rem;
    margin:1rem;
    width: 100%;
