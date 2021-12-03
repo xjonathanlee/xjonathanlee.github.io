@@ -337,22 +337,29 @@ have this make the background turn into tiles using DOM
 
 }
 
-.expdes:hover{
-  background:pink;
+.videography:hover{
+  background:#cc5500;
 }
 
+.expdes:hover{
+  background:#FF00FF;
+}
+
+.prototyping:hover{
+  background:blue;
+}
 
 .artdirection:hover{
-  background:green;
+  background:#228B22;
 }
 
-.artvidcombo:hover{
+/* .artvidcombo:hover{
   background-image: radial-gradient(pink, blue);
-}
+} */
 
 .full-bleed {
    width: 100%;
-   height: 20%;
+   height: 15%;
    margin: 0 0 2rem 0;
 }
 
