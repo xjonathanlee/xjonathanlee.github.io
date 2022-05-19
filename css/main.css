@@ -288,7 +288,13 @@ em {
 .detail-intro {
     font-size: 1.3rem;
     line-height: 2.2rem;
+    max-width: 42rem;
 }
+
+.problem-scope {
+	margin-bottom: 1rem;
+}
+
 .main-content {
     max-width: 45rem;
     margin-left: 2rem;
