@@ -299,7 +299,17 @@ em {
     opacity:0.0;
 }
 
-#show:hover > #me{
+#fuckme{
+    opacity:0.0;
+}
+
+#me:hover + #fuckme{
+    opacity:1.0;
+    color:purple;
+    background-color: pink;
+}
+
+#show:hover + #me{
     opacity:1.0;
 }
 
