@@ -295,6 +295,14 @@ em {
 	margin-bottom: 1rem;
 }
 
+#me{
+    opacity:0.0;
+}
+
+#show:hover > #me{
+    opacity:1.0;
+}
+
 .main-content {
     max-width: 45rem;
     margin-left: 2rem;
