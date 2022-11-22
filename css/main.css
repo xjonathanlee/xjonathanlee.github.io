@@ -295,24 +295,6 @@ em {
 	margin-bottom: 1rem;
 }
 
-#me{
-    opacity:0.0;
-}
-
-#fuckme{
-    opacity:0.0;
-}
-
-#me:hover + #fuckme{
-    opacity:1.0;
-    color:purple;
-    background-color: pink;
-}
-
-#show:hover + #me{
-    opacity:1.0;
-}
-
 .main-content {
     max-width: 45rem;
     margin-left: 2rem;
@@ -346,7 +328,7 @@ em {
     margin-bottom: 1rem;
     box-shadow: 1px 3px 10px #c1c1c0;
 }
-@media screen and (max-width: 95.62rem) {
+@media screen and (min-width: 95.62rem) {
     .grid {
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 1rem;
