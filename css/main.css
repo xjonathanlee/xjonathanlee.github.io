@@ -108,15 +108,6 @@ em {
     font-style: normal;
 }
 
-.bottomfooter{
-    display:grid;
-
-    grid-template-columns: 1fr 1fr;
-}
-
-.bdiv{
-}
-
 .bright{
     text-align: right;
 }
@@ -189,7 +180,7 @@ em {
     font-family: "Roboto Mono", monospace;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    font-size: 4rem;
+    font-size: 1.25rem;
     margin-right: 1rem;
     text-decoration: none;
 }
