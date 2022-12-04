@@ -1,113 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jonathan Lee - Portfolio</title>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link href="css/main.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jonathan Lee - Portfolio</title>
+	 <link href="css/main.css" rel="stylesheet">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	 <script src="js/followcursor.js"></script>
+	   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
-  <script src="js/followcursor.js"></script>
+
 </head>
+<body id="bchange" class="backchange">
+<nav class="header-nav">
+<a href="index2.html" class="nav-item">Home</a>
+<a href="about.html" class="nav-item">About</a>
+</nav>
 
-<body>
-
-  <nav class="header-nav">
-    <a href="index.html" class="nav-item">home</a>
-    <a href="about.html" class="nav-item">about</a>
-  </nav>
-
-  <section class="intro">
+  <section class="intronew">
     <!-- Enhance Bio with addition material + about page -->
-    <h1>I am a <a class="infolink" href="about.html">Photographer + Designer</a>. I am interested in
-      <a class="project-thumbnail" href="makePretty.html" data-okimage="img/makePretty/Artboard-1.png" alt="Prototype Cart">speculative design</a>, <a class="project-thumbnail" href="#" data-okimage="img/making.jpeg">making</a>, and <a class="project-thumbnail" href="photography.html" data-okimage="img/otter1.png">photography</a>.<br><br>
-      I am currently seeking job opportunities.</h1>
+    <h1 class="index2h1"> Hi my name is <a c;ass="project-thumbnail" href="#" >Jonathan</a>, </h1>
+    <br>
+    <h1 class="index2h1">I am a <a href="about.html">Photographer + Designer</a>. 
+    </h1>
+    <h1 class="index2h1">
+    I am interested in
+      <a class="project-thumbnail" href="#">architecture</a>, <a class="project-thumbnail" href="#" >making</a>, and <a class="project-thumbnail" href="#" >photography</a>.<br><br>
+      I am currently seeking internship oppertunities.</h1>
+ </section>
 
+<!-- <div class="newindexmenu"> -->
+<a data-color="white" class="titleProject project-thumbnail"href="MakePretty.html">
+	<div class="indexMenuItem">
+	makePretty
+	</div >
+</a>
+<a data-color="#227093" class="titleProject project-thumbnail user-interface" href="Raptors.html">
+		<div class="indexMenuItem">
+			The Raptors
+	</div >
+</a>
 
-  </section>
+<a data-color="#c23616" class="titleProject project-thumbnail"href="intercedencesteveston.html">
+	<div class="indexMenuItem">
+	Intercedence
+	</div>
+</a>
 
-  <section class="main-section">
-<!--     <div id="filters" class="button-group">
-      <button class="button-is-checked" data-filter="*">show all</button>
-      <button class="button" data-filter=".speculative">speculative design</button>
-      <button class="button" data-filter=".expdes">experience design</button>
-      <button class="button" data-filter=".artdirection">art direction</button>
-      <button class="button" data-filter=".videography">videography</button>
-    </div>
- -->
-    <div class="grid">
+<a data-color="#e1b12c" class="titleProject project-thumbnail"href="photography.html">
+	<div class="indexMenuItem">
+		DarkRoom
+	</div>
+</a>
+<a data-color="#8395a7" class="titleProject project-thumbnail"href="design.html">
+	<div class="indexMenuItem">
+		Design Lab
+	</div>
+</a>
+<a data-color="#ff5e57" class="titleProject project-thumbnail" href="semalt.html">
+	<div class="indexMenuItem">
+		Semesters in Alternate Realities
+	</div>
+</a>
+<div class="indexMenuItemEnd">
+<!-- This one is blank so its aesthetic -->
+	</div>
 
-      <a href="intercedencesteveston.html">
-        <div class="project-component speculative artdirection matdes" data-category="speculative, artdirection, matdes">
-          <h3>Thesis Capstone</h3>
-          <p class="project-subtitle">  archival research, research creation, design history </p>
-        </div>
-      </a>
+<!-- </div> -->
 
-      <a href="makePretty.html">
-        <div id="makepretty" class="project-component speculative videography" data-category="speculative">
-          <h3>makePretty</h3>
-          <p class="project-subtitle">speculative design, videography</p>
-        </div>
-      </a>
-
-<!--     <a href="dataviz.html">
-        <div id="dataviz" class="project-component speculative dataviz artdirection matdes" data-category="data-visualization, artdirection, matdes">
-          <h3>Spotify Visualizations</h3>
-          <p class="project-subtitle">visual design, data-visualization, art direction</p>
-        </div>
-      </a> -->
-
-<!--       <a href="glass.html">
-        <div id="glass" class="project-component glass videography" data-category="artdirection">
-          <h3>Glass</h3>
-          <p class="project-subtitle">user research, videography</p>
-        </div>
-      </a> -->
-
-      <a href="semalt.html">
-        <div id="semalt" class="project-component semalt expdes" data-category="artdirection, expdes">
-          <h3>Semester In Alternate Realities</h3>
-          <p class="project-subtitle">project management, experience design</p>
-        </div>
-      </a>
-
-      <a href="raptors.html" class="">
-        <div class="project-component expdes" data-category="artdirection">
-          <h3>The Raptors</h3>
-          <p class="project-subtitle">visual design, design research, experience design</p>
-        </div>
-      </a>
-
-<!--       <a href="rbbc.html">
-        <div class="project-component artdirection speculative" data-category="speculative">
-          <h3>Royal Blood Bank of Canada</h3>
-          <p class="project-subtitle">visual design, speculative design</p>
-        </div>
-      </a>
- -->
-
-       <a href="photography.html" class="">
-        <div class="project-component artdirection" data-category="artdirection">
-          <h3>Dark Room</h3>
-          <p class="project-subtitle">Photography & other things.</p>
-        </div>
-      </a>
-
-      <a href="design.html" class="">
-        <div class="project-component artdirection" data-category="artdirection">
-          <h3>Visual Design Lab</h3>
-          <p class="project-subtitle">visual design, art direction</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-  <script src="js/main.js"></script>
 </body>
-
+<!-- DO NOT TOUCH THIS -->
+<script src="js/backgroundchange.js"></script>
+<script src="js/main.js"></script>
 </html>
