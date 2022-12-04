@@ -9,8 +9,18 @@
 }
 
 @font-face{
-    font-family:helveticaNeue;
-    src:url();
+    font-family:helveticaNeueReg;
+    src:url(HelveticaNeue-Regular.otf);
+}
+
+@font-face{
+    font-family:helveticaNeueItal;
+    src:url(HelveticaNeue-RegularItalic.otf);
+}
+
+@font-face{
+    font-family:helveticaNeueBold;
+    src:url(HelveticaNeue-Bold.otf);
 }
 
 html {
@@ -47,20 +57,37 @@ button:focus {
     margin: 0rem;
     padding: 1rem 0rem 1rem 0rem;
 }
+/*New Index2 Workspace*/
+.newindexmenu{
+    padding-left: .5rem;
+}
+
+.indexMenuItem{
+    padding: 2rem;
+    border-bottom:1px solid black;
+}
+
+/*End Index2*/
+/*Portfolio showcase pages */
+.sub-content-group{
+    padding-bottom: 1rem;
+}
+/*End Portfolio Template Pages*/
+/*User Settings Migrate to SASS*/
 h1 {
-    font-family: "Roboto Mono", monospace;
+    font-family:helveticaNeue;
     letter-spacing: 0.15rem;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-left: 0;
 }
 h2 {
-    font-family: "Roboto Mono", monospace;
+    font-family:helveticaNeueReg;
     letter-spacing: 0.1rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 h3 {
-    font-family: "Roboto Mono", monospace;
+    font-family:helveticaNeueItal;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-size: 1rem;
@@ -77,19 +104,7 @@ a:focus {
     color: #c1c1c0;
     cursor: crosshair;
 }
-.introtest {
-    color: white;
-}
-#s:hover + .introp1 {
-    display: block;
-    visibility: visible;
-}
-#s:hover + .aaa {
-    display: none;
-}
-.aaa {
-    color: white;
-}
+
 p {
     letter-spacing: 0.05rem;
     line-height: 1.7rem;
@@ -116,10 +131,65 @@ em {
     font-weight: 700;
     font-style: normal;
 }
-
-.bright{
+.header-nav {
     text-align: right;
+    margin: 1rem;
+    padding-left: 2rem;
 }
+.footer-nav {
+    margin: 1rem;
+    float: right;
+}
+.nav-item {
+    font-family: HelveticaNeueReg;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.footernav-item {
+    font-family: HelveticaNeueReg;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.nav-item-bottom-margin {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+    display: block;
+}
+.nav-item-alt {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: white;
+}
+.about-link {
+    font-family: HelveticaNeueReg;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    color: white;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+.alternate-h1 {
+    color: white;
+    max-width: 40rem;
+}
+/*End user settings to migrate to Sass*/
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -167,63 +237,6 @@ em {
     height: 90vw;
     filter: brightness(100%);
 }
-.header-nav {
-    text-align: right;
-    margin: 1rem;
-    padding-left: 2rem;
-}
-.footer-nav {
-    margin: 1rem;
-    float: right;
-}
-.nav-item {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    margin-right: 1rem;
-    text-decoration: none;
-}
-
-.footernav-item {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1.25rem;
-    margin-right: 1rem;
-    text-decoration: none;
-}
-
-.nav-item-bottom-margin {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 4rem;
-    display: block;
-}
-.nav-item-alt {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    margin-right: 1rem;
-    color: white;
-}
-.about-link {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    color: white;
-    margin-left: 0;
-    margin-right: 1rem;
-}
-.alternate-h1 {
-    color: white;
-    max-width: 40rem;
-}
 .introp1 {
     display: none;
 }
@@ -256,10 +269,18 @@ em {
 .project-subtitle {
     margin-top: 0.5rem;
 }
+/*depreciated*/
 .intro {
     margin-top: 10%;
     max-width: 50rem;
 }
+
+.intronew {
+    margin-top: 10%;
+    max-width: 50rem;
+    font-family:helveticaNeueReg;
+}
+
 .aboutlinkmail {
     color: white;
     text-decoration: underline;
@@ -321,6 +342,8 @@ em {
 
 .problem-scope {
 	margin-bottom: 1rem;
+    font-family:helveticaNeueItal;
+    font-size: 1rem;
 }
 
 .main-content {

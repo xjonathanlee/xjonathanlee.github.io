@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@font-face{
+    font-family:helveticaNeueReg;
+    src:url(HelveticaNeue-Regular.otf);
+}
+
+@font-face{
+    font-family:helveticaNeueItal;
+    src:url(HelveticaNeue-RegularItalic.otf);
+}
+
+@font-face{
+    font-family:helveticaNeueBold;
+    src:url(HelveticaNeue-Bold.otf);
+}
+
+html {
+    overflow-y: scroll;
+}
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: #231f20;
+}
+h1 {
+    font-family:helveticaNeue;
+    letter-spacing: 0.15rem;
+    font-size: 1.5rem;
+    margin-left: 0;
+}
+h2 {
+    font-family:helveticaNeueReg;
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+h3 {
+    font-family:helveticaNeueItal;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
