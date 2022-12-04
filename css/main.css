@@ -31,6 +31,9 @@ body {
     font-family: "Roboto", sans-serif;
     color: #231f20;
 }
+.user-interface:hover + #show{
+    background-color: blue;
+}
 .alternate {
     background-color: #231f20;
 }
@@ -58,13 +61,23 @@ button:focus {
     padding: 1rem 0rem 1rem 0rem;
 }
 /*New Index2 Workspace*/
-.newindexmenu{
+/*.newindexmenu{
     padding-left: .5rem;
+}*/
+
+.backchange{
+    background-color: white;
 }
 
 .indexMenuItem{
-    padding: 2rem;
+    padding: 2.5rem;
     border-bottom:1px solid black;
+}
+
+.titleProject{
+    font-size: 2rem;
+    font-family: helveticaNeueReg;
+    text-decoration: none;
 }
 
 /*End Index2*/
@@ -72,12 +85,13 @@ button:focus {
 .sub-content-group{
     padding-bottom: 1rem;
 }
+
 /*End Portfolio Template Pages*/
 /*User Settings Migrate to SASS*/
 h1 {
-    font-family:helveticaNeue;
-    letter-spacing: 0.15rem;
-    font-size: 1.75rem;
+    font-family:helveticaNeueReg;
+    /*letter-spacing: 0.15rem;*/
+    font-size: 2rem;
     margin-left: 0;
 }
 h2 {
@@ -277,7 +291,7 @@ em {
 
 .intronew {
     margin-top: 10%;
-    max-width: 50rem;
+    max-width: 75rem;
     font-family:helveticaNeueReg;
 }
 
