@@ -79,6 +79,9 @@ button:focus {
     font-family: helveticaNeueReg;
     text-decoration: none;
 }
+.indexMenuItemEnd{
+    padding:3rem;
+}
 
 /*End Index2*/
 /*Portfolio showcase pages */
