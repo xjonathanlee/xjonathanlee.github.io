@@ -60,6 +60,24 @@ button:focus {
     margin: 0rem;
     padding: 1rem 0rem 1rem 0rem;
 }
+/*Some weird tester shit*/
+#image {
+  position: absolute;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  pointer-events: none;
+}
+#image2 {
+  position: absolute;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-color:blue;
+  pointer-events: none;
+}
+/**/
 /*New Index2 Workspace*/
 /*.newindexmenu{
     padding-left: .5rem;
