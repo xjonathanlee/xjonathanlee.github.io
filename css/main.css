@@ -40,32 +40,11 @@ body {
 p{
     margin: 0;
 }
-.alternate {
-    background-color: #231f20;
-}
+
 section {
     margin: 2.5rem;
 }
-button {
-    font-family: "Roboto Mono", monospace;
-    background: none;
-    border: none;
-    padding: 1em;
-    padding-left: 20px;
-    letter-spacing: 0.15rem;
-    font-size: 0.8rem;
-    margin-left: 0;
-}
-button:hover,
-button:focus {
-    color: blue;
-    border: none;
-    cursor: crosshair;
-}
-.button-group {
-    margin: 0rem;
-    padding: 1rem 0rem 1rem 0rem;
-}
+
 
 /**/
 /*New Index2 Workspace*/
@@ -76,6 +55,7 @@ button:focus {
 .backchange{
     background-color: white;
 }
+
 
 .indexMenuItem{
     padding-left: 2.5rem;
@@ -98,7 +78,7 @@ button:focus {
 .itemgrid{
     padding-top: 2.5rem;
     display:grid;
-    grid-template-columns:.20fr 1.25fr;
+    grid-template-columns:.30fr 1.50fr;
 
 }
 .col1{
@@ -106,10 +86,13 @@ button:focus {
 }
 .col2{
 display:none;
+opacity: 0;
+transition: opacity 300ms ease-in-out;
 }
 .col1:hover+.col2{
     display:block;
     color: #231f20;
+    opacity:1;
 }
 /*End Index2*/
 /*Portfolio showcase pages */
@@ -146,6 +129,11 @@ a:active,
 a:focus {
     color: #c1c1c0;
     cursor: crosshair;
+}
+
+.alternate{
+background-color: #231f20;
+
 }
 
 p {
@@ -232,7 +220,7 @@ em {
     max-width: 40rem;
 }
 /*End user settings to migrate to Sass*/
-
+/*
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
