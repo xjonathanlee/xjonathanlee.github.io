@@ -14,6 +14,11 @@
 }
 
 @font-face{
+    font-family:helveticaNeueLight;
+    src:url(HelveticaNeue-Light.otf);
+}
+
+@font-face{
     font-family:helveticaNeueItal;
     src:url(HelveticaNeue-RegularItalic.otf);
 }
@@ -31,8 +36,9 @@ body {
     font-family: "Roboto", sans-serif;
     color: #231f20;
 }
-.user-interface:hover + #show{
-    background-color: blue;
+
+p{
+    margin: 0;
 }
 .alternate {
     background-color: #231f20;
@@ -60,23 +66,7 @@ button:focus {
     margin: 0rem;
     padding: 1rem 0rem 1rem 0rem;
 }
-/*Some weird tester shit*/
-#image {
-  position: absolute;
-  display: none;
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  pointer-events: none;
-}
-#image2 {
-  position: absolute;
-  display: none;
-  width: 50px;
-  height: 50px;
-  background-color:blue;
-  pointer-events: none;
-}
+
 /**/
 /*New Index2 Workspace*/
 /*.newindexmenu{
@@ -88,10 +78,10 @@ button:focus {
 }
 
 .indexMenuItem{
-    padding: 2.5rem;
+    padding-left: 2.5rem;
     border-bottom:1px solid black;
 }
-
+ 
 .titleProject{
     font-size: 2rem;
     font-family: helveticaNeueReg;
@@ -101,6 +91,26 @@ button:focus {
     padding:3rem;
 }
 
+.index2h1{
+    font-size: 5rem;
+}
+
+.itemgrid{
+    padding-top: 2.5rem;
+    display:grid;
+    grid-template-columns:.20fr 1.25fr;
+
+}
+.col1{
+/*border: 1px solid black;*/
+}
+.col2{
+display:none;
+}
+.col1:hover+.col2{
+    display:block;
+    color: #231f20;
+}
 /*End Index2*/
 /*Portfolio showcase pages */
 .sub-content-group{
@@ -110,9 +120,7 @@ button:focus {
 /*End Portfolio Template Pages*/
 /*User Settings Migrate to SASS*/
 h1 {
-    font-family:helveticaNeueReg;
-    /*letter-spacing: 0.15rem;*/
-    font-size: 2rem;
+    margin-bottom: .5rem;
     margin-left: 0;
 }
 h2 {
@@ -176,7 +184,7 @@ em {
     float: right;
 }
 .nav-item {
-    font-family: HelveticaNeueReg;
+    font-family: helveticaNeueReg;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-size: 1rem;
@@ -185,7 +193,7 @@ em {
 }
 
 .footernav-item {
-    font-family: HelveticaNeueReg;
+    font-family: helveticaNeueReg;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-size: 1.25rem;
@@ -203,7 +211,7 @@ em {
     display: block;
 }
 .nav-item-alt {
-    font-family: "Roboto Mono", monospace;
+    font-family: helveticaNeueReg;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-size: 1rem;
@@ -211,7 +219,7 @@ em {
     color: white;
 }
 .about-link {
-    font-family: HelveticaNeueReg;
+    font-family: helveticaNeueReg;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-size: 1rem;
@@ -232,8 +240,11 @@ em {
 }
 .grid-about {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.45fr .55fr;
+    /*border: 1px solid white;*/
 }
+
+
 .grid-wrapper {
     display: flexbox;
     display: flex;
@@ -305,14 +316,10 @@ em {
     margin-top: 0.5rem;
 }
 /*depreciated*/
-.intro {
-    margin-top: 10%;
-    max-width: 50rem;
-}
 
 .intronew {
-    margin-top: 10%;
-    max-width: 75rem;
+    /*margin-top: 10%;*/
+    max-width: 100%;
     font-family:helveticaNeueReg;
 }
 
@@ -490,6 +497,7 @@ grid-column-gap: 1rem;
     }
     .about-paragraph {
         margin-left: 1rem;
+        /*width:10000rem;*/
     }
     .about-link {
         margin-left: 1rem;

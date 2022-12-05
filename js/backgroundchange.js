@@ -11,3 +11,5 @@ elements.forEach(elem =>{
 });
 
 document.getElementById("bchange").style.transition ="all .5s"
+
+/*https://stackoverflow.com/questions/52982780/change-body-background-color-on-hover*/

@@ -1,23 +1,30 @@
-console.log("init")
-let attached = false;
- 
-let imageContainer = document.querySelector(".imgtest");
-
-const followMouse = (event) => {
-  imageContainer.style.left = event.x + "px";
-  imageContainer.style.top = event.y + "px";
-}
-
-function showImage() {
-  if (!attached) {
-    attached = true;
-    imageContainer.style.display = "block";
-    document.addEventListener("pointermove", followMouse);
+function show(id){
+  var content = document.getElementById(id);
+  if(window.innerWidth>576){
+    if(content.src!=null){
+      content.style.display = "block";
+      content.style.transition = "all 0.12s ease";
+    }
   }
 }
 
-function hideImage() {
-  attached = false;
-  imageContainer.style.display = "";
-  document.removeEventListener("pointermove", followMouse);
+function hide(id){
+  var content = document.getElementById(id);
+  if(window.innerWidth>576){
+    content.style.display="none";
+    content.style.transition="none";
+  }
 }
+
+var xOffset = 10;
+var yOffset = 0;
+
+function updatePosition(e){
+  var samplephoto = document.getElementById('sample-photo');
+  if(samplephoto.style.display=="block"){
+                samplephoto.style.top = e.y + 100 + window.scrollY + "px";
+            samplephoto.style.left = e.x + 60 + "px";
+  }
+}
+
+document.onmousemove = updatePosition;
