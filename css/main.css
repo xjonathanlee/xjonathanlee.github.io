@@ -245,6 +245,15 @@ em {
 }
 /*End user settings to migrate to Sass*/
 
+.photography-grid{
+    padding-left: 2.5rem;
+}
+
+.photography-grid-sizer,
+.photography-grid-item{
+    width:33%;
+    border: 1px solid black;
+}
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -407,10 +416,9 @@ em {
     margin-right: auto;
 }
 .main-content-gallery {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    border:1px solid black;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 .within-content {
     width: 100%;
