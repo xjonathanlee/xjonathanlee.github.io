@@ -244,7 +244,7 @@ em {
     max-width: 40rem;
 }
 /*End user settings to migrate to Sass*/
-/*
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -269,8 +269,7 @@ em {
     vertical-align: middle;
     max-width: 100%;
 }
-.grid-item:hover {
-}
+
 .column {
     flex: 33%;
     max-width: 33%;
@@ -295,7 +294,7 @@ em {
     height: 90vw;
     filter: brightness(100%);
 }
-.introp1 {
+/*.introp1 {
     display: none;
 }
 .introp2 {
@@ -314,7 +313,7 @@ em {
     width: 33%;
     display: none;
 }
-
+*/
 .about-paragraph {
     color: white;
     margin-left: 0;
