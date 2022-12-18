@@ -10,4 +10,4 @@ elements.forEach((e) => {
         }
     );
 }),
-    (document.getElementById("bchange").style.transition = "all .5s");
+    (document.getElementById("bchange").style.transition = "all .55s");
