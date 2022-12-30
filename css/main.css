@@ -255,9 +255,7 @@ em {
     left: 0;
     text-align: center;
 }
-.intronew-alt{
-    width:80%;
-}
+
 .gridmason-alpha:hover {
     cursor: zoom-out;
 }
@@ -284,7 +282,7 @@ em {
     text-decoration: underline;
 }
 .main-section {
-    margin: 5% 2rem 5rem;
+    margin: 0rem 2rem 5rem;
 }
 .full-bleed {
     width: 100%;
@@ -416,10 +414,14 @@ em {
     .about-link {
         margin-right: 0;
     }
-    .main-section {
-        margin-left: 0;
-        margin-right: 0;
+
+    .detail-intro{
+        margin:.5rem;
     }
+    .main-section{
+
+    }
+
 }
 .embed-container {
     position: relative;
