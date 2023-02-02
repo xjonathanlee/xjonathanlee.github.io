@@ -119,6 +119,9 @@ h3 {
     font-family: helveticaNeueItal;
     font-weight: 400;
 }
+
+
+
 a {
     -webkit-transition: color 0.2s ease-out;
     transition: color 0.2s ease-out;
@@ -129,6 +132,14 @@ a:hover {
     color: #c1c1c0;
     cursor: crosshair;
 }
+.announcement{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position:sticky;
+    background-color: yellow;
+    top:0;
+}
+
 .alternate {
     background-color: #231f20;
 }
