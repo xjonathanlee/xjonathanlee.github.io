@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script> 
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
   <link href="css/main.css" rel="stylesheet">
-  <link href="css/lightbox.css" rel="stylesheet">
+  <link href="css/swipebox.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
 
@@ -44,32 +44,47 @@
         <div class="grid-wrapper">
           <div class="column">
         <div class="grid-item">
+          <a href="img/makePretty/1x/exp1.jpg" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/makePretty/1x/exp1.jpg" >
+        </a>
         </div>
         <div class="grid-item">
+          <a href="img/makePretty/1x/Artboard 1-200.jpg" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/makePretty/1x/Artboard 1-200.jpg" >
+        </a>
         </div>
       </div>
         <div class = "column">
         <div class="grid-item">
+          <a href="img/makePretty/Artboard-1.png" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/makePretty/Artboard-1.png" >
         </div>
                 <div class="grid-item">
+                  <a href="img/makePretty/1x/Artboard 1-300.jpg" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/makePretty/1x/Artboard 1-300.jpg" >
+        </a>
         </div>
         </div>
         <div class = "column">
         <div class="grid-item">
+          <a href="img/mywork.jpg" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/mywork.jpg" >
+        </a>
         </div>
         <div class="grid-item">
+          <a href="img/makePretty/1x/Artboard 1-400.jpg" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/makePretty/1x/Artboard 1-400.jpg" >
+          </a>
         </div>
         <div class="grid-item">
+          <a href="img/horseg.gif" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "gif for photogallery" data-src="img/horseg.gif" >
+        </a>
         </div>
           <div class="grid-item">
+            <a href="img/infa_name_fuzz_variation3.png" class="swipebox" title="design-gallery">
           <img data-lightbox="design-1" class="lazy" src="img/lazy-load.jpg" alt = "for photogallery" data-src="img/infa_name_fuzz_variation3.png" >
+        </a>
         </div>
         </div>
       </div>
@@ -82,8 +97,15 @@
 </div>
 </section>
     <!-- <script src="js/main.js"></script> -->
-    <script src="js/lightbox.js"></script>
+    <!-- <script src="js/lightbox.js"></script> -->
+    <script src="js/jquery.swipebox.js"></script>
     <script src="js/lazyload.js"></script>
+    <script type="text/javascript">
+  console.log("initmain");
+;( function( $ ) {
+  $( '.swipebox' ).swipebox();
+} )( jQuery );
+</script>
 </body>
 
 </html>
