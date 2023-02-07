@@ -10,6 +10,7 @@
   <link href="css/main.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+  <link href="css/swipebox.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
   <link rel="icon" href="img/favicon.ico">
@@ -63,8 +64,9 @@
 </p>
 <p>A hybrid method of communication also offers distinct advantages than having everything purely digital. It offers greater accessibility across trainers, and it allows trainers to quickly cross reference data and come to conclusions during preflight checks, allowing users to quickly move from one task to the next.
 </p>
-
+<a href="img/theraptors/persona.jpg" class="swipebox" title="persona analysis">
 <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/theraptors/persona.jpg" alt="personafinal">
+</a>
     <h2>Persona Construction</h2>
     <p>To create our personas we looked at how people approached The Raptors. During our initial research we found 3 main archtypes of people that would catagorize the makeup internally.</p>
 
@@ -83,9 +85,9 @@
 </p>
 <p>From this our rationale was to further develop a persona for seasoned trainers and managers reasoning that newer recruits could be better trained after the fact, but having seasoned biologists and managers help with teaching newer employees color coding and interaction systems would be of a greater benefit for overall stronger communication.
 </p>
-
+    <a href="img/theraptors/FlightHealth Framework.jpg" class="swipebox" title="FlightHealth prototype">
     <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/theraptors/FlightHealth Framework.jpg" alt="image of our critical speculation">
-
+    </a>
     <h2>User Experience</h2>
     <p>Trainers have options upon arriving at the facility for site prep, upon entering the facility and commencing site prep trainers can visually estimate the behavior of the bird before prep through the round up sheets at the front of their enclosures. Bird behavior and bird weight are visualized here as “colored blocks” for the past week, allowing trainers to guess on future behaviors based on present patterns.
     </p>
@@ -93,8 +95,9 @@
     <h2>Our Intervention</h2>
     <p>Our proposal is to improve the communication of the trainers with a glance based communication system that would be mounted in the enclosure and paired with an app. Trainers would be better equipped to notice patterns in behavior or feeding that needed to be worked on before major flight at sites.
     </p>
-
+    <a href="img/theraptors/traffic.jpg" class="swipebox" title="FlightHealth prototype">
     <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/theraptors/traffic.jpg" alt="app snap">
+    </a>
     <h2>Exsisting Frameworks as Tacit Knowledge</h2>
     <p>To illustrate good and bad days we thought of 2 ways we could drive home glance-ability in our worksheets + application user interactions. 1) Using a traffic light system to highlight good and bad days and to describe the amount of food being fed. As well as bird behavior and flight health. This reduces the amount of overhead trainers have to work through and provide historical information that interfaces directly with the birds enclosure.
 </p>
@@ -111,5 +114,12 @@
     <a  class="footerproject footer-col2" href="intercedencesteveston.html"> Intercedence &rarr;</a>
   </div>
   </section>
+  <script src="js/jquery.swipebox.js"></script>
   <script src="js/lazyload.js"></script>
+  <script type="text/javascript">
+  console.log("initmain");
+;( function( $ ) {
+  $( '.swipebox' ).swipebox();
+} )( jQuery );
+</script>
 </body>
