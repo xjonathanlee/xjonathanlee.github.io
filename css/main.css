@@ -12,6 +12,7 @@ h3 {
 a,
 body {
     color: #231f20;
+    overflow-x: hidden;
 }
 h1,
 li {
@@ -88,19 +89,19 @@ ul {
     padding-top: 2.5rem;
     display: grid;
     grid-template-columns: 0.3fr 1.5fr;
+    transition: all .3s ease;
+    position:relative;
 }
 .aboutcol1{
     border: 1px solid white;
 }
-.col2 {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+
+.col1{
+
 }
-.col1:hover + .col2 {
-    display: block;
-    color: #231f20;
-    opacity: 1;
+
+.itemgrid:hover{
+    transform:translateX(15px);
 }
 .sub-content-group {
     padding-bottom: 1rem;
