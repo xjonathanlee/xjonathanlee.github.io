@@ -96,8 +96,11 @@ ul {
     border: 1px solid white;
 }
 
-.col1{
-
+.col1 p{
+display:inline-block;
+}
+.info1{
+    color:black;
 }
 
 .itemgrid:hover{
@@ -123,14 +126,13 @@ h3 {
 
 
 
-a {
+a:not(.info1) {
     -webkit-transition: color 0.2s ease-out;
     transition: color 0.2s ease-out;
 }
 a:active,
 a:focus,
 a:hover {
-    color: #c1c1c0;
     cursor: crosshair;
 }
 .announcement{
@@ -151,7 +153,11 @@ a:hover {
 .nav-item {
     font-family: helveticaNeueReg;
     font-weight: 400;
+
     letter-spacing: 0.1rem;
+}
+.nav-item:hover{
+color: #c1c1c0;
 }
 ul {
     padding: 0;
@@ -218,6 +224,9 @@ em {
 }
 .nav-item-alt {
     color: #fff;
+}
+.nav-item-alt:hover{
+        color: #231f20;
 }
 .alternate-h1 {
     color: #fff;
