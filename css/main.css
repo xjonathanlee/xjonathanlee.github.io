@@ -88,20 +88,25 @@ ul {
 .itemgrid {
     padding-top: 2.5rem;
     display: grid;
-    grid-template-columns: 0.3fr 1.5fr;
+    grid-template-columns: 0.25fr 1.5fr;
     transition: all .3s ease;
     position:relative;
+    vertical-align: top;
 }
 .aboutcol1{
     border: 1px solid white;
 }
 
 .col1 p{
+/*border:1px solid black;*/
 display:inline-block;
 }
-.info1{
-    color:black;
+
+.col2{
+    /*font-size: 3px;*/
+    /*border:1px solid black;*/
 }
+
 
 .itemgrid:hover{
     transform:translateX(15px);
