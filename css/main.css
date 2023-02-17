@@ -99,7 +99,6 @@ ul {
 
 .col1 p{
 /*border:1px solid black;*/
-display:inline-block;
 }
 
 .col2{
@@ -415,6 +414,7 @@ em {
     }
     .main-content {
         padding-left: 1rem;
+        padding-right: 1.5rem;
     }
     .column {
         flex: 100%;
