@@ -1,0 +1,138 @@
+
+*{
+	scroll-behavior: smooth;
+	font-family: 'Merriweather', serif;
+}
+
+
+
+.card-wrap{
+	display:flex;
+	justify-content: left;
+	align-content: flex-start;
+	z-index:2;
+	/*border:1px solid orange;*/
+	position:relative;
+	width:100rem;
+	margin-top: 0; 
+	margin-left:2%;
+	margin-right:30px;
+	margin-bottom:100vh;
+	/*margin: 0 auto 100vh;*/
+}
+
+.card-wrap-final{
+	display:flex;
+	justify-content: center;
+	align-content: flex-start;
+	z-index:2;
+	position:relative;
+	width:400px;
+	margin: 0 auto 10vh;
+}
+
+.card{
+	background-color: rgba(0,0,0,.17);
+	font-size:1.36rem;
+	line-height: 1.4;
+	padding:1rem 2rem;
+	color:white;
+	max-width:53%;
+}
+
+.footer{
+	background-color: rgb(240,240,240);
+	padding-top: 36px;
+	padding-bottom: 72px;
+	padding:10px;
+	font-size: 20px;
+}
+
+
+.docs{
+	max-width: 50rem;
+	font-size:1.5rem;
+	line-height:1.6;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+span:hover::before {
+  display: inline-block;
+}
+
+.footer a {
+	/*padding-left: 3.5rem;*/
+}
+.footer ul li{
+	display:inline-block;
+	/*border:1px solid green;*/
+	padding: .5rem;
+}
+.intro{
+	padding:2rem;
+}
+.n_na
+{
+	background-color: white;
+	overflow:hidden;
+}
+
+.n_na a{
+	float:left;
+	display:block;
+	color:#333333;
+	text-align: center;
+	padding:2rem;
+	text-decoration: none;
+	font-size: 1.25rem;
+}
+.tooltip{
+	/*font-weight: bold;*/
+	transition:0.3s;
+	color:white;
+	text-decoration: underline;
+}
+
+.tooltip:hover{
+	background-color: black;
+	text-decoration: none;
+	color:white;
+}
+
+[data-tooltip]{
+	position:relative;
+}
+
+[data-tooltip]:before,[data-tooltip]:after
+{
+	display:none;
+	position:absolute;
+	top:0;
+}
+
+[data-tooltip]:before{
+	content:"";
+	left:20px;
+	margin-top:1em;
+}
+
+[data-tooltip]:after{
+	background-color: rgba(0,0,0,0.6);
+	padding: 1rem; 
+	color:white;
+	content:attr(data-tooltip-message);
+	left:0;
+	margin-top:1.5em;
+	white-space: pre-wrap;
+	width:30rem;
+}
+
+[data-tooltip]:hover:after,
+[data-tooltip]:hover:before{
+	display:block;
+}
+
+@media only screen and (max-width:1024)
