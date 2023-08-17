@@ -8,7 +8,10 @@
 
   <link href="css/main.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/salmon3.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
 <script src="js/followcursor.js"></script>
@@ -38,8 +41,8 @@
         <li><em>Year:</em> 2023</li>
       </ul>
       <ul class="sub-content-item">
-        <li><em>Context:</em>Client Internship (7 weeks)</li>
-         <li><em>Deliverables:</em> <a href="#">Data Visualization</a> , <a href="https://salmon.raincoast.org/01/">Scrolly-telling website</a></li>
+        <li><em>Context:</em> Client Internship (7 weeks)</li>
+         <li><em>Deliverables:</em> <a href="img/raincoast/Scalable_Salmon1.svg"> Data Visualization</a> , <a href="https://salmon.raincoast.org/01/">Scrolly-telling website</a></li>
       </ul>
     </div>
 
@@ -53,7 +56,7 @@
     <p>After discussion my team knew we needed an expressive way to tell the story of 40 years of decline without sounding cliche, looking at historical precedence and touch-stones that could ground an experience in nostalgia and fact.
     </p>
 
-    <p> Process Book can be found <a href="#"> here</a>.</p>
+    <p> Final Presentation can be found<a href="img/raincoast/presentation_merged.pdf"> here</a>.</p>
 
     <h2> Designing for the User </h2>
     <p>
@@ -64,37 +67,41 @@
       <li> A microsite that used "scrolly-telling".</li>
       <li> A data visual that could explain decline accurately.</li>
     </ol>
-    
+    <!-- Visual moodboard -->
     <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/glass/moodbaord1pic.jpg" alt="moodboard of our design process" width= "500" height = "600" />
     <p>
      During our research we uncovered salmon conservation stories and efforts from the government using structured data from the Albion Test Fisheries. Traditionally the data formatted was compiled by PDF by week, making extraction of the data messy and hard to parse across a large time frame. Fortunately, we were granted access to the DFO database server to create a tidy CSV. 
     </p>
-<img class="within-content lazy" src="img/lazy-load.jpg" data-src="img/glass/lucas1.jpg" alt="a picture of my divine leader"/>
-    <h2>Narratives across cultures</h2>
+
+    <h2>Visual Impact</h2>
 
     <p>The visualization and narrative content helps Raincoast stand out in a crowd of papers and figures by crafting a unique data driven graphic and narrative story telling experience that is aligned with scientific rigour expected from a conservation group.</p>
     
     <p>The result is a narrative piece and a data driven visualization that uses empathy and history to help connect research and narratives visually. Resulting in an lower barrier to entry and increasing access to knowledge.</p>
-
-    <img class="within-content lazy" src="img/lazy-load.jpg" data-src="img/glass/lucas1.jpg" alt="a picture of my divine leader"/>
-
-
+<!-- Maybe an abstract image here or a gif that shows interaction? -->
     <h2>Interaction</h2>
 
     <p>By allowing users to pace themselves, one can look at the content as a way to inform users without overwhelming them. Given a high level overhead combined with a reflection section that drives home intent across different levels of media (mixing article and scroll interactions), we can ensure users adopt and process the message we are telling them instead of mindlessly scrolling.</p>
-
+    <!-- Research of Mood Flow Diagram -->
     <img class="within-content lazy" src="img/lazy-load.jpg" data-src="img/glass/lucas1.jpg" alt="a picture of my divine leader"/>
     
     <h2>Data Visualization</h2>
+    
     <p>Initially the salmon team wanted a data visualization that illustrated the decline of S4 Fraser River Chinook over the span of the Albion Test Fishery running.</p>
-
-    <img class="within-content lazy" src="img/lazy-load.jpg" data-src="img/glass/lucas1.jpg" alt="a moodboard of chinook salmon"/>
-
-    <p>Archival research informed me of different ways I could express the data as an abstracted form, instead of using "just fish". Inspired by the salmon skin books from the 1920's (conviniently found in an associated attic) I began to deconstruct the idea of a visualization into less complex shapes, hoping to illustrate decline consicely by also introducing new bits of information as part of the design scaffold. </p>
-
+    <!-- Salmon Skin books -->
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/sd_1.jpg" alt="a moodboard of chinook salmon"/>
+    <p class="annotate">As you can see some cool shit happened.</p>
+    <p>Archival research informed me of different ways I could express the data as an abstracted form, instead of using "just fish". Inspired by the salmon skin books from the 1920's (conviniently found in an associates attic)</p>
+    <!-- Scale wall at the Cannery | Scale Wall vector | Scale Wall Abstracted -->
     <img class="within-content lazy" src="img/lazy-load.jpg" data-src="img/glass/lucas1.jpg" alt="different ways to display data"/>
 
-    <p></p>
+    <p> By abstracting a "walls of scales" we begin to see a story unfold across 42 years of the Albion test fishery. Patterns begin to emerge as we look at data holistically instead of just individually. From this </p>
+
+    <p>You can interact with a modified version of the graph below:</p>
+
+    <!-- Embed interactive Graph Here Bubble Matrix + interactivity -->
+    <div id="myplot"></div>
+
 
     <h2> Reflection </h2>
     <p>A project that challenged my abilities to synthesize data and craft a compelling narrative through cue based visuals. I learned how to better craft stories through orientating data in space, but also to provide a backdrop to greater issues facing salmon conservation.</p>
@@ -108,3 +115,28 @@
   </section>
   <script src="js/lazyload.js"></script>
 </body>
+  <script type="module">
+
+const plot = Plot.plot({
+  marks:[
+    Plot.cell(salmon3,{
+      x:"YEAR",
+      y:"MONTH",
+      fill:"CPUEVALUER",
+      inset:0,
+      stroke:"grey",
+      title: d=> `${d.YEAR} , ${d.MONTH} : ${d.CPUEVALUER}`
+    })
+  ],
+  x:{tickRotate:90,interval:1},
+  y:{domain:["APRIL.1","APRIL.2","MAY.1","MAY.2","JUNE.1","JUNE.2","JULY.1","JULY.2","AUG.1","AUG.2","SEPT.1","SEPT.2","OCT.1","OCT.2"]},
+  color:{scheme:"YlGn",type:"linear",legend:true},
+  grid:true,
+  marginLeft: 50,
+  height:600,
+  marginBottom:100,
+  width:1000
+});
+const div = document.querySelector("#myplot");
+div.append(plot);
+</script>
