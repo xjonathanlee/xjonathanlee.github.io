@@ -407,7 +407,7 @@ em {
         max-width: 100%;
     }
 }
-@media screen and (max-width: 24rem) {
+@media screen and (max-width: 26.7rem) {
     .grid,
     .itemgrid {
         grid-template-columns: 1fr;
