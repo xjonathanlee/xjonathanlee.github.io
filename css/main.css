@@ -16,7 +16,13 @@ body {
 }
 h1,
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+ol{
+    width:65%;
+    letter-spacing: 0.05rem;
+    line-height: 1.7rem;
 }
 html {
     overflow-y: scroll;
@@ -415,6 +421,10 @@ em {
     }
 }
 @media screen and (max-width: 26.7rem) {
+    
+    ol{
+        width:75%;
+    }
     .grid,
     .itemgrid {
         grid-template-columns: 1fr;
