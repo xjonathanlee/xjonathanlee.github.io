@@ -36,7 +36,6 @@ section {
     margin: 2.5rem;
 }
 marquee{
-    border:1px solid black;
     position:sticky;
     background-color:yellow;
     font-size: 1.5rem;
