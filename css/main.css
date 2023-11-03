@@ -39,6 +39,9 @@ h2 {
 p {
     margin: 0 0 2.5rem;
 }
+.ptitle{
+   margin: 0 0 1.5rem; 
+}
 section {
     margin: 2.5rem;
 }
