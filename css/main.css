@@ -374,6 +374,11 @@ em {
     width: 100%;
     height: 100%;
 }
+
+.videocontainer{
+    /*border:1px solid black;*/
+    margin-bottom:2.5rem;
+}
 @media screen and (max-width: 95.62rem) {
     .grid {
         grid-template-columns: 1fr 1fr 1fr;
