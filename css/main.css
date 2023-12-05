@@ -395,8 +395,8 @@ em {
     border: 1px solid black;
     height:500px;
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap:1rem;
+    grid-template-columns: 1fr;
+    grid-gap:.5REM;
 }
 .expansive{
     width:75%;
