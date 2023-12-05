@@ -398,7 +398,7 @@ em {
 }
 .svg-wrapper{ 
     border: 1px solid black;
-    height:500px;
+    height:auto;
     width:100%;
     display:grid;
     grid-template-columns: 1fr;
@@ -407,10 +407,13 @@ em {
 .expansive{
     width:75%;
 }
-
+.svg-col1{
+    background-color: purple;
+    height:500px;
+}
 .svg-col2{
+    background-color: pink;
     height:100%;
-    width:100%;
 }
 
 .videocontainer{
