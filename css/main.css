@@ -406,8 +406,11 @@ em {
     height:700PX;
 }
 .svg-col2{
-    border:1px solid black;
-    background-color: purple;
+
+}
+
+.legend-small{
+height:300px;
 }
 
 .videocontainer{
