@@ -26,7 +26,7 @@
     <a href="about.html" class="nav-item">About</a>
   </nav>
 
-<img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/birdsong/birdsong1.gif" alt="gif of steveston" width="1080" height="1000">
+<img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/birdsong/birdsong1.gif"  alt="gif of steveston" width="1080" height="1000">
   <section class="main-content">
     <h1 class="project-title">Musical DNA</h1>
     <p class="detail-intro">
@@ -59,7 +59,7 @@
 
     <p>After a conversation with a music theory teacher I was introduced to the ideas of avante garde music notion from the 1950's. Introducing me to the notions of abstracting shapes into sounds.</p>
 
-    <img class="full-bleed lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/NJ/IMG_1_NJ.jpg" alt="Nujabes barometer">
+    <img class="full-bleed lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/NJ/IMG_1_NJ.jpg" data-title="Beautiful fields" data-caption="With lots of wheaty puffs. Love those puffs." alt="Nujabes barometer">
     <p class="annotate">A visual barometer of functional and expressive musical scores.</p>
 
     <h2>Iterations</h2>
@@ -5639,8 +5639,7 @@
         var elements = document.querySelectorAll('.full-screenimage');
         Intense(elements);
     };
-
-window.requestAnimFrame = (function(){
+    window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
           window.mozRequestAnimationFrame    ||
@@ -5751,7 +5750,7 @@ var Intense = (function() {
     function track( element ) {
 
       // Element needs a src at minumun.
-      if( element.getAttribute( 'src') || element.src ) {
+      if( element.getAttribute( 'data-image') || element.src ) {
         element.addEventListener( 'click', function() {
           init( this );
         }, false );
@@ -5812,6 +5811,62 @@ var Intense = (function() {
       }
       applyProperties( target, imageProperties );
 
+      /*
+       *  Caption Container
+       */
+      var captionContainerProperties = {
+        'fontFamily': 'Georgia, Times, "Times New Roman", serif',
+        'position': 'fixed',
+        'bottom': '0px',
+        'left': '0px',
+        'padding': '20px',
+        'color': '#fff',
+        'wordSpacing': '0.2px',
+        'webkitFontSmoothing': 'antialiased',
+        'textShadow': '-1px 0px 1px rgba(0,0,0,0.4)'
+      }
+      var captionContainer = document.createElement( 'figcaption' );
+      applyProperties( captionContainer, captionContainerProperties );
+
+      /*
+       *  Caption Title
+       */
+      if ( title ) {
+        var captionTitleProperties = {
+          'margin': '0px',
+          'padding': '0px',
+          'fontWeight': 'normal',
+          'fontSize': '40px',
+          'letterSpacing': '0.5px',
+          'lineHeight': '35px',
+          'textAlign': 'left'
+        }
+        var captionTitle = document.createElement( 'h1' );
+        applyProperties( captionTitle, captionTitleProperties );
+        captionTitle.innerHTML = title;
+        captionContainer.appendChild( captionTitle );
+      }
+
+      if ( caption ) {
+        var captionTextProperties = {
+          'margin': '0px',
+          'padding': '0px',
+          'fontWeight': 'normal',
+          'fontSize': '20px',
+          'letterSpacing': '0.1px',
+          'maxWidth': '500px',
+          'textAlign': 'left',
+          'background': 'none',
+          'marginTop': '5px'
+        }
+        var captionText = document.createElement( 'h2' );
+        applyProperties( captionText, captionTextProperties );
+        captionText.innerHTML = caption;
+        captionContainer.appendChild( captionText );
+      }
+
+      container.appendChild( captionContainer );
+
       setDimensions();
 
       mouse.xCurr = mouse.xDest = window.innerWidth / 2;
@@ -5846,7 +5901,9 @@ var Intense = (function() {
 
     function init( element ) {
 
-      var imageSource = element.getAttribute( 'src') || element.src;
+      var imageSource = element.getAttribute( 'data-image') || element.src;
+      var title = element.getAttribute( 'data-title');
+      var caption = element.getAttribute( 'data-caption');
       
       var img = new Image();
       img.onload = function() {
@@ -5952,6 +6009,5 @@ var Intense = (function() {
     });
 
 })();
-
   </script>
 </body>
