@@ -349,6 +349,9 @@ em {
     margin-left:0rem; 
     margin-right:2rem;
 }
+.full-screenimage{
+    cursor:url('../img/plus_cursor.png')25 25,auto;
+}
 .detail-intro {
     font-size: 1.3rem;
     line-height: 2.2rem;
