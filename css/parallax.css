@@ -3,8 +3,14 @@ body, html {
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #777;
+  border:1px solid black;
 }
-
+.a_format{
+  max-width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:right;
+}
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
   opacity: 0.65;
@@ -36,6 +42,29 @@ body, html {
   width: 100%;
   text-align: center;
   color: #000;
+}
+
+.filler1{
+  border:1px solid black;
+  color: #777;
+  background-color:white;
+  min-width: 1rem;
+  max-width:  45rem;
+  text-align:center;
+  padding:50px 80px;
+}
+
+.filler2{
+  color:#ddd;
+  background-color:
+  #282E34;text-align:
+  center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+.filler3{
+
 }
 
 .caption span.border {
