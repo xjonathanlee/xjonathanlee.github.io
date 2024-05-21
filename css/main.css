@@ -391,6 +391,10 @@ em {
     margin-right: auto;
 }
 
+.nsfw{
+    filter:blur(0px);
+}
+
 .main-content-svg {
     max-width: 70rem;
     margin-left: auto;
