@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changing Font Text</title>
+<style>
+  #text {
+    font-size: 59px;
+    width:75rem;
+  }
+</style>
+</head>
+<body>
+  <div id="text">Hi I'm Jonathan, welcome to my house. I hope you ahve a really good time. I'm interested in variables and friends.</div>
+
+  <script>
+    // Array of fonts to use
+    const fonts = ['Arial', 'Times New Roman', 'Courier New', 'Berline Sans FB', 'Bauhaus 93'];
+
+    // Function to replace letters with different fonts
+    function replaceLetters() {
+      const textElement = document.getElementById('text');
+      const text = textElement.textContent;
+      let newText = '';
+
+      for (let i = 0; i < text.length; i++) {
+        let char = text.charAt(i);
+        if (char !== ' '&& char.toUpperCase() === 'J' || char.toUpperCase() === 'L') { // Ignore spaces
+          const font = fonts[Math.floor(Math.random() * fonts.length)]; // Select a random font
+          const delay = Math.random()*500;
+          char = char = `<span style="font-family: ${font}; animation: fontChange ${delay}ms infinite;">${char}</span>`;
+        }
+        newText += char;
+      }
+
+      textElement.innerHTML = newText;
+    }
+
+    // Initial call to replace letters
+    replaceLetters();
+
+    // Change fonts every 0.5 seconds
+    setInterval(replaceLetters, 100);
+  </script>
+</body>
+</html>

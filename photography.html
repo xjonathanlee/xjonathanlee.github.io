@@ -37,77 +37,45 @@
       </ul>
     </div>
   </section>
-<section class="main-content-gallery">
-        <div class="grid-wrapper">
-          <div class="column">
         <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/experimental/exp2.jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (21).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/misha/misha5.jpg" >
-        </div>
-                <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (11).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (1).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (2).jpg" >
-        </div>
-      </div>
-        <div class = "column">
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/moeko/moe1.jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (17).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (30).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/moeko/moe2.jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (13).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (12).jpg" >
-        </div>
-                <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (16).jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (4).jpg" >
-        </div>
-        </div>
-        <div class = "column">
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/pictures-rachel/fab4.jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/elyse/elyse1.jpg" >
-        </div>
-        <div class="grid-item">
-          <img class="lazy" src="img/lazy-load.jpg" alt = "gif for photogallery" data-src="img/misha/misha2.jpg" >
-        </div>
+<section class="main-content">
+  <div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'All')" id="defaultOpen">All</button>
+  <button class="tablinks" onclick="openTab(event, 'People')">People</button>
+  <button class="tablinks" onclick="openTab(event, 'Things')">Things</button>
+  </div>
+  <div id="All" class="tabcontent">
+  <h3>Fuck</h3>
+  <p>Images Go here</p>
+</div>
+  <div id="People" class="tabcontent">
+  <h3>Shit</h3>
+  <p>Images Go here</p>
+</div>
+  <div id="Things" class="tabcontent">
+  <h3>Things</h3>
+  <p>Images Go here</p>
+</div>
         <div class="grid-item">
           <img class="lazy" src="img/lazy-load.jpg" alt = "image for photogallery" data-src="img/bird/bird_portfolio (9).jpg" >
         </div>
-
-        </div>
-      </div>
-    </section>
-<section class="main-content">
-      <div class="footer-grid">
-    <a class="footerproject footer-col1" href="design.html">&larr; Design Lab</a>
-    <a class="footerproject footer-col2" href="semalt.html"> SIAR &rarr;</a>
-</div>
 </section>
+<script>
+document.getElementById("defaultOpen").click();
+function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 <!-- <script src="js/main.js"></script> -->
 <script src="js/lightbox.js"></script>
 <script src="js/lazyload.js"></script>

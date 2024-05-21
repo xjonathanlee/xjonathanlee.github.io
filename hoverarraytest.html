@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse-following Slideshow</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .slideshow {
+    position: absolute;
+    z-index: 999;
+    display: none;
+  }
+  .slideshow-item {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="slideshow">
+  <img id="content" class="slideshow-item" src="" alt="Slideshow Item">
+</div>
+
+<script>
+  console.log("hi");
+const images = [
+  "https://via.placeholder.com/300",
+  "https://via.placeholder.com/300",
+  "https://via.placeholder.com/300"
+];
+
+let currentIndex = 0;
+
+document.addEventListener('mousemove', function(event) {
+  const x = event.clientX;
+  const y = event.clientY;
+  const slideshow = document.querySelector('.slideshow');
+  slideshow.style.display = 'block';
+  slideshow.style.left = (x + 20) + 'px'; // Offset the slideshow from mouse cursor
+  slideshow.style.top = (y + 20) + 'px'; // Offset the slideshow from mouse cursor
+
+  displayImage();
+});
+
+function displayImage() {
+  const content = document.getElementById('content');
+  content.src = images[currentIndex];
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  displayImage();
+}
+
+// Initial call to start the slideshow
+displayImage();
+
+// Change image every 2 seconds
+setInterval(nextImage, 500);
+
+// Keep the current image on the page when clicked
+document.querySelector('.slideshow').addEventListener('click', function() {
+  const currentImage = images[currentIndex];
+  const content = document.getElementById('content');
+  const newImage = document.createElement('img');
+  newImage.className = 'slideshow-item';
+  newImage.src = currentImage;
+  newImage.alt = 'Slideshow Item';
+  document.body.appendChild(newImage);
+});
+</script>
+</body>
+</html>
