@@ -48,20 +48,47 @@
   <div class="gallery-row">
     <div class="gallery-column">
       <img src="img/photography/img_people (26)-min.jpg">
+      <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (2)-min.png">
+      <button class= "spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+      </div>
       <img src="img/photography/img_people (3)-min.png">
+      <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (4)-min.jpg">
+        <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+      </div>
+
       <img src="img/photography/img_people (5)-min.png">
-      <img class="nsfw" src="img/photography/img_people (6)-min.jpg">
-      <img class="nsfw" src="img/photography/img_people (7)-min.jpg">
+<div class="spoiler">
+  <img class="nsfw" src="img/photography/img_people (6)-min.jpg">
+  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+</div>
+      
+<div class="spoiler">
+  <img class="nsfw" src="img/photography/img_people (7)-min.jpg">
+  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+</div>
+      
+
       <img src="img/photography/img_people (8)-min.jpg">
       <img src="img/photography/img_people (9).jpg">
-      <img class="nsfw" src="img/photography/img_people (10).jpg">
+<div class="spoiler">
+  <img class="nsfw" src="img/photography/img_people (10).jpg">
+  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+</div>
+      
     </div>
     <div class="gallery-column">
+<div class="spoiler">
+  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+</div>
       <img class="nsfw" src="img/photography/img_people (11)-min.jpg">
       <img src="img/photography/img_people (12)-min.jpg">
+
+    <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (13)-min.jpg">
+      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image </button>
+    </div>
       <img src="img/photography/img_people (14)-min.jpg">
       <img src="img/photography/img_people (27)-min.jpg">
       <img src="img/photography/img_people (16)-min.jpg">
@@ -75,8 +102,14 @@
 <img src="img/photography/img_people (22)-min.jpg">
 <img src="img/photography/img_people (23)-min.jpg">
 <img src="img/photography/img_people (24)-min.jpg">
-<img class="nsfw" src="img/photography/img_people (25)-min.jpg">
-<img src="img/photography/img_people (1).-minpng">
+<div class="spoiler">
+  <img class="nsfw" src="img/photography/img_people (25)-min.jpg">
+  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+</div>
+
+
+<img src="img/photography/img_people (1)-min.png">
+
 <img src="img/photography/img_people (15)-min.jpg">
 <img src="img/photography/img_people (28)-min.jpg">
 <img src="img/photography/img_people (18)-min.jpg">
@@ -93,6 +126,9 @@
 </div>
 <!-- </section> -->
 <script>
+function unspoiler(spoiler){
+  spoiler.parentNode.classList.add('nospoiler');
+}
 document.getElementById("defaultOpen").click();
 function openTab(evt, cityName) {
   var i, tabcontent, tablinks;

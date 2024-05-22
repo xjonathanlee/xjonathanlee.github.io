@@ -394,6 +394,41 @@ em {
 .nsfw{
     filter:blur(0px);
 }
+.spoiler{
+    overflow:hidden;
+    position:relative;
+    margin:0;
+    padding:0;
+}
+.spoiler img{
+vertical-align: bottom;
+filter:blur(20px) grayscale(100%);
+transition:0.3s;
+}
+.spoiler-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    line-height: 3rem;
+    width: 50%;
+    padding: 0 1rem;
+    font-size: 1rem;
+    margin: auto;
+    background-color: transparent;
+    border:none;
+    color: #FFF;
+    text-align: center;
+    cursor: pointer;
+}
+.nospoiler img{
+    filter:none;
+}
+.nospoiler button{
+    display:none;
+}
 
 .main-content-svg {
     max-width: 70rem;
