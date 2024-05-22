@@ -8,6 +8,7 @@
   <title>Jonathan- Photography</title>
   <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/intense.js"></script>
   <link href="css/main.css" rel="stylesheet">
   <link href="css/lightbox.css" rel="stylesheet">
   <link rel="icon" href="img/favicon.ico">
@@ -34,11 +35,6 @@
     </div>
   </section>
   <section class="main-content">
-    <div class="tab">
-<!--   <button class="tablinks" onclick="openTab(event, 'All')" id="defaultOpen">All</button>
-  <button class="tablinks" onclick="openTab(event, 'People')">People</button>
-  <button class="tablinks" onclick="openTab(event, 'Things')">Things</button> -->
-  </div>
 </section>
 <!-- <section class="main-content"> -->
   <!-- TODO: MAKE LIGHTBOX WORK
@@ -50,52 +46,48 @@
   <div id="All" class="tabcontent">
   <div class="gallery-row">
     <div class="gallery-column">
-      <img src="img/photography/img_people (26)-min.jpg">
+        <img class="lazy demo-image" src="img/photography/img_people (26)-min.jpg">
+        <div class="spoiler">
+          <img class="nsfw" src="img/photography/img_people (2)-min.png">
+          <button class= "spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+        </div>
+        <img src="img/photography/img_people (3)-min.png">
+        <div class="spoiler">
+          <img class="nsfw" src="img/photography/img_people (4)-min.jpg">
+          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+        </div>
+        <img src="img/photography/img_people (5)-min.png">
       <div class="spoiler">
-      <img class="nsfw" src="img/photography/img_people (2)-min.png">
-      <button class= "spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+      <img class="nsfw" src="img/photography/img_people (6)-min.jpg">
+      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
       </div>
-      <img src="img/photography/img_people (3)-min.png">
-      <div class="spoiler">
-      <img class="nsfw" src="img/photography/img_people (4)-min.jpg">
-        <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-      </div>
-
-      <img src="img/photography/img_people (5)-min.png">
-<div class="spoiler">
-  <img class="nsfw" src="img/photography/img_people (6)-min.jpg">
-  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-</div>
-      
-<div class="spoiler">
-  <img class="nsfw" src="img/photography/img_people (7)-min.jpg">
-  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-</div>
-      <img src="img/photography/img_people (8)-min.jpg">
-      <img src="img/photography/img_people (9).jpg">
-<div class="spoiler">
-  <img class="nsfw" src="img/photography/img_people (10).jpg">
-  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-</div>
-  <img class="nsfw" src="img/photography/img_people (32)-min.jpg">     
+        <div class="spoiler">
+          <img class="nsfw" src="img/photography/img_people (7)-min.jpg">
+          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+        </div>
+        <img src="img/photography/img_people (8)-min.jpg">
+        <img src="img/photography/img_people (9).jpg">
+        <div class="spoiler">
+          <img class="nsfw" src="img/photography/img_people (10).jpg">
+          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+        </div>
+        <img class="nsfw" src="img/photography/img_people (32)-min.jpg">     
     </div>
-    <div class="gallery-column">
-<div class="spoiler">
-  <img class="nsfw" src="img/photography/img_people (11)-min.jpg">
-  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-</div>
-      
-      <img src="img/photography/img_people (12)-min.jpg">
 
+  <div class="gallery-column">
+    <div class="spoiler">
+      <img class="nsfw" src="img/photography/img_people (11)-min.jpg">
+      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+    </div>
+      <img src="img/photography/img_people (12)-min.jpg">
     <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (13)-min.jpg">
       <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image </button>
     </div>
       <img src="img/photography/img_people (14)-min.jpg">
-      <img src="img/photography/img_people (27)-min.jpg">
+      <img data-src="img/photography/img_people (27)-min.jpg">
       <img src="img/photography/img_people (16)-min.jpg">
-      
-      <div class="spoiler">
+    <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (17)-min.jpg">
       <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image </button>
     </div>
@@ -103,25 +95,24 @@
       <img src="img/photography/img_people (19)-min.jpg">
       <img src="img/photography/img_people (20)-min.jpg">
       <img src="img/photography/img_people (6)-min.png">
-    </div>
-    <div class="gallery-column">
-<img src="img/photography/img_people (21)-min.jpg">
-<img src="img/photography/img_people (22)-min.jpg">
-<img src="img/photography/img_people (23)-min.jpg">
-<img src="img/photography/img_people (24)-min.jpg">
-<div class="spoiler">
-  <img class="nsfw" src="img/photography/img_people (25)-min.jpg">
-  <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
-</div>
+  </div>
 
-
-<img src="img/photography/img_people (1)-min.png">
-<img src="img/photography/img_people (15)-min.jpg">
-<img src="img/photography/img_people (28)-min.jpg">
-<img src="img/photography/img_people (18)-min.jpg">
-<img src="img/photography/img_people (30)-min.jpg">
-<img src="img/photography/img_people (7)-min.png">
-    </div>
+  <div class="gallery-column">
+        <img src="img/photography/img_people (21)-min.jpg">
+        <img src="img/photography/img_people (22)-min.jpg">
+        <img src="img/photography/img_people (23)-min.jpg">
+        <img src="img/photography/img_people (24)-min.jpg">
+        <div class="spoiler">
+          <img class="nsfw" src="img/photography/img_people (25)-min.jpg">
+          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
+        </div>
+        <img src="img/photography/img_people (1)-min.png">
+        <img src="img/photography/img_people (15)-min.jpg">
+        <img src="img/photography/img_people (28)-min.jpg">
+        <img src="img/photography/img_people (18)-min.jpg">
+        <img src="img/photography/img_people (30)-min.jpg">
+        <img src="img/photography/img_people (7)-min.png">
+  </div>
   </div>
 </div>
 <!--   <div id="People" class="tabcontent">
@@ -148,9 +139,8 @@ function openTab(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
-}
+};
 </script>
 <!-- <script src="js/main.js"></script> -->
-<script src="js/lightbox.js"></script>
 <script src="js/lazyload.js"></script>
 </html>

@@ -335,6 +335,11 @@ em {
     vertical-align: middle;
     width:100%;
 }
+.gallery-column div{
+    margin-top:8px;
+    vertical-align: middle;
+    width:100%;
+}
 .about-paragraph {
     max-width: 32rem;
     margin-top: 2rem;
@@ -472,12 +477,13 @@ transition:0.3s;
 .legend-small{
 height:300px;
 }
+
 .tablinks{
     font-family: helveticaNeueReg;
-    font-size: 1.5rem;
-    margin-left:2rem;
+    font-size: 1.125rem;
+    margin-right:4rem;
     background-color: transparent;
-    /*border:1px solid black;*/
+    border:0px solid black;
     /*text-decoration: underline;*/
     color: #000000;
     text-align: center;

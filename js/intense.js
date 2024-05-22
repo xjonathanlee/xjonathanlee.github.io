@@ -1,4 +1,25 @@
- var Intense = (function() {
+console.log("sdfahjfkh");
+
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+window.cancelRequestAnimFrame = ( function() {
+    return window.cancelAnimationFrame          ||
+        window.webkitCancelRequestAnimationFrame    ||
+        window.mozCancelRequestAnimationFrame       ||
+        window.oCancelRequestAnimationFrame     ||
+        window.msCancelRequestAnimationFrame        ||
+        clearTimeout
+} )();
+
+
+var Intense = (function() {
 
     'use strict';
 
@@ -90,7 +111,7 @@
     function track( element ) {
 
       // Element needs a src at minumun.
-      if( element.getAttribute( 'src') || element.src ) {
+      if( element.getAttribute( 'data-image') || element.src ) {
         element.addEventListener( 'click', function() {
           init( this );
         }, false );
@@ -154,6 +175,59 @@
       /*
        *  Caption Container
        */
+      var captionContainerProperties = {
+        'fontFamily': 'Georgia, Times, "Times New Roman", serif',
+        'position': 'fixed',
+        'bottom': '0px',
+        'left': '0px',
+        'padding': '20px',
+        'color': '#fff',
+        'wordSpacing': '0.2px',
+        'webkitFontSmoothing': 'antialiased',
+        'textShadow': '-1px 0px 1px rgba(0,0,0,0.4)'
+      }
+      var captionContainer = document.createElement( 'figcaption' );
+      applyProperties( captionContainer, captionContainerProperties );
+
+      /*
+       *  Caption Title
+       */
+      if ( title ) {
+        var captionTitleProperties = {
+          'margin': '0px',
+          'padding': '0px',
+          'fontWeight': 'normal',
+          'fontSize': '40px',
+          'letterSpacing': '0.5px',
+          'lineHeight': '35px',
+          'textAlign': 'left'
+        }
+        var captionTitle = document.createElement( 'h1' );
+        applyProperties( captionTitle, captionTitleProperties );
+        captionTitle.innerHTML = title;
+        captionContainer.appendChild( captionTitle );
+      }
+
+      if ( caption ) {
+        var captionTextProperties = {
+          'margin': '0px',
+          'padding': '0px',
+          'fontWeight': 'normal',
+          'fontSize': '20px',
+          'letterSpacing': '0.1px',
+          'maxWidth': '500px',
+          'textAlign': 'left',
+          'background': 'none',
+          'marginTop': '5px'
+        }
+        var captionText = document.createElement( 'h2' );
+        applyProperties( captionText, captionTextProperties );
+        captionText.innerHTML = caption;
+        captionContainer.appendChild( captionText );
+      }
+
+      container.appendChild( captionContainer );
+
       setDimensions();
 
       mouse.xCurr = mouse.xDest = window.innerWidth / 2;
@@ -188,7 +262,9 @@
 
     function init( element ) {
 
-      var imageSource = element.getAttribute( 'src') || element.src;
+      var imageSource = element.getAttribute( 'data-image') || element.src;
+      var title = element.getAttribute( 'data-title');
+      var caption = element.getAttribute( 'data-caption');
       
       var img = new Image();
       img.onload = function() {
