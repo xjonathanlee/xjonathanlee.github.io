@@ -472,7 +472,17 @@ transition:0.3s;
 .legend-small{
 height:300px;
 }
-
+.tablinks{
+    font-family: helveticaNeueReg;
+    font-size: 1.5rem;
+    margin-left:2rem;
+    background-color: transparent;
+    /*border:1px solid black;*/
+    /*text-decoration: underline;*/
+    color: #000000;
+    text-align: center;
+    cursor: pointer;
+}
 .videocontainer{
     /*border:1px solid black;*/
     margin-bottom:2.5rem;
