@@ -60,25 +60,41 @@
 
     <ol>
 
-      <li> Implementing a "traffic light system" to better digest impact of humans in specific conservation units</li>
+      <li> Revising Iconography and Color systems to lessen technical debt across the tool</li>
       <li> A complete redesign of how data is interpreted in client side graphs</li>
       <li> A ground-up rework of the Regional Overviews section that links with an externally developed site (State of Pacific Salmon).</li>
     </ol>
       <p></p>
 
-    <h2> Regional Overviews </h2>
-    <p>
-     
-    </p>
-    
     <h2> Iconography </h2>
     <p>
-     
+     Working on an extended icon set that coupled with Mapbox was one way we tried to mitigate user friction, a notable problem we discovered early on was that there was a great deal of "technical debt" embedded in the tool with varying icon sizes and calls to now defunct decorator patterns across the tool. To standardize the icon set we set the icon sizing to a firm 36x36 square with a white border to optimize counting icons that were clustered together. In the icon redesign me and my senior team looked to group icons by color and chroma as well as redesigning the icons to read better at a low resolution. 
+    </p>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/sd_1.jpg" alt="a moodboard of chinook salmon"/>
+    <p>
+      In our initial tests we wanted to offload some of the colors and group icons by chroma, we quickly ran into a problem with the color system as it was bumping up against our limited color palette. To work around this we adopted a new color palette that grouped features by a noticable characteristic (dams and stream crossings both obstruct fish so have a purple tint. stream temperature, flow have a blue tint etc.).
     </p>
 
+    <p>
+      When designing for a color system we looked at
+    </p>
+
+    <h2> Regional Overviews </h2>
+    <p>
+     Regional Overviews were designed as a way to extend the tool beyond that of just displaying data, capitalizing on a user need to have a quick easily digestable snapshot that helped relay the dire straits (pun intended) of salmon across all regions. In our initial mockups we wanted the user to situate themselves quickly providing a common narrative to help push past the complex data being presented. The initial designs featured a card system after front loading most of the auxillary information as charts that pertained to the regions conservation units and its over all biological status.
+    </p>
+
+    <p>
+      Internal testing revealed that users were less likely to read the front loaded information, so after some deliberation we switched gears to simplying and focusing the data to be more visual. We replaced the introduction text with a card system that highlighted "glance-ability" so users could see immediately the impact across the region on all salmonid species. Across explorations we decided to speculate on more expressive ways of describing how users would interact with the data.
+    </p>
+
+    <p>
+      In our final iteration we looked at a funnel system that helped center the user. Similar to the Eames "power of 10", we wanted to give a scope in and out interaction that allowed users to look at status then assess individually. We built this system directly into the overviews to give a stronger presence to this extension of the PSE experience that also lays a narrative thread to an experiential status site called State of Salmon (link here).
+    </p>
+    
     <h2>Biostatus Overhaul</h2>
     <p>
-    Initially the data science gave biostatus as a mess of inflexible charts that created user friction. The information overhead was lengthy and full of jargon, as well as inconsistently formatted which impacted understanding. For the new re-design of biostatus across the tool <em><i>we used a traffic light system to qualitatively apply an already consistent design pattern</i></em> so users could recognize between good, moderate, and poor systems at play.
+    Initially the incoming data showed biostatus as a mess of inflexible charts that created user friction. The information overhead was lengthy and full of jargon, as well as inconsistently formatted which impacted understanding. For the new re-design of biostatus across the tool <em><i>we used a traffic light system to qualitatively apply an already consistent design pattern</i></em> so users could recognize between good, moderate, and poor systems at play.
     </p>
 
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/sd_1.jpg" alt="a moodboard of chinook salmon"/>
@@ -89,25 +105,6 @@
     <p>
     In my redesign, data is sorted and displayed by confidence intervals in a 2D plot prioritizing mapping accuracy in the counted spawning salmon. In which, the variance in counting methods and the confidence intervals enabling users to do a deeper dive than just looking at a bar chart with numbers (instead you are looking at a 2D Chart with numbers AND lines). The flexibility given by providing options into the granular data helps lay-people using the tool to better reference changes in policy from external knowledge bases.
     </p>
-
-    <h2>Interactions + Redesign features</h2>
-
-    <p>By giving users the option of granularity in their interactions we could encourage exploration by leveraging curiosity + structure, scaffolding users into how the tool works. In essence by frontloading the user in how the tool functions we could allow users to better digest the data.</p>
-    <p>I proposed 2 added accessability points to better assist with knowledge management as well as streamline ease of use.</p>
-    <p> In no particular order I designed:</p>
-    <ol>
-      <li> A new feature that enables users to save charts they deem important</li>
-      <li> A reworked color and pattern system that better looked at interactions between colors and patterns</li>
-    </ol>
-    <p></p>
-    <!-- Research of Mood Flow Diagram -->
-      <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/sd_1.jpg" alt="a moodboard of chinook salmon"/>
-
-    <h2> Click to Save </h2>
-    <p></p>
-
-    <h2> Heirarchy and Order in Iconography </h2>
-    <p></p>
 
     <h2> Reflection </h2>
     <p>A 3 month internship that turned into an extended offer! I learned a lot from this role, as well as while sometimes best practice is... well best, sometimes there isnt time to do a full holistic review and we need to ship <em>NOW</em>. As a designer my work was challenged by data, and democratized design so I had to learn how to balance aesthetics with functionality, and while sometimes a graphic doesn't nescessarily look good, it has to be human readable and people friendly. </p>
