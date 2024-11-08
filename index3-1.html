@@ -1,109 +1,111 @@
 <!DOCTYPE html>
-<!-- testing for some additional changes. -->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Jonathan Lee - Portfolio</title>
-	 <link href="css/main.css" rel="stylesheet">
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	 <script src="js/okhover.js"></script>
-	   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Color Based on Background</title>
+  <style>
+    .backchange {
+      width: 100%;
+      height: 100px;
+      transition: all .55s;
+    }
 
+    .titleProject {
+      font-size: 24px;
+      padding: 10px;
+      transition: color .55s;
+    }
+  </style>
 </head>
-<body id="bchange" class="backchange">
-<nav class="header-nav">
-<a href="index.html" class="nav-item">Home</a>
-<a href="about.html" class="nav-item">About</a>
-</nav>
-<!-- FIX PHOTOGRAPHY AND DESIGN PAGE
-FIX LINKING ON ALL PAGES -->
-  <section class="intronew">
-    <!-- Enhance Bio with addition material + about page -->
-    <h1 class="index2h1"> Hi my name is Jonathan, </h1>
-    <br>
-    <h1 class="index2h1">
-    Graphic Design and Interaction Design are my bread and butter, I'm also interested in making, city space projects and,ecology.
-    </h1>
-    <br><br>
-    <h1 class="index2h1">
-    Currently seeking new opportunities for 2023.
-    </h1>
-</section>
-<!-- <div class="newindexmenu"> -->
+<body>
+  <div class="titleProject" data-color="#3a3a3a">Project 1</div>
+  <div class="titleProject" data-color="#ff5733">Project 2</div>
+  <div class="titleProject" data-color="#4CAF50">Project 3</div>
+  <div class="titleProject" data-color="#ffffff">Project 4</div>
 
-<a data-color="white" class="titleProject link project-thumbnail" href="makePretty.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->	
-	<div class="col1">
-	<p>makePretty</p>
-	</div>
-	</div>
-</a>
-<!-- work on the mobile version of this -->
-<a data-color="#227093" class="titleProject project-thumbnail user-interface" href="raptors.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->
-	<div class="col1">
-	<p>The Raptors</p>
-	</div>
-	</div>
-</a>
+  <div class="backchange" id="bchange"></div>
 
-<a data-color="#c23616" class="titleProject project-thumbnail" href="intercedencesteveston.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->
-	<div class="col1">
-	<p>Capstone</p>
-	</div>
-	</div>
-</a>
+  <script>
+    console.log("init");
 
-<a data-color="#e1b12c" class="titleProject project-thumbnail" href="photography.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->
-	<div class="col1">
-	<p>DarkRoom</p>
-	</div>
-	</div>
-</a>
+    // Function to calculate luminance of a hex color
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      let r = parseInt(hex.substring(0, 2), 16);
+      let g = parseInt(hex.substring(2, 4), 16);
+      let b = parseInt(hex.substring(4, 6), 16);
+      return { r, g, b };
+    }
 
-<a data-color="#8395a7" class="titleProject project-thumbnail" href="design.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->
-	<div class="col1">
-	<p>Design Lab</p>
-	</div>
-	</div>
-</a>
+    // Function to calculate luminance from RGB values
+    function getLuminance(r, g, b) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
 
-<a data-color="#ff5e57" class="titleProject project-thumbnail" href="semalt.html">
-	<div class="indexMenuItem itemgrid" >
-		<!-- you can use show hide here -->
-	<div class="col1">
-	<p>SIAR</p>
-	</div>
-	</div>
-</a>
-<!-- Unpowered
-<a data-color="#e67cc9" class="titleProject project-thumbnail" href="christmasledger.html">
-	<div class="indexMenuItem itemgrid" >
-	<div class="col1">
-	<p>Christmas</p>
-	</div>
-	</div>
-</a>
--->
+      const a = [r, g, b].map(function (v) {
+        return (v <= 0.03928) ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
 
-<div data-color="#ffffff" class="indexMenuItemEnd titleProject">
-<!-- This one is blank so its aesthetic -->
-	</div>
+      return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    }
 
-<!-- </div> -->
+    // Function to convert RGB to HEX
+    function rgbToHex(rgb) {
+      const match = rgb.match(/^rgb\((\d+), (\d+), (\d+)\)$/);
+      if (!match) return "#000000"; // Fallback if parsing fails
+      return "#" + 
+        ("0" + parseInt(match[1]).toString(16)).slice(-2) + 
+        ("0" + parseInt(match[2]).toString(16)).slice(-2) + 
+        ("0" + parseInt(match[3]).toString(16)).slice(-2);
+    }
 
+    // Function to adjust text color based on luminance
+    function adjustTextColor(backgroundColor) {
+      const { r, g, b } = hexToRgb(rgbToHex(backgroundColor));
+      const luminance = getLuminance(r, g, b);
+      console.log(a)
+      // Set threshold for luminance (below which text should be white)
+      const threshold = 0.5;
+
+      const textColor = luminance < threshold ? 'white' : 'black';
+      // Apply text color to all titleProject elements
+      document.querySelectorAll(".titleProject").forEach(el => {
+        el.style.color = textColor;
+      });
+    }
+
+    const elements = document.querySelectorAll(".titleProject");
+
+    elements.forEach((e) => {
+      // Mouseenter event to change the background color and adjust text color
+      e.addEventListener("mouseenter", function (e) {
+        const t = document.querySelector(".backchange");
+        const bgColor = e.target.getAttribute("data-color");
+
+        // Change the background color
+        t.style.backgroundColor = bgColor;
+
+        // Recalculate and adjust text color based on luminance of the new background color
+        adjustTextColor(bgColor);
+      });
+
+      // Mouseleave event to reset the text color to black
+      e.addEventListener("mouseleave", function () {
+        // Reset the background color
+        const t = document.querySelector(".backchange");
+        t.style.backgroundColor = ""; // Reset to original background
+
+        // Recalculate and set the text color back to black when mouse leaves
+        document.querySelectorAll(".titleProject").forEach(el => {
+          el.style.color = 'black';
+        });
+      });
+    });
+
+    // Transition effect for background color changes
+    document.getElementById("bchange").style.transition = "all .55s";
+  </script>
 </body>
-
-<script src="js/backgroundchange.js"></script>
-<script src="js/followdiv.js"></script>
 </html>
