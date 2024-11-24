@@ -81,6 +81,9 @@ ul {
 .backchange {
     background-color: #fff;
 }
+.indexMenuItemStart {
+    padding: .5rem;
+}
 .indexMenuItem {
     padding-left: 2.5rem;
     border-bottom: 1px solid #000;
@@ -207,6 +210,11 @@ em {
     text-align: right;
     margin: 1rem;
     padding-left: 2rem;
+}
+.header-proj:hover{
+    opacity: 60%;
+     -webkit-transition:0.2s ease-out;
+
 }
 .footer-nav {
     margin: 1rem;
