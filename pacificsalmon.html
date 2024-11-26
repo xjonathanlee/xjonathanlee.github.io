@@ -51,7 +51,7 @@
 
     <h2> Designing for the User </h2>
     <p>
-      I proposed multiple solutions that looked at new features to color reworks that better streamlined how users of tool interacted with the PSF. In the initial discovery phase I was brought on to initially look at color and patterns, but as the tool grew in size and scope I was asked to reinterpret data, form new user patterns and implement general design changes to sections that linked to other sites.
+      I proposed multiple solutions that looked at new features to color reworks that better streamlined how users of the  tool interacted with the PSF. In the initial discovery phase I was brought on to look at color and patterns, but as the tool grew in size and scope I was asked to reinterpret data, form new user patterns and implement general design changes to sections that linked to other sites.
     </p>
 
     <p>Some of my design contributions can be found in the list below:</p>
@@ -66,56 +66,65 @@
 
     <h2> Iconography </h2>
     <p>
-     Working on an extended icon set that coupled with Mapbox was one way we tried to mitigate user friction, a notable problem we discovered early on was that there was a great deal of "technical debt" embedded in the tool with varying icon sizes and calls to now defunct decorator patterns. To standardize the icon set we set the icon sizing to a firm 36x36 square with a white border to optimize counting icons that were clustered together. In the icon redesign me and my senior team looked to group icons by color and key as well as redesigning the icons to read better at a low resolution. 
+     Working on an extended icon set that coupled with Mapbox was a way we tried to mitigate user friction. A notable problem we discovered early on was that there was a great deal of "technical debt" embedded in the tool with varying icon sizes and calls to now defunct decorator patterns. To standardize the icon set we set the icon sizing to a firm 36x36 square with a white border to optimize counting icons that were clustered together. In the icon redesign me and my senior team looked to group icons by color and key as well as redesigning the icons to read better at a low resolution.
     </p>
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/iconset_2-01.png" alt="new icons scattered about"/>
     <p class="annotate">All icons adhere to the 36x36 grid circle system in order to have consistency and reduce technical debt.</p>
     <p>
-      In our initial tests we wanted to offload some of the colors and group icons by chroma, we quickly ran into a problem with the color system as it was bumping up against our limited color palette. To work around this we adopted a new color palette that grouped features by a noticable characteristic (dams and stream crossings both obstruct fish so have a purple tint. stream temperature, flow have a blue tint etc.).
+      In our initial tests we grouped layer colors and icons by chroma. From the proposed selection of 72 colors we ran into a problem with the color system as it was not colorblind friendly. To work around this we adopted and implemented a new color palette that used contrast and pattern as the main way of conveying information. In this redesign our senior team grouped out layers and patterns by clusters to allow for easier pattern recognition.  Shown are the proposed chromas adjusted for accessibility:
     </p>
 
-    <p>
-      When designing for a color system we looked at ways for users to read color while considering accessibility. In our initial explorations we landed on an interesting color experiment that showed percieved flaws in our color system. In the interest of conducting better user tests we tried to optimize for Red Green color blindness (which affects ~8% of males and .5% of females worldwide). Shown are the proposed chromas adjusted for accessibility:
-    </p>
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/colorset_2.png" alt="color board breakdown"/>
+
     <h2> Regional Overviews </h2>
     <p>
-     Regional Overviews were designed as a way to extend the tool beyond that of just displaying data, capitalizing on a user need to have a quick easily digestable snapshot that helped relay the dire straits (pun intended) of salmon across all regions. In our initial mockups we wanted the user to situate themselves quickly providing a common narrative to help push past the complex data being presented. The initial designs featured a card system after front loading most of the auxillary information as charts that pertained to the regions conservation units and its over all biological status.
+     Regional Overviews were designed as a way to extend the tool capitalizing on a user's need to have quick easily digestible snapshots that helped relay quick statistics of salmon across all regions without having to do a deep dive. The intention was to situate the user quickly, providing a common narrative to help push past the complex data being presented. The initial designs featured a card system after front loading most of the auxiliary information as charts that pertained to the regions conservation units and its overall biological status.
+
     </p>
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/overview_overhaul.png" alt="an overview of all previous versions of overview"/>
     <p class="annotate">A look at how we reduced cognitive overloading with text.</p>
     <p>
-      Internal testing revealed that users were less likely to read the front loaded information, so after some deliberation we switched gears to simplying and focusing the data to be more visual. We replaced the introduction text with a card system that highlighted "glance-ability" so users could see immediately the impact across the region on all salmonid species. Across explorations we decided to speculate on more expressive ways of describing how users would interact with the data.
+      Internal testing revealed that users were less likely to read the front loaded information, so after some deliberation we simplified and focused data to be more visual. We replaced the introduction text with a card system that highlighted "glance-ability" so users could see immediately the impact across the region on all salmonid species. Across explorations we decided to speculate on more expressive ways of describing how users would interact with the data.
     </p>
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/cogload.png"/>
-    <p class="annotate">By taking the text and transforming it into something visual we can force users to engage with the graphics instead of reading. As a graphic design teacher of mine once said: "Show don't Tell"</p>
+    
     <p>
-      In our final iteration we looked at a funnel system that helped center the user. Similar to the Eames "power of 10", we wanted to give a scope in and out interaction that allowed users to look at status then assess individually. We built this system directly into the overviews to give a stronger presence to this extension of the PSE experience that also lays a narrative thread to an experiential status site called <a href="https://stateofsalmon.psf.ca/" >State of Salmon</a> .
+     In our final iteration we looked at a funnel system that helped center the user. Similar to the Eames "power of 10", we wanted to give a scope in and out interaction that allowed users to look at status then assess salmon needs through a triage system. We built this system directly into the overviews to give a stronger presence to this extension of the PSE experience that also lays a narrative thread to an experiential status site called <a href="https://stateofsalmon.psf.ca/" >State of Salmon</a> .
     </p>
     
     <h2>Biostatus Overhaul</h2>
     <p>
-    Initially the incoming data showed biostatus as a mess of inflexible charts that created user friction. The information overhead was lengthy and full of jargon, as well as inconsistently formatted which impacted understanding. For the new re-design of biostatus across the tool <em><i>we used a traffic light system to qualitatively apply an already consistent design pattern</i></em> so users could recognize between good, moderate, and poor systems at play.
+    Initially the incoming data showed biostatus as a mess of inflexible charts that created user friction. The information overhead was lengthy and full of jargon, as well as inconsistently formatted which impacted understanding. For the new re-design of biostatus across the tool we used a traffic light system to qualitatively apply an already consistent design pattern so users could recognize between good, moderate, and poor systems at play.
+
     </p>
 
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_oldew.png" alt="biostatus overview"/>
     
-    <p>Biostatus or biological status is tricky because while niche it is critical to understand the external pressures impacting salmon at a glance. Our initial understanding was to use a bar chart to quantify interactions along with a tri-badge to better <em><i>facilitate dialogue between the different catagorization systems</i></em>. After some research and testing, we began to see faults with the bar chart as users wanted to see more granular information from each individual pressure. </p>
+    <p>Biostatus is a fancy way of allowing salmon biologists to get a gist of the over all system health without having all the information on hand to do a deep research dive, it’s useful for allowing researchers to develop a game plan without stranding themselves in endless research and papers.</p>
+
+    <p>
+      Our initial understanding was to use a bar chart to quantify interactions along with a trimetric badge to better facilitate dialogue between the different categorization systems. After some research and testing, we began to see faults with the bar chart as users wanted to see more granular information from each individual pressure.
+
+    </p>
 
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_zoom.png" alt="new chart image"/>
     <p>
-    In my redesign, data is sorted and displayed by confidence intervals in a 2D plot prioritizing mapping accuracy in the counted spawning salmon. In which, the variance in counting methods and the confidence intervals enabling users to do a deeper dive than just looking at a bar chart with numbers. The flexibility given by providing options into the granular data helps lay-people using the tool to better reference changes in policy from external knowledge bases.
+    In my redesign, data is sorted and displayed by confidence intervals in a 2D plot prioritizing mapping accuracy in the counted spawning salmon. In which, the variance in counting methods and the confidence intervals enables users to do a deeper dive through positioning the graphed information in 2d space. The flexibility given by providing options into the granular data helps lay-people using the tool to better reference changes in policy from external knowledge bases.
+    </p>
+
+    <p>
+    Consolidating the data into a more graphical iteration allowed us to solve problems of granularity and focus, giving researchers the ability to look at data changes over time, rather than observing status health one dimensionally. 
     </p>
 
 
     <h2>PDF Rollups and Designs</h2>
     <p>
-    In our vertical stack a major point of user friction came from observing other users and their patterns. The online portion was fine, but we observed a need for the information to be presented different as a rapid printout. My teamlead came to me to take a speculative look on how users would look at printouts of cogent information within the habitat panel and the biostatus panel.
+    A major point of user friction came from observing other users and their patterns navigating the site. The online portion was fine, but we observed a need for the information to be presented differently as a rapid printout. My team lead came to me to take a speculative look on how users would look at printouts of cogent information within the habitat panel and the biostatus panel.
     </p>
     <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_printout.png" alt="rollup biopsy"/>
     <p class="annotate">We wanted to use the roll up as a way to rapidly access information, this could be helpful for news agencies, politicians or high level thought leaders.</p>
 
-    <p>Our proposed intervention was to create a way for users to obtain crucial information <em><i>highlighting the "at a glance" principle found in both Biostatus and Regional Overviews</i></em>. During testing we observered varience in how people used documents culminating in a printout that could be assessed rapidly, allowing users to get a definitive top level readout without having to parse through the thickets. </p>
+    <p>Our proposed intervention was to create a way for users to obtain crucial information highlighting the "at a glance" principle found in both Biostatus and Regional Overviews. During testing we observed variance in how people used documents to track their thoughts and research. This culminates in a printout that could be assessed rapidly, allowing users to get a definitive top level readout without having to parse through the site. </p>
 
 <!--     <h2> Reflection </h2>
     <p>A 3 month internship that turned into an extended offer! I learned a lot from this role, as well as while sometimes best practice is... well best, sometimes there isnt time to do a full holistic review and we need to ship <em>NOW</em>. As a designer my work was challenged by data, and democratized design so I had to learn how to balance aesthetics with functionality, and while sometimes a graphic doesn't nescessarily look good, it has to be human readable and people friendly. </p> -->
