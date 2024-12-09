@@ -45,6 +45,14 @@ p {
 section {
     margin: 2.5rem;
 }
+
+marquee{
+}
+
+.constructions{
+    height:1.5rem;
+}
+
 @font-face {
     font-family: helveticaNeueReg;
     src: url(HelveticaNeue-Regular.otf);
