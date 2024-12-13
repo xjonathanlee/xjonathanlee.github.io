@@ -291,6 +291,18 @@ em {
     width: 33%;
     border: 1px solid #000;
 }
+
+.pstate{
+}
+
+mark{
+/*    border: 1px solid black;*/
+  background:
+  hsla(48,92%,75%,.3),
+  border-radius: 5em;
+  padding: .2em;
+  }
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
