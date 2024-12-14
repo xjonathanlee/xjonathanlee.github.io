@@ -14,7 +14,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
-<script src="js/followcursor.js"></script>
 <link rel="icon" href="img/favicon.ico">
 
 </head>
@@ -45,8 +44,8 @@
     <p class="detail-intro">
       Pacific Salmon Foundation is a scientific driven research and governing body that collectively looks at conservation, restoration and the historical documentation of the Salmonid population in British Columbia. I was brought on to revisualize key components in their new 'Pacific Salmon Explorer' that helps people make informed goverment level choices on infrastructure that could have impact on Pacific Salmon.
     </p>
-    <h2>Problem</h2>
-    <p>How can we <mark>design a better user experience for goverments to make informed choice</mark> on projects that could impact future salmon stocks?</p>
+
+    <p class="pstatement">How can we <mark>design a better user experience for goverments to make informed choice</mark> on projects that could impact future salmon stocks?</p>
 
     <h2> Designing for the User </h2>
     <p>
@@ -66,28 +65,28 @@
     <p>
      Working on an extended icon set that coupled with Mapbox was a way we tried to mitigate user friction. A notable problem we discovered early on was that there was a great deal of "technical debt" embedded in the tool with varying icon sizes and calls to now defunct decorator patterns. To standardize the icon set we set the icon sizing to a firm 36x36 square with a white border to optimize counting icons that were clustered together. In the icon redesign me and my senior team looked to group icons by color and key as well as redesigning the icons to read better at a low resolution.
     </p>
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/iconset_2-01.png" alt="new icons scattered about"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/iconset_2-01.png" alt="new icons scattered about"/>
     <p class="annotate">All icons adhere to the 36x36 grid circle system in order to have consistency and reduce technical debt.</p>
     <p>
       In our initial tests we grouped layer colors and icons by chroma. From the proposed selection of 72 colors we ran into a problem with the color system as it was not colorblind friendly. To work around this we adopted and implemented a new color palette that used contrast and pattern as the main way of conveying information. In this redesign our senior team grouped out layers and patterns by clusters to allow for easier pattern recognition.  Shown are the proposed chromas adjusted for accessibility:
     </p>
 
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/colorset_2.png" alt="color board breakdown"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/colorset_2.png" alt="color board breakdown"/>
 
     <h2> Regional Overviews </h2>
     <p>
      Regional Overviews were designed as a way to extend the tool capitalizing on a user's need to have quick easily digestible snapshots that helped relay quick statistics of salmon across all regions without having to do a deep dive. The intention was to situate the user quickly, providing a common narrative to help push past the complex data being presented. The initial designs featured a card system after front loading most of the auxiliary information as charts that pertained to the regions conservation units and its overall biological status.
 
     </p>
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/overview_overhaul.png" alt="an overview of all previous versions of overview"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/overview_overhaul.png" alt="an overview of all previous versions of overview"/>
     <p class="annotate">A look at how we reduced cognitive overloading with text.</p>
     <p>
       Internal testing revealed that users were less likely to read the front loaded information, so after some deliberation we simplified and focused data to be more visual. We replaced the introduction text with a card system that highlighted "glance-ability" so users could see immediately the impact across the region on all salmonid species. Across explorations we decided to speculate on more expressive ways of describing how users would interact with the data.
     </p>
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/cogload.png"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/cogload.png"/>
     
     <p>
-     In our final iteration we looked at a funnel system that helped center the user. Similar to the Eames "power of 10", we wanted to give a scope in and out interaction that allowed users to look at status then assess salmon needs through a triage system. We built this system directly into the overviews to give a stronger presence to this extension of the PSE experience that also lays a narrative thread to an experiential status site called <a href="https://stateofsalmon.psf.ca/" >State of Salmon</a> .
+     In our final iteration we looked at a funnel system that helped center the user. Similar to the <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0&ab_channel=EamesOffice">Eames "power of 10"</a>, we wanted to give a scope in and out interaction that allowed users to look at status then assess salmon needs through a triage system. We built this system directly into the overviews to give a stronger presence to this extension of the PSE experience that also lays a narrative thread to an experiential status site called <a href="https://stateofsalmon.psf.ca/" >State of Salmon</a> .
     </p>
     
     <h2>Biostatus Overhaul</h2>
@@ -96,7 +95,7 @@
 
     </p>
 
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_oldew.png" alt="biostatus overview"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_oldew.png" alt="biostatus overview"/>
     
     <p>Biostatus is a fancy way of allowing salmon biologists to get a gist of the over all system health without having all the information on hand to do a deep research dive, it’s useful for allowing researchers to develop a game plan without stranding themselves in endless research and papers.</p>
 
@@ -105,7 +104,7 @@
 
     </p>
 
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_zoom.png" alt="new chart image"/>
+    <img class="full-bleed lazy lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_zoom.png" alt="new chart image"/>
     <p>
     In my redesign, data is sorted and displayed by confidence intervals in a 2D plot prioritizing mapping accuracy in the counted spawning salmon. In which, the variance in counting methods and the confidence intervals enables users to do a deeper dive through positioning the graphed information in 2d space. The flexibility given by providing options into the granular data helps lay-people using the tool to better reference changes in policy from external knowledge bases.
     </p>
@@ -119,7 +118,7 @@
     <p>
     A major point of user friction came from observing other users and their patterns navigating the site. The online portion was fine, but we observed a need for the information to be presented differently as a rapid printout. My team lead came to me to take a speculative look on how users would look at printouts of cogent information within the habitat panel and the biostatus panel.
     </p>
-    <img class="within-content-double lazy full-screenimage" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_printout.png" alt="rollup biopsy"/>
+    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_printout.png" alt="rollup biopsy"/>
     <p class="annotate">We wanted to use the roll up as a way to rapidly access information, this could be helpful for news agencies, politicians or high level thought leaders.</p>
 
     <p>We created a way for users to obtain crucial information highlighting the "at a glance" principle found in both Biostatus and Regional Overviews. During testing we observed variance in how people used documents to track their thoughts and research. This culminates in a printout that could be assessed rapidly, allowing users to get a definitive top level readout without having to parse through the site.∎</p>
@@ -136,387 +135,4 @@
 </div>
   </section>
   <script src="js/lazyload.js"></script>
-      <script src="js/intense.js"></script>
-  <script type="text/javascript">
-        console.log("BFBFBF");
-
-      // Don't use window.onLoad like this in production, because it can only listen to one function.
-      window.onload = function() {
-        // Expose to window namespase for testing purposes
-                console.log("nuignignin");
-        var elements = document.querySelectorAll('.full-screenimage');
-        Intense(elements);
-      };
-
-    window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
-
-window.cancelRequestAnimFrame = ( function() {
-    return window.cancelAnimationFrame          ||
-        window.webkitCancelRequestAnimationFrame    ||
-        window.mozCancelRequestAnimationFrame       ||
-        window.oCancelRequestAnimationFrame     ||
-        window.msCancelRequestAnimationFrame        ||
-        clearTimeout
-} )();
-
-
-var Intense = (function() {
-
-    'use strict';
-
-    var KEYCODE_ESC = 27;
-
-    // Track both the current and destination mouse coordinates
-    // Destination coordinates are non-eased actual mouse coordinates
-    var mouse = { xCurr:0, yCurr:0, xDest: 0, yDest: 0 };
-
-    var horizontalOrientation = true;
-
-    // Holds the animation frame id.
-    var looper;
-  
-    // Current position of scrolly element
-    var lastPosition, currentPosition = 0;
-    
-    var sourceDimensions, target;
-    var targetDimensions = { w: 0, h: 0 };
-  
-    var container;
-    var containerDimensions = { w: 0, h:0 };
-    var overflowArea = { x: 0, y: 0 };
-
-    // Overflow variable before screen is locked.
-    var overflowValue;
-
-    /* -------------------------
-    /*          UTILS
-    /* -------------------------*/
-
-    // Soft object augmentation
-    function extend( target, source ) {
-
-        for ( var key in source )
-
-            if ( !( key in target ) )
-
-                target[ key ] = source[ key ];
-
-        return target;
-    }
-
-    // Applys a dict of css properties to an element
-    function applyProperties( target, properties ) {
-
-      for( var key in properties ) {
-        target.style[ key ] = properties[ key ];
-      }
-    }
-
-    // Returns whether target a vertical or horizontal fit in the page.
-    // As well as the right fitting width/height of the image.
-    function getFit( 
-
-      source ) {
-
-      var heightRatio = window.innerHeight / source.h;
-
-      if( (source.w * heightRatio) > window.innerWidth ) {
-        return { w: source.w * heightRatio, h: source.h * heightRatio, fit: true };
-      } else {
-        var widthRatio = window.innerWidth / source.w;
-        return { w: source.w * widthRatio, h: source.h * widthRatio, fit: false };
-      }
-    }
-
-    /* -------------------------
-    /*          APP
-    /* -------------------------*/
-
-    function startTracking( passedElements ) {
-
-      var i;
-
-      // If passed an array of elements, assign tracking to all.
-      if ( passedElements.length ) {
-
-        // Loop and assign
-        for( i = 0; i < passedElements.length; i++ ) {
-          track( passedElements[ i ] );
-        }
-
-      } else {
-          track( passedElements );
-      }
-    }
-
-    function track( element ) {
-
-      // Element needs a src at minumun.
-      if( element.getAttribute( 'data-image') || element.src ) {
-        element.addEventListener( 'click', function() {
-          init( this );
-        }, false );
-      }
-    }
-  
-    function start() { 
-      loop();
-    }
-   
-    function stop() {
-      cancelRequestAnimFrame( looper );
-    }
-
-    function loop() {
-        looper = requestAnimFrame(loop);
-        positionTarget();      
-    }
-
-    // Lock scroll on the document body.
-    function lockBody() {
-
-      overflowValue = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Unlock scroll on the document body.
-    function unlockBody() {
-      document.body.style.overflow = overflowValue;
-    }
-
-    function createViewer( title, caption ) {
-
-      /*
-       *  Container
-       */
-      var containerProperties = {
-        'backgroundColor': 'rgba(0,0,0,0.8)',
-        'width': '100%',
-        'height': '100%',
-        'position': 'fixed',
-        'top': '0px',
-        'left': '0px',
-        'overflow': 'hidden',
-        'zIndex': '999999',
-        'margin': '0px',
-        'webkitTransition': 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
-        'MozTransition': 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
-        'transition': 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
-        'opacity': '0'
-      }
-      container = document.createElement( 'figure' );
-      container.appendChild( target );
-      applyProperties( container, containerProperties );
-// base64 hexcode for the ex_closeimg
-      var imageProperties = {
-        'cursor': 'url( "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFrKurTElKMS0ukY+PWldYnp2d4+PjyMfHdnN0urm51tXVaGVmPzs8hIGC8fHxIx8g////czzPnwAAABF0Uk5T/////////////////////wAlrZliAAAB90lEQVR42pSWWaKFIAhAydnqGvtf7RPNHMLq8XMHPQgIAuBdVpAqiYSVWYbxD+/E0Yhw/hkJcj9ussswR3Q+QESLbJRo3/mHniDrki2x7brNdi4rhwCticGIZGxagDuiSdkvMBHC8KM1PSKONFmciKWDXI8A2WtwKob8hBbxRAR8kECMr4gRb0RmhLkQFX+t+CJr1KsK4q8zH6VsIyQmyYYfZIvJkxGKlvmCmBw1SJ44/CQueQOJNd+QvBUoU1Sf3DXeYemLQ1HeQP5oiXpHdBd9dZB6wNEuuDIhNFlSLUOw8RqHQj2ZO4EYr9OCH10pDEeQFx5krBLkGI7AWDmSEIkcwxEop0iuUY3/QJIfXD1MkUxwTEL0PY1zrIBjYjJruhfFEe2ddkG2kC6UI1iGUgWowOyQ4Ufz7nR1YanIgLb8hlOg3k9/yo9UAJV0n2SheQd8GFPMU1UK7ppZgaQdkvH7N2RPrsH1Cnw6hEoLcoxEeCeCyPGD8/v26RlLmqHkrX4jrk1QFLy5Q45sTbNgixb5R6S0JGoXXKk1SX+2itr4qBUcavJqGnU07QS6BGYacmnJNdmqA8Glti8NBxwusNOFz9PIpq+OtuotzyR+NpCcGskMGpSWMvr05g6RDXoZp55Fh5fhioy5xivRGPmA5IpNwq/9CTAANk+MGc+qemwAAAAASUVORK5CYII=" ) 25 25, auto'
-      }
-      applyProperties( target, imageProperties );
-
-      /*
-       *  Caption Container
-       */
-      var captionContainerProperties = {
-        'fontFamily': 'Georgia, Times, "Times New Roman", serif',
-        'position': 'fixed',
-        'bottom': '0px',
-        'left': '0px',
-        'padding': '20px',
-        'color': '#fff',
-        'wordSpacing': '0.2px',
-        'webkitFontSmoothing': 'antialiased',
-        'textShadow': '-1px 0px 1px rgba(0,0,0,0.4)'
-      }
-      var captionContainer = document.createElement( 'figcaption' );
-      applyProperties( captionContainer, captionContainerProperties );
-
-      /*
-       *  Caption Title
-       */
-      if ( title ) {
-        var captionTitleProperties = {
-          'margin': '0px',
-          'padding': '0px',
-          'fontWeight': 'normal',
-          'fontSize': '40px',
-          'letterSpacing': '0.5px',
-          'lineHeight': '35px',
-          'textAlign': 'left'
-        }
-        var captionTitle = document.createElement( 'h1' );
-        applyProperties( captionTitle, captionTitleProperties );
-        captionTitle.innerHTML = title;
-        captionContainer.appendChild( captionTitle );
-      }
-
-      if ( caption ) {
-        var captionTextProperties = {
-          'margin': '0px',
-          'padding': '0px',
-          'fontWeight': 'normal',
-          'fontSize': '20px',
-          'letterSpacing': '0.1px',
-          'maxWidth': '500px',
-          'textAlign': 'left',
-          'background': 'none',
-          'marginTop': '5px'
-        }
-        var captionText = document.createElement( 'h2' );
-        applyProperties( captionText, captionTextProperties );
-        captionText.innerHTML = caption;
-        captionContainer.appendChild( captionText );
-      }
-
-      container.appendChild( captionContainer );
-
-      setDimensions();
-
-      mouse.xCurr = mouse.xDest = window.innerWidth / 2;
-      mouse.yCurr = mouse.yDest = window.innerHeight / 2;
-      
-      document.body.appendChild( container );
-      setTimeout( function() {
-        container.style[ 'opacity' ] = '1';
-      }, 10);
-    }
-
-    function removeViewer() {
-
-      unlockBody();
-      unbindEvents();
-      document.body.removeChild( container );
-    }
-
-    function setDimensions() {
-
-      // Manually set height to stop bug where 
-      var imageDimensions = getFit( sourceDimensions );
-      target.width = imageDimensions.w;
-      target.height = imageDimensions.h;
-      horizontalOrientation = imageDimensions.fit;
-
-      targetDimensions = { w: target.width, h: target.height };
-      containerDimensions = { w: window.innerWidth, h: window.innerHeight };
-      overflowArea = {x: containerDimensions.w - targetDimensions.w, y: containerDimensions.h - targetDimensions.h};
-
-    }
-
-    function init( element ) {
-
-      var imageSource = element.getAttribute( 'data-image') || element.src;
-      var title = element.getAttribute( 'data-title');
-      var caption = element.getAttribute( 'data-caption');
-      
-      var img = new Image();
-      img.onload = function() {
-
-        sourceDimensions = { w: img.width, h: img.height }; // Save original dimensions for later.
-        target = this;
-        createViewer( title, caption );
-        lockBody();
-        bindEvents();
-        loop();
-      }
-
-      img.src = imageSource;
-    }
-
-    function bindEvents() {
-
-      container.addEventListener( 'mousemove', onMouseMove,   false );
-      container.addEventListener( 'touchmove', onTouchMove,   false );
-      window.addEventListener(    'resize',    setDimensions, false );
-      window.addEventListener(    'keyup',     onKeyUp,       false );
-      target.addEventListener(    'click',     removeViewer,  false );
-    }
-
-    function unbindEvents() {
-
-      container.removeEventListener( 'mousemove', onMouseMove,   false );
-      container.removeEventListener( 'touchmove', onTouchMove,   false);
-      window.removeEventListener(    'resize',    setDimensions, false );
-      window.removeEventListener(    'keyup',     onKeyUp,       false );
-      target.removeEventListener(    'click',     removeViewer,  false )
-    }
-  
-    function onMouseMove( event ) {
-
-      mouse.xDest = event.clientX;
-      mouse.yDest = event.clientY;
-    }
-
-    function onTouchMove( event ) {
-
-      event.preventDefault(); // Needed to keep this event firing.
-      mouse.xDest = event.touches[0].clientX;
-      mouse.yDest = event.touches[0].clientY;
-    }
-
-    // Exit on excape key pressed;
-    function onKeyUp( event ) {
-
-      event.preventDefault();
-      if ( event.keyCode === KEYCODE_ESC ) {
-        removeViewer();
-      } 
-    }
-  
-    function positionTarget() {
-
-      mouse.xCurr += ( mouse.xDest - mouse.xCurr ) * 0.05;
-      mouse.yCurr += ( mouse.yDest - mouse.yCurr ) * 0.05;
-
-      if ( horizontalOrientation === true ) {
-
-        // HORIZONTAL SCANNING
-        currentPosition += ( mouse.xCurr - currentPosition );
-        if( mouse.xCurr !== lastPosition ) {
-          var position = parseFloat( currentPosition / containerDimensions.w );
-          position = overflowArea.x * position;
-          target.style[ 'webkitTransform' ] = 'translate3d(' + position + 'px, 0px, 0px)';
-          target.style[ 'MozTransform' ] = 'translate3d(' + position + 'px, 0px, 0px)';
-          target.style[ 'msTransform' ] = 'translate3d(' + position + 'px, 0px, 0px)';
-          lastPosition = mouse.xCurr;
-        }
-      } else if ( horizontalOrientation === false ) {
-
-        // VERTICAL SCANNING
-        currentPosition += ( mouse.yCurr - currentPosition );
-        if( mouse.yCurr !== lastPosition ) {
-          var position = parseFloat( currentPosition / containerDimensions.h );
-          position = overflowArea.y * position;
-          target.style[ 'webkitTransform' ] = 'translate3d( 0px, ' + position + 'px, 0px)';
-          target.style[ 'MozTransform' ] = 'translate3d( 0px, ' + position + 'px, 0px)';
-          target.style[ 'msTransform' ] = 'translate3d( 0px, ' + position + 'px, 0px)';
-          lastPosition = mouse.yCurr;
-        }
-      }
-    }
-
-    function main( element ) {
-
-      // Parse arguments
-
-      if ( !element ) {
-        throw 'You need to pass an element!';
-      }
-
-      startTracking( element );
-    }
-
-    return extend( main, {
-        resize: setDimensions,
-        start: start,
-        stop: stop
-    });
-
-})();
-</script>
 </body>

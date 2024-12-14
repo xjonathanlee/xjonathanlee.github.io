@@ -87,7 +87,7 @@ ul {
     max-width: 40rem;
 }
 .backchange {
-    background-color: #fff;
+    background-color:#fff;
 }
 .indexMenuItemStart {
     padding: .5rem;
@@ -292,9 +292,6 @@ em {
     border: 1px solid #000;
 }
 
-.pstate{
-}
-
 mark{
 /*    border: 1px solid black;*/
   background:
@@ -407,8 +404,9 @@ mark{
     cursor:url('../img/plus_cursor.png')25 25,auto;
 }
 .detail-intro {
-    font-size: 1.3rem;
-    line-height: 2.2rem;
+    font-style:italic;
+    font-size: 1.2rem;
+    line-height: 2.0rem;
     max-width: 42rem;
 }
 .problem-scope {
@@ -416,6 +414,17 @@ mark{
     font-family: helveticaNeueItal;
     font-size: 1rem;
 }
+
+.pstatement{
+    /*border: solid black 1px;*/
+    font-family: helveticaNeueReg;
+    font-weight: 400;
+    font-size:1.6rem;
+    line-height: 2.2rem;
+    max-width: 42rem;
+    padding:.2rem;
+}
+
 .within-content,
 .within-content-shadow {
     width: 100%;
