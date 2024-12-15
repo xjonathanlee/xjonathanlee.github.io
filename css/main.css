@@ -422,7 +422,8 @@ mark{
     font-size:1.6rem;
     line-height: 2.2rem;
     max-width: 42rem;
-    padding:.2rem;
+    margin:6rem;
+    /*add breakpoints for smallest screen + medium*/
 }
 
 .within-content,
