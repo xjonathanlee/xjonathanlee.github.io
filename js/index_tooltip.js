@@ -1,3 +1,4 @@
+// this doesnt work as smoothly as it should look for a different way to do this 
 $( function() {
   // tooltip
 function onHoverToggleTooltip( e ) {
