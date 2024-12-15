@@ -400,15 +400,48 @@ mark{
     cursor: crosshair;
 }
 
+.word{
+        font-style: italic;
+    cursor: crosshair;
+}
+
 /* The images will be positioned absolutely, so they follow the mouse */
 .mouse-image {
+    z-index:50;
     position: absolute;
     pointer-events: none;
     display: none;
-    width:25rem;
-    height:15rem;
+    width:auto;
+    height:auto;
+    transform:scale(.33);
+    transform-origin: top left;
 }
 /*end here*/
+/*Testing Slide Show Math APPROACH*/
+/*KEEP FOR PARITY*/
+/*        .word-container {
+            position: relative;
+            display: inline-block;
+            font-size: 40px;
+        }*/
+        .hover-word {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        .hover-image {
+            z-index:50;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            display: none;
+            width: auto;    /* Maintain aspect ratio */
+            height: auto;   /* Maintain aspect ratio */
+            transform: scale(0.33);
+            transform-origin: top left; /* Ensure scaling is done from the center */
+        }
+/*ends here*/
 .project-title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
