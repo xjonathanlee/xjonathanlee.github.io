@@ -32,6 +32,24 @@ body {
     margin: 0;
     font-family: Roboto, sans-serif;
 }
+
+@font-face {
+    font-family: helveticaNeueReg;
+    src: url(HelveticaNeue-Regular.otf);
+}
+@font-face {
+    font-family: helveticaNeueLight;
+    src: url(HelveticaNeue-Light.otf);
+}
+@font-face {
+    font-family: helveticaNeueItal;
+    src: url(HelveticaNeue-RegularItalic.otf);
+}
+@font-face {
+    font-family: helveticaNeueBold;
+    src: url(HelveticaNeue-Bold.otf);
+}
+
 .titleProject,
 h2 {
     font-family: helveticaNeueReg;
@@ -53,22 +71,7 @@ marquee{
     height:1.5rem;
 }
 
-@font-face {
-    font-family: helveticaNeueReg;
-    src: url(HelveticaNeue-Regular.otf);
-}
-@font-face {
-    font-family: helveticaNeueLight;
-    src: url(HelveticaNeue-Light.otf);
-}
-@font-face {
-    font-family: helveticaNeueItal;
-    src: url(HelveticaNeue-RegularItalic.otf);
-}
-@font-face {
-    font-family: helveticaNeueBold;
-    src: url(HelveticaNeue-Bold.otf);
-}
+
 .alternate-h1,
 p,
 ul {
@@ -100,6 +103,19 @@ ul {
     font-size: 2rem;
     text-decoration: none;
 }
+
+.title {
+    position: absolute; /* must have this */
+    background: #fff;
+        background: rgba(255,255,255,);
+        color: #00000;
+        font: normal 2rem sans-serif;
+        padding: 1rem;
+        border-radius: 10px;
+    white-space: nowrap;
+    z-index: 5;
+}
+
 .indexMenuItemEnd {
     padding: 3rem;
 }
@@ -189,6 +205,10 @@ a:hover {
     top:0;
 }
 
+.about-paragraph {
+    max-width: 32rem;
+    margin-top: 2rem;
+}
 
 .alternate {
     background-color: #231f20;
@@ -256,49 +276,6 @@ em {
 .footernav-item {
     margin-right: 1rem;
 }
-.about-link,
-.nav-item-alt,
-.nav-item-bottom-margin {
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    margin-right: 1rem;
-}
-.nav-item-bottom-margin {
-    font-family: "Roboto Mono", monospace;
-    margin-bottom: 4rem;
-    display: block;
-}
-.about-link,
-.intronew,
-.nav-item-alt {
-    font-family: helveticaNeueReg;
-}
-.nav-item-alt {
-    color: #fff;
-}
-.nav-item-alt:hover{
-        color: #231f20;
-}
-.alternate-h1 {
-    color: #fff;
-}
-.photography-grid {
-    padding-left: 2.5rem;
-}
-.photography-grid-item,
-.photography-grid-sizer {
-    width: 33%;
-    border: 1px solid #000;
-}
-
-mark{
-/*    border: 1px solid black;*/
-  background:
-  hsla(48,92%,75%,.3),
-  border-radius: 5em;
-  padding: .2em;
-  }
 
 .grid {
     display: grid;
@@ -368,10 +345,70 @@ mark{
     vertical-align: middle;
     width:100%;
 }
-.about-paragraph {
-    max-width: 32rem;
-    margin-top: 2rem;
+
+
+
+.about-link,
+.nav-item-alt,
+.nav-item-bottom-margin {
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
 }
+.nav-item-bottom-margin {
+    font-family: "Roboto Mono", monospace;
+    margin-bottom: 4rem;
+    display: block;
+}
+.about-link,
+.intronew,
+.nav-item-alt {
+    font-family: helveticaNeueReg;
+}
+.nav-item-alt {
+    color: #fff;
+}
+.nav-item-alt:hover{
+        color: #231f20;
+}
+.alternate-h1 {
+    color: #fff;
+}
+.photography-grid {
+    padding-left: 2.5rem;
+}
+.photography-grid-item,
+.photography-grid-sizer {
+    width: 33%;
+    border: 1px solid #000;
+}
+
+mark{
+/*    border: 1px solid black;*/
+  background:
+  hsla(48,92%,75%,.3),
+  border-radius: 5em;
+  padding: .2em;
+  }
+
+/*this is not alphabetized for easier testing currently*/
+/* Styling for the hover words (optional) */
+.hover-word {
+    /*text-decoration: underline;*/
+    font-style: italic;
+    cursor: crosshair;
+}
+
+/* The images will be positioned absolutely, so they follow the mouse */
+.mouse-image {
+    position: absolute;
+    pointer-events: none;
+    display: none;
+    width:25rem;
+    height:15rem;
+}
+/*end here*/
 .project-title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
