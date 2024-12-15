@@ -14,6 +14,10 @@ body {
     color: #231f20;
     overflow-x: hidden;
 }
+blockquote{
+    margin:2.5rem;
+    font-size:2rem;
+}
 h1,
 li {
     border: 1px pink;
@@ -70,6 +74,7 @@ marquee{
 .constructions{
     height:1.5rem;
 }
+
 
 
 .alternate-h1,
