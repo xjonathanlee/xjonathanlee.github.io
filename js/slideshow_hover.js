@@ -23,12 +23,16 @@
             let imageToShow;
 
             // Determine which image to show based on mouse or touch position
-            if (mouseX < wordRect.left + wordRect.width / 3) {
-                imageToShow = word.getAttribute('data-image-left');
-            } else if (mouseX < wordRect.left + 2 * wordRect.width / 3) {
-                imageToShow = word.getAttribute('data-image-center');
-            } else {
-                imageToShow = word.getAttribute('data-image-right');
+            if (mouseX < wordRect.left + wordRect.width / 5) {
+                imageToShow = word.getAttribute('data-image-1');
+            } else if (mouseX < wordRect.left + 2 * wordRect.width / 5) {
+                imageToShow = word.getAttribute('data-image-2');
+            } else if (mouseX < wordRect.left + 3 * wordRect.width / 5) {
+                imageToShow = word.getAttribute('data-image-3');
+            }else if (mouseX < wordRect.left + 4 * wordRect.width / 5) {
+                imageToShow = word.getAttribute('data-image-4');
+            }  else {
+                imageToShow = word.getAttribute('data-image-5');
             }
 
             // Set the image source and display it
