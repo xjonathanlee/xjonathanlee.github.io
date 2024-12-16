@@ -443,7 +443,7 @@ mark{
             display: none;
             width: auto;    /* Maintain aspect ratio */
             height: auto;   /* Maintain aspect ratio */
-            transform: scale(0.33);
+            transform: scale(0.5);
             transform-origin: top left; /* Ensure scaling is done from the center */
         }
 /*ends here*/
