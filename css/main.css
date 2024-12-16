@@ -443,9 +443,9 @@ mark{
             display: none;
             width: auto;    /* Maintain aspect ratio */
             height: auto;   /* Maintain aspect ratio */
-            transform: scale(0.5);
-            transform-origin: top left; /* Ensure scaling is done from the center */
-        }
+            transform: scale(0.77);
+            transform-origin: top left;
+            }
 /*ends here*/
 .project-title {
     font-size: 3rem;
