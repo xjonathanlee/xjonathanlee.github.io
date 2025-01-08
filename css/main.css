@@ -476,6 +476,7 @@ mark{
 }
 .main-section {
     margin: 0rem 2rem 5rem;
+    border: 1px solid black;
 }
 .viz-content{
     margin:0rem;
