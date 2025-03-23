@@ -21,9 +21,8 @@
       <a href="index.html" class="nav-item">home</a>
       <a href="about.html" class="nav-item">about</a>
     </nav>
-
-    <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/glass/glass.gif" alt="bah"/>
-
+    <div id="progress"></div>
+    <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/glass/glass.gif" alt="bah"/> 
     <section class="main-content">
       <h1 class="project-title">Glass - Documentary</h1>
       <p class="detail-intro">A video shot for IAT 336 to explain and illustrate the properties and uses of glass. Leveraging Lucas' mastery of the material, we wanted to illustrate the potential use cases for glass and how glass' unique properties can be leveraged</p>
@@ -71,5 +70,20 @@
       </section>
 
 <script src="js/lazyload.js"></script>
+<script>
+        // Function to update progress bar
+        function updateProgressBar() {
+            const scrollTop = window.scrollY; // How far user has scrolled
+            const docHeight = document.documentElement.scrollHeight; // Total height of the document
+            const winHeight = window.innerHeight; // Height of the viewport
+            const scrollPercentage = (scrollTop / (docHeight - winHeight)) * 100; // Percentage of the page scrolled
+            
+            // Set the width of the progress bar based on scroll percentage
+            document.getElementById('progress').style.width = scrollPercentage + '%';
+        }
+
+        // Update the progress bar whenever the user scrolls
+        window.addEventListener('scroll', updateProgressBar);
+</script>
   </body>
 </html>

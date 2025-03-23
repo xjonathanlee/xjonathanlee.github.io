@@ -68,7 +68,17 @@ section {
     margin: 2.5rem;
 }
 
-marquee{
+.marquee{
+}
+.stickycontainer{
+
+}
+div.pbar{
+    position: fixed;
+    top:0px;
+    z-index: 100000;
+    height:10px;
+    background-color: yellow;
 }
 
 .constructions{
