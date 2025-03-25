@@ -1,0 +1,18 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+     /* border: 1px solid black;  */
+}
+.header-nav {
+    text-align: right;
+    margin: 1rem;
+    padding-left: 2rem;
+}
+.progress{
+    position: sticky;
+    top:10px;
+    border:1px solid purple;
+    background-color: blueviolet;
+}

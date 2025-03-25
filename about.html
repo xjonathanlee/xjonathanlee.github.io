@@ -17,7 +17,7 @@
   <title>Jonathan Lee - Portfolio</title>
 
   <link href="css/main.css" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
   <link rel="icon" href="img/favicon.ico">
@@ -32,10 +32,9 @@
   <div class="grid-about">
     <div>
       <section>
-        <h1 class="alternate-h1">I’m Jonathan Lee, a
-          published photographer + designer based in Vancouver, Canada.</h1>
+        <h1 class="alternate-h1">I’m Jonathan Lee, a designer based in Vancouver, Canada.</h1>
           <!-- rework this -->
-        <p class="about-paragraph">I am a designer and maker looking for ways to <a>tell stories through data</a>. I am a recent graduate from the IAT program at Simon Fraser University. </p>
+        <p class="about-paragraph">I am a visual and user experience designer looking for ways to <a class="about-email" href="Birdsong.html">tell stories through data</a>. I am a recent graduate from the IAT program at Simon Fraser University. </p>
         
         <p class="about-paragraph">
 In the past I have researched generative design, co-fabrication, and 'contested memory' in architecture and products. As a designer my practice is to make things that tell stories. I practice design that is "for good" and is accessable + fair.
@@ -44,7 +43,7 @@ In the past I have researched generative design, co-fabrication, and 'contested 
  When I am not contending with spreadsheets and design software, I like to take pictures of beavers + birds at the pond near my house. On the side I help people make cosplays, and listen to Nahre Sol∎. 
 </p>
       <p class="about-paragraph">
-        You can contact me <a>jklmdia@gmail.com</a>.
+        You can contact me at <a id="myAnchor" class="about-email">jklmdia@gmail.com</a>.
       </p>
 
         <a href="https://www.linkedin.com/in/xjonathanklee/" class="about-link" target="_blank">LinkedIn</a>
@@ -53,9 +52,11 @@ In the past I have researched generative design, co-fabrication, and 'contested 
       </section>
     </div>
   </div>
+
+  <div id="toast" class="toast">Copied to Clipboard!</div>
 <!--   <div class="aboutfooter-grid">
     <a class="nav-item-alt" href="beavers.html">Anecdotes</a>
   </div> -->
 </body>
-
+<script src="js/clipboard.js"></script>
 </html>

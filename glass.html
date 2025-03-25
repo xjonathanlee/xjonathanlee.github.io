@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jonathan - Glass Videography Project</title>
 
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/newmain.css" rel="stylesheet">
     <!-- <link href="css/flexbox.css" rel="stylesheet"> -->
       <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
@@ -21,7 +21,9 @@
       <a href="index.html" class="nav-item">home</a>
       <a href="about.html" class="nav-item">about</a>
     </nav>
-    <div id="progress"></div>
+    <div class="progress">
+      <p>DHIFHAIDFHAI</p>
+    </div>
     <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/glass/glass.gif" alt="bah"/> 
     <section class="main-content">
       <h1 class="project-title">Glass - Documentary</h1>
@@ -70,20 +72,5 @@
       </section>
 
 <script src="js/lazyload.js"></script>
-<script>
-        // Function to update progress bar
-        function updateProgressBar() {
-            const scrollTop = window.scrollY; // How far user has scrolled
-            const docHeight = document.documentElement.scrollHeight; // Total height of the document
-            const winHeight = window.innerHeight; // Height of the viewport
-            const scrollPercentage = (scrollTop / (docHeight - winHeight)) * 100; // Percentage of the page scrolled
-            
-            // Set the width of the progress bar based on scroll percentage
-            document.getElementById('progress').style.width = scrollPercentage + '%';
-        }
-
-        // Update the progress bar whenever the user scrolls
-        window.addEventListener('scroll', updateProgressBar);
-</script>
   </body>
 </html>

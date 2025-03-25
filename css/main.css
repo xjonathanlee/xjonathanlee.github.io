@@ -3,6 +3,7 @@
 ::before {
     box-sizing: border-box;
     margin: 0;
+     /* border: 1px solid purple;  */
 }
 h2,
 h3 {
@@ -59,7 +60,7 @@ h2 {
     font-family: helveticaNeueReg;
 }
 p {
-    margin: 0 0 2.5rem;
+    margin: 0 0 2.0rem;
 }
 .ptitle{
    margin: 0 0 1.5rem; 
@@ -68,11 +69,40 @@ section {
     margin: 2.5rem;
 }
 
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 100px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    font-size: 17px;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.88s ease;
+  }
+  
+  .toast.show {
+    visibility: visible;
+    opacity: 1;
+    
+  }
+
+
 .marquee{
 }
-.stickycontainer{
 
-}
+/* .progress{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    border: 10px dashed purple;
+} */
+
 div.pbar{
     position: fixed;
     top:0px;
@@ -123,7 +153,7 @@ ul {
     position: absolute; /* must have this */
     background: #fff;
         background: rgba(255,255,255,);
-        color: #00000;
+        color: black;
         font: normal 2rem sans-serif;
         padding: 1rem;
         border-radius: 10px;
@@ -136,6 +166,7 @@ ul {
 }
 .index2h1 {
     width: 85.678%;
+    /* text-align: center; */
     font-size: 4.25rem;
 }
 .index2h12 {
@@ -179,8 +210,17 @@ width:320px;
 .itemgrid:hover{
     transform:translateX(25px);
 }
+
+.p-wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1.5rem;
+}
 .sub-content-group {
-    padding-bottom: 1rem;
+    display:grid;
+    /* padding-left: .5rem; */
+    grid-template-columns:1fr 1fr;
+    column-gap: .75rem;
 }
 .sub-content-item2{
     font-size:1rem 
@@ -198,6 +238,12 @@ h3 {
 h3 {
     font-family: helveticaNeueItal;
     font-weight: 400;
+}
+
+h4{
+    font-family: helveticaNeueLight;
+    font-size: 1rem;
+    padding-bottom: .67rem;
 }
 
 
@@ -262,6 +308,10 @@ em {
 .footer-nav {
     margin: 1rem;
     float: right;
+}
+
+.about-email{
+    color: #fff;
 }
 .about-link,
 .about-paragraph {
@@ -399,6 +449,16 @@ transition:  .3s ease;
         color: #231f20;
 }
 
+.notation-wrapper{
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.5rem;
+
+}
+.s-notation{
+
+}
 .headerpicture{
     /*border: 1px solid black;*/
     height:46rem;
@@ -422,13 +482,6 @@ transition:  .3s ease;
     border: 1px solid #000;
 }
 
-mark{
-/*    border: 1px solid black;*/
-  background:
-  hsla(48,92%,75%,.3),
-  border-radius: 5em;
-  padding: .2em;
-  }
 
 /*this is not alphabetized for easier testing currently*/
 /* Styling for the hover words (optional) */
@@ -483,7 +536,7 @@ mark{
 
 /*ends here*/
 .project-title {
-    font-size: 3rem;
+    font-size: 4.5rem;
     margin-bottom: 1.5rem;
 }
 .project-subtitle {
@@ -499,6 +552,13 @@ mark{
 .main-section {
     margin: 0rem 2rem 5rem;
     border: 1px solid black;
+}
+
+.p-intro{
+    max-width: 92rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
 }
 .viz-content{
     margin:0rem;
@@ -526,7 +586,15 @@ mark{
     font-family: helveticaNeueItal;
     font-size: 1rem;
 }
-
+.process-container{
+    display:grid;
+    grid-template-columns:1fr;
+}
+.process-wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 1rem;
+}
 .pstatement{
     /*border: solid black 1px;*/
     font-family: helveticaNeueReg;
@@ -534,7 +602,8 @@ mark{
     font-size:1.6rem;
     line-height: 2.2rem;
     max-width: 42rem;
-    margin:6rem;
+    margin:2rem;
+    padding-bottom: 2rem;
     /*add breakpoints for smallest screen + medium*/
 }
 
@@ -549,7 +618,21 @@ mark{
     margin-left: auto;
     margin-right: auto;
 }
-
+.secondary-content {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-content{
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-content-hero{
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 .footer-content{
     padding-top: 6.5rem;
     max-width: 60rem;

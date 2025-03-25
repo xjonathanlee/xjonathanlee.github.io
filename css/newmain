@@ -1,0 +1,13 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+     /* border: 1px solid black;  */
+}
+
+.progress{
+    /* position: sticky; */
+    top:0px;
+    border:1px solid purple;
+}
