@@ -30,9 +30,7 @@ ol{
     letter-spacing: 0.05rem;
     line-height: 1.7rem;
 }
-html {
-    overflow-y: scroll;
-}
+
 body {
     margin: 0;
     font-family: Roboto, sans-serif;
