@@ -225,6 +225,10 @@ width:320px;
 .sub-content-item2{
     font-size:1rem 
 }
+.stickynav{
+    position: sticky;
+    top:0;
+}
 h1 {
     margin-left: 0;
 }
