@@ -90,29 +90,6 @@ section {
     
   }
 
-
-/* .progress{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    border: 10px dashed purple;
-} */
-/* This doesnt work the way I want it too */
-.fixedmenu{
-    border: 1px solid purple;
-    position:fixed;
-    text-align: left;
-    top:0;
-    margin-left: auto;
-    margin-right: auto;
-    padding:1rem;
-    background: green;
-    height:30;
-}
-
-.fixedmenu a{
-    padding-left: 1rem;
-}
 .constructions{
     height:1.5rem;
 }
@@ -226,6 +203,7 @@ width:320px;
 .stickynav{
     position: sticky;
     top:0;
+    background-color: yellow;
 }
 h1 {
     margin-left: 0;
@@ -640,45 +618,6 @@ transition:  .3s ease;
     max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
-}
-.nsfw{
-    filter:blur(0px);
-}
-.spoiler{
-    overflow:hidden;
-    position:relative;
-    margin:0;
-    padding:0;
-}
-.spoiler img{
-vertical-align: bottom;
-filter:blur(10px) grayscale(99.99999%);
-transition:0.3s;
-}
-.spoiler-button {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3rem;
-    line-height: 3rem;
-    width: 50%;
-    padding: 0 1rem;
-    font-size: 1rem;
-    margin: auto;
-    background-color: transparent;
-    border:none;
-    text-decoration: underline;
-    color: #FFF;
-    text-align: center;
-    cursor: pointer;
-}
-.nospoiler img{
-    filter:none;
-}
-.nospoiler button{
-    display:none;
 }
 
 .main-content-svg {
