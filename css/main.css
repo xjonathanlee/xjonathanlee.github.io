@@ -304,6 +304,7 @@ em {
     font-style: normal;
 }
 .header-nav {
+    font-family: helveticaNeueReg;
     text-align: right;
     margin: 1rem;
     padding-left: 2rem;
