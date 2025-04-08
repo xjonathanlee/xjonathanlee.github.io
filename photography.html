@@ -54,28 +54,23 @@
         <img class="nature" src="img/photography/sanderling.PNG">   
         <div class="spoiler">
           <img class="nsfw" src="img/photography/img_people (2)-min.png">
-          <button class= "spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
         </div>
         <img src="img/photography/img_people (3)-min.png">
         <div class="spoiler">
           <img class="nsfw" src="img/photography/img_people (4)-min.jpg">
-          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
         </div>
         <img src="img/photography/img_people (5)-min.png">
       <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (6)-min.jpg">
-      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
       </div>
         <div class="spoiler">
           <img class="nsfw" src="img/photography/img_people (7)-min.jpg">
-          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
         </div>
         <img src="img/photography/img_people (8)-min.jpg">
         <img class="nature" src="img/photography/img-nature (16).jpg">   
         <img src="img/photography/img_people (9).jpg">
         <div class="spoiler">
           <img class="nsfw" src="img/photography/img_people (10).jpg">
-          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
         </div>
         <img class="nature" src="img/photography/crow.PNG">  
         <img class="nature" src="img/photography/img-nature (21).jpg">
@@ -88,12 +83,10 @@
   <div class="gallery-column">
     <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (11)-min.jpg">
-      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
     </div>
       <img src="img/photography/img_people (12)-min.jpg">
     <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (13)-min.jpg">
-      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image </button>
     </div>
     <img class="nature" src="img/photography/img-nature (23).jpg"> 
       <img src="img/photography/img_people (14)-min.jpg">
@@ -102,7 +95,6 @@
       <img src="img/photography/img_people (16)-min.jpg">
     <div class="spoiler">
       <img class="nsfw" src="img/photography/img_people (17)-min.jpg">
-      <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image </button>
     </div>
       <img src="img/photography/img_people (29)-min.jpg">
       <img class="nature" src="img/photography/img-nature (30).jpg"> 
@@ -127,7 +119,6 @@
         <img class="nature" src="img/photography/img-nature (16).jpg">  
         <div class="spoiler">
           <img class="nsfw" src="img/photography/img_people (25)-min.jpg">
-          <button class="spoiler-button" onclick="unspoiler(this)"> Click to show image</button>
         </div> 
         <img src="img/photography/img_people (1)-min.png">
         <img src="img/photography/img_people (15)-min.jpg">
@@ -146,25 +137,6 @@
   <p>Images Go here</p>
 </div> -->
 <!-- </section> -->
-<script>
-function unspoiler(spoiler){
-  spoiler.parentNode.classList.add('nospoiler');
-}
-document.getElementById("defaultOpen").click();
-function openTab(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-};
-</script>
 <!-- <script src="js/main.js"></script> -->
 <script src="js/lazyload.js"></script>
 </html>
