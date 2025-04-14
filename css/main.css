@@ -52,7 +52,14 @@ body {
     font-family: helveticaNeueBold;
     src: url(HelveticaNeue-Bold.otf);
 }
-
+@font-face{
+    font-family:PPEditorialRegular;
+    src: url(PPEditorialNew-Ultralight.otf);
+}
+@font-face{
+    font-family:PPEditorialItalic;
+    src: url(PPEditorialNew-Italic.otf);
+}
 html{
    scroll-behavior: smooth; 
 }
@@ -148,7 +155,8 @@ ul {
     padding: 3rem;
 }
 .index2h1 {
-    width: 85.678%;
+    font-family: PPEditorialRegular;
+    /* width: 85.678%; */
     /* text-align: center; */
     font-size: 4.25rem;
 }
@@ -237,6 +245,7 @@ h2 {
 }
 .nav-item,
 h3 {
+    font-family: helveticaNeueLight;
     font-size: 1rem;
 }
 h3 {
@@ -249,7 +258,6 @@ h4{
     font-size: 1rem;
     padding-bottom: .67rem;
 }
-
 
 
 a:not(.info1) {
