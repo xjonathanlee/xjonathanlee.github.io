@@ -585,7 +585,7 @@ transition:  .3s ease;
     text-decoration: none;
 }
 .notes-grid {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: grid;
     grid-template-columns: 1.25fr 1fr;
 }
