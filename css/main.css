@@ -313,8 +313,17 @@ a:hover {
 
 .notes{
     /* border: 1px solid green; */
-    max-width: 100%;
     /* text-align: right; */
+}
+
+.super1,.super2,.super3,.super4,.super5{
+    color:#828382;
+}
+
+.ac1:hover + .super1{
+    color:greenyellow;
+    font-size: 40rem;
+    background-color: purple;
 }
 
 .footernotes sub{
@@ -587,7 +596,8 @@ transition:  .3s ease;
 .notes-grid {
     /* border: 1px solid black; */
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
+    width:100%;
+    grid-template-columns: 2fr;
 }
 .notes-col1 {
     /* border: 1px solid black; */
