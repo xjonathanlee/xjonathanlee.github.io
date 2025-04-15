@@ -590,13 +590,13 @@ transition:  .3s ease;
     grid-template-columns: 1.25fr 1fr;
 }
 .notes-col1 {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: left;
 }
 
 .notes-col2,
 .rightset {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: right;
     /* text-align-last: right; */
 
