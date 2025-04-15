@@ -15,6 +15,10 @@ body {
     color: #231f20;
     overflow-x: hidden;
 }
+br{
+    border: 1px solid blue;
+    margin-bottom: 100px;
+}
 blockquote{
     margin:2.5rem;
     font-size:2rem;
@@ -59,6 +63,10 @@ body {
 @font-face{
     font-family:PPEditorialItalic;
     src: url(PPEditorialNew-Italic.otf);
+}
+@font-face{
+    font-family: PPEditorialUltra;
+    src: url(PPEditorialNew-Ultrabold.otf);
 }
 html{
    scroll-behavior: smooth; 
@@ -239,6 +247,7 @@ width:320px;
 }
 h1 {
     margin-left: 0;
+    line-height: 100%;
 }
 h2 {
     font-size: 1.2rem;
@@ -259,7 +268,10 @@ h4{
     padding-bottom: .67rem;
 }
 
-
+sub{
+    font-size:.3rem;
+    padding: .5rem;
+}
 a:not(.info1) {
     -webkit-transition: color 0.2s ease-out;
     transition: color 0.2s ease-out;
@@ -298,6 +310,19 @@ a:hover {
 
     letter-spacing: 0.1rem;
 }
+
+.notes{
+    /* border: 1px solid green; */
+    max-width: 100%;
+    /* text-align: right; */
+}
+
+.footernotes sub{
+    /* margin-right: 1.5rem; */
+    font-size: 1.5rem;
+    font-family: PPEditorialRegular;
+}
+
 .nav-item:hover{
 color: #c1c1c0;
 }
@@ -458,6 +483,8 @@ transition:  .3s ease;
 .nav-item-alt {
     font-family: helveticaNeueReg;
 }
+
+
 .nav-item-alt {
     color: #fff;
 }
@@ -550,7 +577,36 @@ transition:  .3s ease;
 
 
 /*ends here*/
+
+.notes-grid a,
+.notesnav-item {
+    
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.notes-grid {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+}
+.notes-col1 {
+    border: 1px solid black;
+    text-align: left;
+}
+
+.notes-col2,
+.rightset {
+    border: 1px solid black;
+    text-align: right;
+    /* text-align-last: right; */
+
+}
+
+.notesnav-item {
+    margin-right: 1rem;
+}
 .project-title {
+    font-family:  helveticaNeueReg;
     font-size: 4.5rem;
     margin-bottom: 1.5rem;
 }
@@ -558,7 +614,7 @@ transition:  .3s ease;
     margin-top: 0.5rem;
 }
 .intronew {
-    max-width: 100%;
+    max-width: 85%;
 }
 .aboutlinkmail {
     color: #fff;
