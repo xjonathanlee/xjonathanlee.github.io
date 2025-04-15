@@ -901,6 +901,10 @@ height:300px;
     .stickynav{
         display:none;
     }
+    sub{
+        font-size: .1rem;
+    }
+    
     ol{
         width:75%;
     }
@@ -915,8 +919,10 @@ height:300px;
     section {
         margin: 2rem;
     }
+
+    
     .index2h1 {
-        font-size: 1.2rem;
+        font-size: 3.2rem;
     }
     .itemgrid {
         padding-top: 2.5rem;
