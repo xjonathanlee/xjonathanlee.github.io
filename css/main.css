@@ -175,14 +175,14 @@ ul {
     
 }
 
-/* .iX{
+.iX{
     filter: blur(5px) url(#filter) ;
 }
 
 .iX:hover{
     filter: blur(0px) url(#filter2);
     transition: cubic-bezier(.17,.67,.83,.67);
-} */
+}
 .itemgrid {
     padding-top: 2.5rem;
     display: grid;
