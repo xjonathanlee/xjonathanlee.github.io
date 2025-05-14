@@ -233,9 +233,10 @@ width:320px;
 .stickynav{
     position: sticky;
     top:0;
-    padding: .5rem;
+    padding: 1.5rem;
     max-width: 100%;
     backdrop-filter: blur(5px);
+    /* border: 1px solid blue; */
     background-color: rgba(255,255,255,0.35);
     margin-left: auto;
     margin-right: auto;
