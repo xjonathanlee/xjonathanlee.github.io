@@ -5,8 +5,7 @@
     margin: 0;
      /* border: 1px solid purple;  */
 }
-h2,
-h3 {
+h2{
     /* letter-spacing: 0.1rem;
     */ 
     margin-bottom: 1rem; 
@@ -41,6 +40,34 @@ ol{
 body {
     margin: 0;
     font-family: Roboto, sans-serif;
+}
+
+.splash{
+    padding: 2rem;
+}
+
+.indexwrapper{
+    /* border: 1px solid black; */
+    padding:15% 5% 15% 15%;
+    display:grid;
+    column-gap: 1rem;
+    grid-template-columns: 1.25fr 1fr;
+}
+
+.ind-card-outer2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.cards{
+    width:100%;
+    overflow:clip;
+    border-radius: 3px;
+
+}
+
+.cardtitle h3{
+    font-family: helveticaNeueItal;
+    font-weight: 400;
 }
 
 @font-face {
@@ -80,9 +107,14 @@ h2 {
     font-family: helveticaNeueReg;
 }
 p {
-    margin: 0 0 2.0rem;
+    /* margin: 0 0 2.0rem; */
 }
-
+.card-desc{
+    margin-bottom: 1.25rem;
+}
+.card-flavour{
+    margin-bottom: 2.25rem;
+}
 .p1image{
     /* text-align: end; */
     /* border: 1px solid black; */
@@ -186,7 +218,8 @@ ul {
     font-variant-ligatures: historical-ligatures;
 }
 .index2h12 {
-    font-size: 4.25rem;
+    font-family: PPEditorialRegular;
+    font-size: 3.25rem;
     
 }
 
@@ -375,6 +408,8 @@ em {
     font-style: normal;
 }
 .header-nav {
+    position:sticky;
+    top:10px;
     font-family: helveticaNeueReg;
     text-align: right;
     margin: 1rem;
@@ -401,6 +436,9 @@ em {
 }
 .nav-item {
     margin-right: 1rem;
+    text-decoration: none;
+}
+.nav-item-left{
     text-decoration: none;
 }
 .footer-grid a,
@@ -599,6 +637,19 @@ transition:  .3s ease;
     cursor: crosshair;
 }
 
+.carddecoration{
+   text-decoration: none; 
+}
+
+.carddecoration:hover{
+    filter: brightness(110%);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.intro{
+    max-width: 30rem;
+}
+
 /* The images will be positioned absolutely, so they follow the mouse */
 .mouse-image {
     z-index:50;
@@ -766,6 +817,14 @@ transition:  .3s ease;
     margin-left: auto;
     margin-right: auto;
 }
+
+.main-content p{
+    margin-bottom: 2rem;
+}
+.work{
+    max-width: 80rem;
+}
+
 .main-content-flavour {
     max-width: 45rem;
     margin-left: auto;
@@ -893,6 +952,13 @@ height:300px;
 }
 
 @media screen and (max-width:63rem){
+    .indexwrapper{
+        grid-template-columns: 1fr;
+    }
+    .ind-card-outer2{
+    display: grid;
+    grid-template-columns: 1fr ;
+}
     .sidewrapper,.imgwrapper{
         grid-template-columns: 1fr;
     }
