@@ -43,7 +43,7 @@ body {
 }
 
 .splash{
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .indexwrapper{
@@ -1036,6 +1036,14 @@ height:300px;
     }
 }
 @media screen and (max-width: 26.7rem) {
+
+.indexwrapper{
+    padding:15% 5% 15% 5%;
+}
+
+    .splash{
+        margin: 0rem;
+    }
     .stickynav{
         display:none;
     }
@@ -1087,7 +1095,7 @@ height:300px;
     .about-link,
     .about-paragraph,
     h1 {
-        margin-left: 1rem;
+        /* margin-left: 1rem; */
     }
     p {
         margin-bottom: 4rem;
