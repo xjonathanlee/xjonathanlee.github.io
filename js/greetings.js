@@ -1,0 +1,1 @@
+const greetings = ["Gutentag! I am Jon.","Hello! I am Jon.","Bonjour! I am Jon.","Howdy! I am Jon.","こんいちわ! I am Jon.","Salut! I am Jon.","Hei! I am Jon.","Hjei! I am Jon.","Saelt! I am Jon.","Hola! I am Jon.","Tudo Bem! I am Jon."," Benvingudes! I am Jon.","Bon Dia! I am Jon.","Hej! I am Jon.","G'Day! I am Jon."]
