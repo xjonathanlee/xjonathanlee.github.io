@@ -58,7 +58,20 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.card-spacer{
+    display:grid;
+    grid-template-columns: 1.55fr .45fr;
+    filter:opacity(80%);
+}
+
+.card-spacer:hover{
+filter:opacity(100%);
+transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .cards{
+    /* height:20rem; */
     width:100%;
     overflow:clip;
     border-radius: 3px;
@@ -380,6 +393,7 @@ a:hover {
     /* text-align: right; */
 }
 
+
 .super1,.super2,.super3,.super4,.super5{
     color:#828382;
 }
@@ -642,8 +656,10 @@ transition:  .3s ease;
 }
 
 .carddecoration:hover{
+    transform:translateX(25px);
     filter: brightness(110%);
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 .intro{
@@ -958,6 +974,12 @@ height:300px;
     .ind-card-outer2{
     display: grid;
     grid-template-columns: 1fr ;
+}
+
+.card-spacer{
+    display:grid;
+    grid-template-columns: 1.95fr ;
+    filter:opacity(80%);
 }
     .sidewrapper,.imgwrapper{
         grid-template-columns: 1fr;
