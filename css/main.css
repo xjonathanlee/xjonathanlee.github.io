@@ -42,10 +42,6 @@ body {
     font-family: Roboto, sans-serif;
 }
 
-.splash{
-    /* padding: 2rem; */
-}
-
 .indexwrapper{
     /* border: 1px solid black; */
     padding:15% 5% 15% 15%;
@@ -433,6 +429,7 @@ em {
 .header-nav {
     position:sticky;
     top:10px;
+    z-index: 99999;
     font-family: helveticaNeueReg;
     text-align: right;
     margin: 1rem;
@@ -585,7 +582,26 @@ transition:  .3s ease;
     width:100%;
 }
 
+/*TOOLTIP STUFF*/
+.notepoint-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10rem;
+    justify-content: space-between;
+    border: 3px solid blue;
+}
 
+.image-container{
+    position:relative;
+    width:fit-content;
+    border: 2px solid red;
+}
+
+#expressive{
+    width: 1632px;
+    height: 3789px;
+    border: 20px solid green;
+}
 
 .about-link,
 .nav-item-alt,
