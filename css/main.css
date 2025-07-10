@@ -584,12 +584,11 @@ transition:  .3s ease;
 }
 
 /*TOOLTIP STUFF*/
+/*  
 .notepoint-container{
     display:flex;
-    /* grid-template-columns: 1fr 1fr; */
-    /* column-gap: 10rem; */
     gap:.25rem;
-    flex-wrap:wrap;
+    
     justify-content: space-between;
     border: 3px solid blue;
 }
@@ -601,10 +600,105 @@ transition:  .3s ease;
     border: 2px solid red;
 }
 
-#expressive{
-    width: 1632px;
-    height: 3789px;
-    border: 20px solid green;
+.dot{
+    width:10px;
+    height:10px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.dots-container{
+    max-width: 40rem;
+    position:absolute;
+    top: 0;
+    left:0;
+    background-color: green;
+
+}
+
+#info-one{
+    margin:40px 0 0 110px;
+}
+*/
+.wrapper {
+  border: 2px solid blue;
+  display: flex;
+  /* justify-content: space-between; */
+  /* padding-right: 40px; */
+  flex-wrap: wrap;
+}
+
+.container {
+  position: relative;
+  width: fit-content;
+  border: 2px solid red;
+}
+
+#jonathan-dream-vacation {
+  height: 100%;
+  width: auto;
+}
+
+#dots-container {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);
+}
+
+/* DOTS GENERAL STYLE */
+.info-container {
+  display: flex;
+  align-items: start;
+  position: absolute;
+  white-space: nowrap
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  background-color: pink;
+  border-radius: 50%;
+}
+
+.tooltip {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 4px;
+  max-width: 100px;
+  text-wrap: wrap;
+}
+
+/* DOT POSITIONS */
+#info-one {
+  margin: 40px 0 0 110px;
+}
+
+#info-two {
+  margin: 20px 0 0 240px;
+}
+
+@media only screen and (max-width: 500px) {
+  .tooltip {
+    opacity: 0;
+    transition: 1s;
+  }
+  /* HOVER TRIGGERS */
+  #dot-one:hover + #tooltip-one {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+
+  #dot-two:hover + #tooltip-two {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
 }
 
 .about-link,
