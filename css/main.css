@@ -290,6 +290,7 @@ width:320px;
 .stickynav{
     position: sticky;
     top:0;
+    z-index:4;
     padding: 1.5rem;
     max-width: 100%;
     backdrop-filter: blur(5px);
@@ -584,9 +585,11 @@ transition:  .3s ease;
 
 /*TOOLTIP STUFF*/
 .notepoint-container{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10rem;
+    display:flex;
+    /* grid-template-columns: 1fr 1fr; */
+    /* column-gap: 10rem; */
+    gap:.25rem;
+    flex-wrap:wrap;
     justify-content: space-between;
     border: 3px solid blue;
 }
@@ -594,6 +597,7 @@ transition:  .3s ease;
 .image-container{
     position:relative;
     width:fit-content;
+    max-width: 40rem;
     border: 2px solid red;
 }
 
