@@ -624,7 +624,7 @@ transition:  .3s ease;
   border: 2px solid blue;
   display: flex;
   /* justify-content: space-between; */
-  /* padding-right: 40px; */
+  padding-right: 40px;
   flex-wrap: wrap;
 }
 
@@ -634,18 +634,18 @@ transition:  .3s ease;
   border: 2px solid red;
 }
 
-#jonathan-dream-vacation {
-  height: 100%;
-  width: auto;
+#salmon-chart {
+  height: 3788px;
+  width: 1551px;
 }
 
 #dots-container {
-  height: 100%;
-  width: auto;
+  height: 3788px;
+  width: 1551px;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.2);
+  /* background-color: rgba(0,0,0,0.2); */
 }
 
 /* DOTS GENERAL STYLE */
@@ -657,29 +657,34 @@ transition:  .3s ease;
 }
 
 .dot {
-  height: 30px;
-  width: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  background-color: pink;
+  height: 15px;
+  width: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  background-color: black;
   border-radius: 50%;
 }
 
 .tooltip {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   color: white;
   padding: 4px;
-  max-width: 100px;
+  font-size: 1.25rem;
+  max-width: 300px;
   text-wrap: wrap;
 }
 
 /* DOT POSITIONS */
 #info-one {
-  margin: 40px 0 0 110px;
+  margin: 120px 0 100px 110px;
 }
 
 #info-two {
-  margin: 20px 0 0 240px;
+  margin: 300px 0 0 1000px;
+}
+
+#info-three{
+    margin: 500px 0 0 1300px;
 }
 
 @media only screen and (max-width: 500px) {
