@@ -671,7 +671,7 @@ transition:  .3s ease;
 }
 
 .tooltip {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.4);
   color: white;
   padding: 4px;
   font-size: 1rem;
@@ -679,9 +679,15 @@ transition:  .3s ease;
   text-wrap: wrap;
 }
 
+.tooltip:hover{
+  background-color: rgba(0,0,0,0.8);
+  transition: .5s;  
+}
+
 /* DOT POSITIONS */
+/*TOP BOTTOM LEFT RIGHT*/
 #info-one {
-  margin: 120px 0 100px 110px;
+  margin: 0 0 0 110px;
 }
 
 #info-two {
@@ -689,7 +695,29 @@ transition:  .3s ease;
 }
 
 #info-three{
-    margin: 500px 0 0 130px;
+    margin: 100px 0 0 130px;
+}
+#info-four {
+  margin: 120px 0 100px 110px;
+}
+
+#info-five {
+  margin: 50px 0 0 100px;
+}
+
+#info-six{
+    margin: 200px 25px 0 0;
+}
+#info-seven {
+  margin: 310px 0 0 167px;
+}
+
+#info-eight {
+  margin: 400px 100px 0 20px;
+}
+
+#info-nine{
+    margin: 450px 0 0 20px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -709,6 +737,36 @@ transition:  .3s ease;
     transform: translateY(-10px);
     opacity: 1;
   }
+
+    #dot-five:hover + #tooltip-five {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+
+    #dot-six:hover + #tooltip-six {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+    #dot-seven:hover + #tooltip-seven {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+    #dot-eight:hover + #tooltip-eight {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+    #dot-nine:hover + #tooltip-nine {
+    display: block;
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+
+
+
 }
 
 @media only screen and ( width:850px){
