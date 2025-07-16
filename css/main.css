@@ -687,15 +687,15 @@ transition:  .3s ease;
 /* DOT POSITIONS */
 /*TOP BOTTOM LEFT RIGHT*/
 #info-one {
-  margin: 0 0 0 110px;
+  margin: 100px 0 0 110px;
 }
 
 #info-two {
-  margin: 300px 0 0 100px;
+  margin: 200px 30px 30px 30px;
 }
 
 #info-three{
-    margin: 100px 0 0 130px;
+    margin: 400px 0 0 130px;
 }
 #info-four {
   margin: 120px 0 100px 110px;
@@ -769,7 +769,7 @@ transition:  .3s ease;
 
 }
 
-@media only screen and ( width:850px){
+@media only screen and ( max-width:850px){
     #salmon-chart{
         width:100vw;
         height:auto;
