@@ -5,6 +5,14 @@
     margin: 0;
      /* border: 1px solid white;  */
 }
+
+marquee{
+    background: yellow;
+    padding:.75rem;
+
+}
+
+
 h2{
     /* letter-spacing: 0.1rem;
     */ 
