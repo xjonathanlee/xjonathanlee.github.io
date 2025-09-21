@@ -3,7 +3,7 @@
 ::before {
     box-sizing: border-box;
     margin: 0;
-     /* border: 1px solid white;  */
+     /* border: 1px solid black;  */
 }
 
 marquee{
@@ -126,11 +126,17 @@ h2 {
 p {
     /* margin: 0 0 2.0rem; */
 }
+
+mark{
+    background-color:white;
+}
 .card-desc{
+    font-size: 1.25rem;
     margin-bottom: 1.25rem;
 }
 .card-flavour{
-    margin-bottom: 2.25rem;
+    font-size: 1em;
+    margin-bottom: 1.25rem;
 }
 .p1image{
     /* text-align: end; */
@@ -339,8 +345,8 @@ h3 {
     font-size: 1rem;
 }
 h3 {
-    font-family: helveticaNeueItal;
-    font-weight: 400;
+    font-family: helveticaNeueLight;
+    font-size: 2.25rem;
 }
 
 h4{
