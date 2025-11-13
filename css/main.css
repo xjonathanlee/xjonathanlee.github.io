@@ -544,6 +544,24 @@ transition:  .3s ease;
     /* border: 1px solid black; */
 }
 
+.sidewrappervar1{
+    display:grid;
+    min-width: 50rem;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.0rem;
+    /* border: 1px solid black; */
+}
+
+.col1wrapper1 img{
+    object-fit:contain;
+    /* border: 1px solid black; */
+}
+
+.col2wrapper1 img{
+    object-fit:contain;
+    /* border: 1px solid black; */
+}
+
 .col1wrapper img{
     object-fit:contain;
     border: 1px solid black;
