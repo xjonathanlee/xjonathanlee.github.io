@@ -562,6 +562,9 @@ transition:  .3s ease;
     /* border: 1px solid black; */
 }
 
+.comingsoon{
+opacity:66.66%;
+}
 .col1wrapper img{
     object-fit:contain;
     border: 1px solid black;
