@@ -541,6 +541,7 @@ transition:  .3s ease;
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.0rem;
+    margin-bottom: 1rem;
     /* border: 1px solid black; */
 }
 
@@ -573,6 +574,16 @@ opacity:66.66%;
 .col2wrapper img{
     object-fit:contain;
     border: 1px solid black;
+}
+
+.col1wrapper_noborder img{
+    object-fit:contain;
+    
+}
+
+.col2wrapper_noborder img{
+    object-fit:contain;
+    
 }
 
 .column {
@@ -906,6 +917,10 @@ opacity:66.66%;
 
 }
 
+.caption p{
+    margin-bottom: 2.25rem;
+}
+
 .intro{
     max-width: 30rem;
     margin-bottom: 1rem;
@@ -1009,11 +1024,11 @@ opacity:66.66%;
     margin:0rem;
 }
 .full-bleed {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 100%;
-    margin-top:1rem; 
-    margin-bottom:2rem;
+    margin-top:1.85rem; 
+    margin-bottom:.25rem;
     margin-left:0rem; 
     margin-right:2rem;
 }
