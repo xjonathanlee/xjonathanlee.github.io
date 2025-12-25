@@ -279,6 +279,7 @@ width:320px;
     color:#828382;
     font-size:1rem;
     /*border:1px solid black;*/
+    max-width: 75%;
 }
 
 .itemgrid:hover{
