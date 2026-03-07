@@ -33,8 +33,10 @@ blockquote{
 }
 h1,
 li {
-    border: 1px pink;
+    /* border: 1px pink; */
     margin-bottom: 0.6rem;
+    width:85%;
+    
 }
 
 ol{
@@ -245,14 +247,83 @@ ul {
     font-size: 2.25rem;
     
 }
+/*TEST VIEWPORT SCRUBBER*/
+    .scrubber {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: none;
+      border: 1px solid var(--border);
+      background: #000;
+      user-select: none;
+    }
 
+    .scrubber img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.05s linear;
+      pointer-events: none;
+    }
+
+    .scrubber img.active {
+      opacity: 1;
+    }
+
+    /* Progress bar */
+    .scrub-track {
+      width: 100%;
+      height: 4px;
+      background: var(--surface);
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .scrub-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.05s linear;
+      border-radius: 2px;
+    }
+
+
+    /* Instruction pill */
+    .hint {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      border: 1px solid var(--border);
+      color: white;
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 20;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .scrubber:hover .hint {
+      opacity: 0;
+    }
 /*TEST COMPARE*/
 .img-comp-container {
   position: relative;
   width: 100%;        /* ← fills parent, not a fixed size */
   overflow: hidden;   /* ← prevents the component from "blocking" wider than its slot */
 }
-}
+
 
 .img-comp-img {
   position: absolute; /* ← both images stack on top of each other */

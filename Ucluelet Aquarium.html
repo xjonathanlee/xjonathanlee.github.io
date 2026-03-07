@@ -85,11 +85,18 @@
   </section>
 
 <section class="image-content">
-
-          <!-- <a href="img/birdsong/form_read.png" data-lightbox="fex"> -->
-      <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/collage1.png" alt="#">
-    <!-- </a> -->
-
+<div class="sidewrapper">
+  <div class="col1wrapper_noborder">
+    <a href="img/birdsong/form_read.png" data-lightbox="fex">
+      <img class="full-bleed lazy entered loaded" src="img/Ucluelet/signlayover.png" data-src="img/Ucluelet/signlayover.png" alt="#" data-ll-status="loaded">
+    </a>
+  </div>
+  <div class="col2wrapper_noborder">
+    <a href="img/birdsong/exp_read.png" data-lightbox="fex">
+    <img class="full-bleed lazy entered loaded" src="img/Ucluelet/signo_proposal.png" data-src="img/Ucluelet/signo_proposal.png" alt="#" data-ll-status="loaded">
+    </a>
+  </div>
+</div>
 </section>
 <section class="main-content">
   <br>
@@ -112,52 +119,27 @@
   <p>In the redesigns, we explored how color could be a gateway to cue based learning. By sorting animals into <em>phyla</em>, we were able to assign a distinct color to each biological grouping, creating a visual thread that connected creatures that might look nothing alike e.g.(sea urchin vs sea star)  for instance, share little visual resemblance, but both belong to <em>Echinodermata</em>.</p>
 <section class="image-content">
 
-<div class="sidewrapper">
-  <div class="col1wrapper_noborder">
-    <a href="img/birdsong/form_read.png" data-lightbox="fex">
-      <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/signlayover.png" alt="#">
-    </a>
+  <div class="scrubber" id="scrubber">
+    <!-- Images injected by JS -->
+    <div class="scrubber-cursor" id="cursor"></div>
+    <div class="frame-label" id="frameLabel">01 / 10</div>
+    <div class="hint">← move mouse to scrub →</div>
   </div>
-  <div class="col2wrapper_noborder">
-    <a href="img/birdsong/exp_read.png" data-lightbox="fex">
-    <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/signo_proposal.png" alt="#">
-    </a>
+
+  <div class="scrub-track">
+    <div class="scrub-fill" id="scrubFill"></div>
   </div>
-</div>
+
+  <div class="info-row">
+    <span>FRAME <em id="currentFrame">01</em></span>
+    <span>TOTAL <em id="totalFrames">10</em></span>
+  </div>
 
     <a href="img/birdsong/jp2.jpg" data-lightbox="fex"></a>
         <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/gifsign2.gif" alt="#">
     </a>
     <p class="annotate">  Some speculation on converting the signs for video and motion displays. </p>
 </section>
-  <h2>Plankton Tumbler (Proposal)</h2>
-  <p >
-      In order to update the labels and as a part of truth and reconcillation we chose to include the NuulChaNuth names along side the latin names where available. Labels were sorted into 3 catagories (Invertebrates, Plants + Algae , Fish) and were printed on Alu-panel for extra durability.   
-  </p>
-  <p>In the redesigns, we explored how color could be a gateway to cue based learning. By sorting animals into <em>phyla</em>, we were able to assign a distinct color to each biological grouping, creating a visual thread that connected creatures that might look nothing alike e.g.(sea urchin vs sea star)  but share a genus: <em>Echinoderma</em>.</p>
-  
-<section class="image-content">
-
-<div class="sidewrapper">
-  <div class="col1wrapper_noborder">
-    <a href="img/birdsong/form_read.png" data-lightbox="fex">
-      <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/signlayover.png" alt="#">
-    </a>
-  </div>
-  <div class="col2wrapper_noborder">
-    <a href="img/birdsong/exp_read.png" data-lightbox="fex">
-    <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/signo_proposal.png" alt="#">
-    </a>
-  </div>
-</div>
-
-    <a href="img/birdsong/jp2.jpg" data-lightbox="fex"></a>
-        <img class="full-bleed lazy" src="img/lazy-load.jpg" data-src="img/Ucluelet/gifsign2.gif" alt="#">
-    </a>
-    <p class="annotate">  Some speculation on converting the signs for video and motion displays. </p>
-</section>
-
-<h2>Glance Based Information</h2>
 
 </section>
 
@@ -172,4 +154,5 @@
   </section>
   <script src="js/lazyload.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/scrubber.js"></script>
 </body>
