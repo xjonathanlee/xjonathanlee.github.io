@@ -275,14 +275,23 @@ ul {
       opacity: 1;
     }
 
+    .scrubber-ticks {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 16px;
+      gap: 0;
+      margin-bottom: 10px;
+    }
+
     /* Progress bar */
     .scrub-track {
       width: 100%;
       height: 4px;
-      background: var(--surface);
+      background: white;
       border-radius: 2px;
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1px solid white;
     }
 
     .scrub-fill {

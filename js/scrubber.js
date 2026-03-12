@@ -17,11 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const cursor      = document.getElementById("cursor");
   const frameLabel  = document.getElementById("frameLabel");
   const scrubFill   = document.getElementById("scrubFill");
+  const ticksEl     = document.getElementById("ticks");
   const currentFrame = document.getElementById("currentFrame");
   const totalFrames = document.getElementById("totalFrames");
 
   let activeIndex = 0;
   let imgEls = [];
+  let tickEls = [];
 
   // Set total frames
   totalFrames.textContent = String(frames.length).padStart(2, "0");
@@ -34,6 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
     img.alt = `Frame ${i + 1}`;
     scrubber.appendChild(img);
     imgEls.push(img);
+
+    // Create tick elements
+    const tick = document.createElement("div");
+    tick.className = "tick" + (i === 0 ? " active" : "");
+    tick.addEventListener("click", () => scrubTo(i / Math.max(frames.length - 1, 1)));
+    ticksEl.appendChild(tick);
+    tickEls.push(tick);
   });
 
   function pad(n) { return String(n).padStart(2, "0"); }
@@ -44,7 +53,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (index !== activeIndex) {
       imgEls[activeIndex].classList.remove("active");
+      tickEls[activeIndex].classList.remove("active");
       imgEls[index].classList.add("active");
+      tickEls[index].classList.add("active");
       activeIndex = index;
       frameLabel.textContent = `${pad(index + 1)} / ${pad(frames.length)}`;
       currentFrame.textContent = pad(index + 1);

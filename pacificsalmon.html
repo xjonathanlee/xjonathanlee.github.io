@@ -72,7 +72,7 @@
             <a href="#UX">Overview</a>
             <a href="#infoD">Information Design</a>
             <a href="#Smood">Smoothing Data</a>
-            <a href="#rollup">User Patterns</a>
+            <a href="#rollup">Icons and Overlays</a>
           </div>
         </div>
 
@@ -217,21 +217,26 @@ Initially, we used a bar chart combined with a trimetric badge (tribadge) to imp
     </p>
 
     <p>
-By consolidating the data into a more visual format, we addressed issues of granularity and focus, enabling researchers to track changes over time more effectively.
+    By consolidating the data into a more visual format, we addressed issues of granularity and focus, enabling researchers to track changes over time more effectively.
     </p>
-
-
-    <h2>Glance Based Information and Prepared Documents</h2>
-    <p>
-    A major point of user friction came from observing other users and their patterns navigating the site. The online portion was fine, but we observed a need for the information to be presented differently as a <mark>rapid printout</mark>. My team lead came to me to take a speculative look on how users would look at printouts of cogent information within the habitat panel and the biostatus panel.
-    </p>
-  </section>
+    </section>
+<section class="main-content">
+  <h2>Cartographic Design</h2>
+    <p id="rollup">During my time contributing to a salmon migration mapping application, I focused on how color and icon choices affect how easily users can read and navigate the map. The existing color system had been built up piece by piece, with each layer designed independently from the others. Through a heuristic evaluation, I found that the salmon run icons were visually competing with the basemap beneath them rather than sitting cleanly on top, which meant users had to work harder just to orient themselves before they could engage with the data. Many stacked icons created a clumping effect that made each place when zoomed out visually hard to read.</p>
     <section class="image-content">
-    <a href="img/raincoast/biostatus_printout.png" data-lightbox="fex">
-    <img class="within-content-double lazy" src="img/lazy-load.jpg" data-src="img/raincoast/biostatus_printout.png" alt="rollup biopsy"/></a>
-  </section>
-  <section class="main-content">
-    <p id="rollup">We <mark>created a way for users to obtain crucial information highlighting the "at a glance" principle found in both Biostatus and Regional Overviews</mark>. During testing we observed variance in how people used documents to track their thoughts and research. This culminates in a printout that could be assessed rapidly, allowing users to get a definitive top level readout without having to parse through the site.∎</p>
+    <a href="img/raincoast/iconset_2.png" data-lightbox="fex">
+    <img class="full-bleed lazy lazy" src="img/lazy-load.jpg" data-src="img/raincoast/iconset_2.png" alt="new chart image"/></a>
+    </section>
+    <p> To solve this I implemented a white border to each icon set in a 36x36 grid as well as a visual culling system so that when zoomed out icons would not overwhelm the map.</p>
+    <h2>Overlays</h2>
+    <p>Overlays of colours also presented a significant accessibility problem, as different populations merged together a "water color" effect occured where layers became increasingly difficult to distinguish for users even with perfect colour vision. The core problem was contrast: multiple colors even across the entire chroma pallete caused specific conservation units to be obscured.</p>
+    <section class="image-content">
+    <a href="img/raincoast/colorset.png" data-lightbox="fex">
+    <img class="full-bleed lazy lazy" src="img/lazy-load.jpg" data-src="img/raincoast/colorset_2.png" alt="new chart image"/></a>
+    </section>
+    <p>To address the visual stacking problem, we paired hue groupings with pattern overlays so that each data layer maintained a distinct visual identity even when multiple layers shared the same visual space. With that separation in place, we used chroma to carry the environmental hazard data, reserving high-chroma values for active conditions and lower-chroma treatments for background context. The result was a system where every layer remained legible both in isolation and in combination.</p>
+
+
     <br>
 
 </section>
