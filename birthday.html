@@ -9,13 +9,13 @@
     <a-scene mindar-image="imageTargetSrc: img/birthday/targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="img/jek.jpg" />
-        <a-asset-item id="avatarModel" src="img/birthday/test3.glb"></a-asset-item>
+        <a-asset-item id="avatarModel" src="img/birthday/test4.glb"></a-asset-item>
       </a-assets>
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <!-- <a-scene mindar-image="filterMinCF:0.1; filterBeta: 10"/> -->
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        <a-plane src="#card" position="45 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel" animation="property: rotation; to: 0 360 0; dur: 3000; easing: easeInOutQuad; loop: true; dir: alternate" animation="property: position; to: 0 0.15 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
     </a-scene>
   </body>
