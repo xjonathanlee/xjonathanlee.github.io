@@ -481,6 +481,7 @@ h4{
 sub{
     font-size:.3rem;
     padding: .5rem;
+    padding-bottom: 2rem;
 }
 a:not(.info1) {
     -webkit-transition: color 0.2s ease-out;
