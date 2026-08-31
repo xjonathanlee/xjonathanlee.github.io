@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4EZDL5MHN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T4EZDL5MHN');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jonathan Lee - Portfolio</title>
+<link href="css/horse-main.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+<link rel="icon" href="img/favicon.ico">
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@videojs/html@10.0.0-beta.31/cdn/video-minimal.js"></script> -->
+</head>
+<body class="splash-river">
+
+<nav class="header-nav">
+  <a href="#work" class="nav-item-alt">WORK</a>
+  <a href="about.html" class="nav-item-alt">ABOUT</a>
+</nav>
+
+<section class="splash">
+  <h1 class="splash-title">River Runners is a portrait of equine trainers and stable masters, told through five vignettes — probing what matters in equine sport, and inviting a new perspective on equestrian training & culture.</h1>
+</section>
+
+<section id="work">
+  <nav class="name-list">
+    <div class="name-item">
+      <a class="designer-link" data-target="megan" href="megan_eq.html">Megan Allisworth</a>
+      <span class="hover-copy">On Perserverance</span>
+    </div>
+    <div class="name-item">
+      <a class="designer-link" data-target="stav" href="#">Stav Adler</a>
+      <span class="hover-copy">Reading "The Book" on Riding</span>
+    </div>
+
+    <div class="name-item">
+      <a class="designer-link" data-target="hannah" href="#">Hannah Tadsen</a>
+      <span class="hover-copy">On Hard Work</span>
+    </div>
+
+    <div class="name-item">
+      <a class="designer-link" data-target="nata" href="#">Nat Adler</a>
+      <span class="hover-copy">Big Jumps Little Jumps</span>
+    </div>
+
+    <div class="name-item">
+      <a class="designer-link" data-target="nema" href="#">Neema Linda Maenpaa</a>
+      <span class="hover-copy">On the Perfect Ride</span>
+    </div>
+  </nav>
+
+  <div class="portrait-layer">
+    <div class="portrait" data-portrait="megan"><span>Megan Allisworth</span></div>
+    <div class="portrait" data-portrait="hannah"><span>Hannah Tadsen</span></div>
+    <div class="portrait" data-portrait="nata"><span>Nat Adler</span></div>
+    <div class="portrait" data-portrait="stav"><span>Stav Adler</span></div>
+    <div class="portrait" data-portrait="nema"><span>Neema Linda Maenpaa</span></div>
+  </div>
+
+  <div class="bio-panel">
+    <p class="bio is-active" data-bio="default">River Runners 01: Passion and Trust</p>
+    <p class="bio" data-bio="megan">Megan explores the vissistudes of her practice through reading body language and emotions - instilling confidence in her students through example.</p>
+    <p class="bio" data-bio="hannah">Hannah believes that equitation should be fun while working hard - a process she embodies everytime she steps in the ring.</p>
+    <p class="bio" data-bio="nata">Form and function drives Nat's day to day ethos focusing on perfection, hard work and balance while juggling being a stable master and a full time competitor.</p>
+    <p class="bio" data-bio="stav">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — Stav Adler.</p>
+    <p class="bio" data-bio="nema">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, Neema Linda Maenpaa.</p>
+  </div>
+</section>
+
+<script>
+  const links = document.querySelectorAll('.designer-link');
+  const portraits = document.querySelectorAll('.portrait');
+  const bios = document.querySelectorAll('.bio');
+
+  function showPortrait(name) {
+    portraits.forEach((p) => {
+      p.classList.toggle('is-active', p.dataset.portrait === name);
+    });
+    bios.forEach((b) => {
+      b.classList.toggle('is-active', b.dataset.bio === name);
+    });
+  }
+
+  function hideAll() {
+    portraits.forEach((p) => p.classList.remove('is-active'));
+    bios.forEach((b) => b.classList.toggle('is-active', b.dataset.bio === 'default'));
+  }
+
+  links.forEach((link) => {
+    link.addEventListener('mouseenter', () => showPortrait(link.dataset.target));
+  });
+
+  document.querySelector('.name-list').addEventListener('mouseleave', hideAll);
+</script>
+
+</body>
+</html>

@@ -247,6 +247,11 @@ ul {
     font-size: 2.25rem;
     
 }
+.index2h122 {
+    font-family: PPEditorialRegular;
+    font-size: 8rem;
+    
+}
 /*TEST VIEWPORT SCRUBBER*/
     .scrubber {
       position: relative;
@@ -461,6 +466,9 @@ h1 {
 h2 {
     font-size: 1.5rem;
 }
+
+
+
 .nav-item,
 h3 {
     font-family: helveticaNeueLight;
@@ -564,6 +572,16 @@ em {
     font-weight: 700;
     font-style: normal;
 }
+
+    .splash-river{
+        margin: 0 rem;
+        color: whitesmoke;
+        background-image: url("../img/Riverrunner/Capture.png");
+          background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+    }
+
 .header-nav {
     position:sticky;
     top:10px;
@@ -1451,6 +1469,7 @@ height:300px;
     .splash{
         margin: 0rem;
     }
+
     .stickynav{
         display:none;
     }
