@@ -26,6 +26,7 @@
     font-family: PPEditorialUltra;
     src: url(PPEditorialNew-Ultrabold.otf);
 }
+
 /* -----------------------------------------------------------------
    horse-main.css
    Jonathan Lee — Portfolio / Equestrian Documentary
@@ -106,7 +107,6 @@ body.splash-river {
   margin: 0;
   font-family: PPEditorialRegular;
   font-size: 6rem;
-  /* font-weight: 300; */
   letter-spacing: 0.01em;
   line-height: 1.1;
 }
@@ -152,8 +152,8 @@ body.splash-river {
 }
 
 @keyframes cue-pulse {
-  0%, 100% { transform: scaleY(1);   opacity: 0.5; }
-  50%      { transform: scaleY(0.5); opacity: 1;   }
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50%      { transform: scaleY(0.5); opacity: 1; }
 }
 
 /* ---- Section intro copy ------------------------------------------- */
@@ -210,7 +210,6 @@ section > h2 {
   font-family: PPEditorialRegular;
   text-decoration: none;
   font-size: 2rem;
-  /* letter-spacing: 0.01em; */
   line-height: 1;
   transition: opacity 250ms ease;
 }
@@ -223,7 +222,6 @@ section > h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   letter-spacing: 0.06em;
-  /* text-transform: uppercase; */
   color: var(--dim);
   opacity: 0;
   transform: translateY(-4px);
@@ -235,35 +233,43 @@ section > h2 {
   transform: translateY(0);
 }
 
-video-skin {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+/* ---- Fullscreen video player -------------------------------------- */
+
+video-player {
+  display: block;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
   overflow: hidden;
 }
 
-youtube-video {
+video-skin {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+youtube-video,
+video-player [slot="poster"] {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 56.25vw;   /* 16:9 */
-  min-height: 100vh;
-  min-width: 177.78vh; /* 16:9 */
+  width: max(100vw, 177.78dvh);
+  height: max(100dvh, 56.25vw);
+  min-width: 100%;
+  min-height: 100%;
   transform: translate(-50%, -50%);
 }
-video-player [slot=poster] {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw;
-  min-height: 100vh;
-  min-width: 177.78vh;
-  transform: translate(-50%, -50%);
+
+video-player [slot="poster"] {
   object-fit: cover;
   object-position: center;
 }
+
 /* ---- Bio panel (bottom left) --------------------------------------- */
 
 .bio-panel {
@@ -280,9 +286,7 @@ video-player [slot=poster] {
   left: 0;
   right: 0;
   margin: 0;
-  /* font-family: 'Roboto Mono', monospace; */
   font-size: 15px;
-  /* line-height: 1.7; */
   color: var(--dim);
   opacity: 0;
   transform: translateY(6px);
@@ -339,7 +343,6 @@ video-player [slot=poster] {
   transform: translateX(0);
 }
 
-/* Swap these for real photos of each trainer */
 .portrait[data-portrait="megan"] { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
 .portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
 .portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
@@ -375,8 +378,6 @@ video-player [slot=poster] {
     margin-right: 6vw;
   }
 
-  /* Stack name list full-width; portraits become a background layer
-     behind it instead of a 50vw side panel */
   .name-list {
     width: 100%;
     padding: 0 6vw;
@@ -396,7 +397,6 @@ video-player [slot=poster] {
     background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
   }
 
-  /* Bio panel: pin above the fold, full-width instead of bottom-left float */
   .bio-panel {
     left: 6vw;
     right: 6vw;
@@ -406,5 +406,27 @@ video-player [slot=poster] {
 
   .bio {
     font-size: 13px;
+  }
+
+  /* Video player remains true fullscreen on mobile */
+  video-player {
+    width: 100%;
+    height: 100dvh;
+    aspect-ratio: auto;
+  }
+
+  video-skin {
+    width: 100%;
+    height: 100%;
+  }
+
+  youtube-video,
+  video-player [slot="poster"] {
+    width: max(100vw, 177.78dvh);
+    height: max(100dvh, 56.25vw);
+  }
+
+  .video-overlay {
+    height: 100dvh;
   }
 }
