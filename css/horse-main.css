@@ -310,8 +310,8 @@ section > h2 {
 }
 
 /* Swap these for real photos of each trainer */
-.portrait[data-portrait="megan"] { background-image: url("#"); }
+.portrait[data-portrait="megan"] { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
 .portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
 .portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
-.portrait[data-portrait="stav"] { background-image: url("img/stav.jpg"); }
+.portrait[data-portrait="stav"] { background-image: url("../img/Riverrunner/Capture.PNG"); }
 .portrait[data-portrait="nema"] { background-image: url("img/nema.jpg"); }
