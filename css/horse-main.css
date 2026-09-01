@@ -234,6 +234,35 @@ section > h2 {
   transform: translateY(0);
 }
 
+video-skin {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+youtube-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;   /* 16:9 */
+  min-height: 100vh;
+  min-width: 177.78vh; /* 16:9 */
+  transform: translate(-50%, -50%);
+}
+video-player [slot=poster] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+}
 /* ---- Bio panel (bottom left) --------------------------------------- */
 
 .bio-panel {
