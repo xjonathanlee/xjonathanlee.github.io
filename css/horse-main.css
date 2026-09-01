@@ -345,3 +345,66 @@ video-player [slot=poster] {
 .portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
 .portrait[data-portrait="stav"] { background-image: url("../img/Riverrunner/Capture.PNG"); }
 .portrait[data-portrait="nema"] { background-image: url("img/nema.jpg"); }
+
+/* ---- Mobile ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .header-nav {
+    padding: 18px 6vw;
+    gap: 18px;
+  }
+
+  .splash {
+    padding: 0 6vw;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .splash-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.2;
+  }
+
+  section {
+    padding: 80px 0 40px;
+  }
+
+  .index2h122,
+  section > h2 {
+    margin-left: 6vw;
+    margin-right: 6vw;
+  }
+
+  /* Stack name list full-width; portraits become a background layer
+     behind it instead of a 50vw side panel */
+  .name-list {
+    width: 100%;
+    padding: 0 6vw;
+    gap: 22px;
+  }
+
+  .designer-link {
+    font-size: 1.5rem;
+  }
+
+  .portrait-layer {
+    width: 100%;
+    z-index: 0;
+  }
+
+  .portrait::before {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  }
+
+  /* Bio panel: pin above the fold, full-width instead of bottom-left float */
+  .bio-panel {
+    left: 6vw;
+    right: 6vw;
+    bottom: 24px;
+    width: auto;
+  }
+
+  .bio {
+    font-size: 13px;
+  }
+}
