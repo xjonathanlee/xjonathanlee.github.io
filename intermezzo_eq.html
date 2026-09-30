@@ -21,11 +21,14 @@
 <nav class="header-nav">
   <a href="riverrunnerindex.html" class="nav-item-alt">Back to Index</a>
 </nav>
-<video-player poster="../img/Riverrunner/splash_hannah@2x.PNG">
+<video-player poster="../img/MEGAN_EQ.PNG">
   <video-skin>
-    <youtube-video src="https://www.youtube.com/watch?v=7zkrA5GrqDo"></youtube-video>
-    <!-- Add the quality menu/button component -->
-    <media-quality-menu></media-quality-menu>
+    <!-- 1. Add quality and disable captions/subtitles via data attributes or engine settings -->
+    <youtube-video 
+      src="https://www.youtube.com/watch?v=JWBz4MDqM2U"
+      quality="hd1080"
+      default-text-track-mode="disabled">
+    </youtube-video>
   </video-skin>
   <media-fullscreen-button></media-fullscreen-button>
 </video-player>
