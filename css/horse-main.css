@@ -248,6 +248,7 @@ video-skin {
   display: block;
   position: absolute;
   inset: 0;
+  border-radius:0rem;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -268,6 +269,11 @@ video-player [slot="poster"] {
 video-player [slot="poster"] {
   object-fit: cover;
   object-position: center;
+}
+
+
+video-skin {
+  --media-border-radius: 0rem;
 }
 
 /* ---- Bio panel (bottom left) --------------------------------------- */
