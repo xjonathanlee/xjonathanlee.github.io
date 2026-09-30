@@ -23,7 +23,7 @@
 </nav>
 <video-player poster="../img/MEGAN_EQ.PNG">
   <video-skin>
-    <!-- 1. Add quality and disable captions/subtitles via data attributes or engine settings -->
+    <!-- Configured with minimal quality selector and disabled text tracks -->
     <youtube-video 
       src="https://www.youtube.com/watch?v=JWBz4MDqM2U"
       quality="hd1080"
@@ -32,15 +32,14 @@
   </video-skin>
   <media-fullscreen-button></media-fullscreen-button>
 </video-player>
-<!-- <div class="video-overlay" style="opacity: 0.7;"></div> -->
  <script>
   document.addEventListener('DOMContentLoaded', () => {
     const ytVideo = document.querySelector('youtube-video');
     if (ytVideo) {
-      // Force HD quality if supported by the wrapper instance
+      // Force HD quality 
       ytVideo.quality = 'hd1080';
       
-      // Disable any active text tracks/subtitles
+      // Ensure all text tracks/subtitles are turned off programmatically
       const textTracks = ytVideo.textTracks;
       if (textTracks) {
         for (let i = 0; i < textTracks.length; i++) {
