@@ -353,7 +353,7 @@ video-skin {
 .portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
 .portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
 .portrait[data-portrait="stav"] { background-image: url("../img/Riverrunner/Capture.PNG"); }
-.portrait[data-portrait="nema"] { background-image: url("img/nema.jpg"); }
+.portrait[data-portrait="nema"] { background-image: url("../img/Riverrunner/nema.jpg"); }
 
 /* ---- Mobile ---------------------------------------------------- */
 
