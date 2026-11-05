@@ -51,7 +51,7 @@
     position: absolute;
     top: 25px;
     left: 25px;
-    z-index: 30;
+    z-index: 50;
   }
 
   /* Permanent Editorial Dropdown Menu with Subtle Gradient & Fade Transition */
@@ -124,6 +124,62 @@
     transform: translateX(3px);
   }
 
+  .video-splash {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    background: url("img/Riverrunner/untitled-0406.JPG") center / cover no-repeat;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .video-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .splash-play-button {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .splash-play-icon {
+    display: grid;
+    width: 84px;
+    height: 84px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .splash-play-button:hover .splash-play-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.08);
+  }
+
+  .splash-play-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 6px;
+  }
+
+  .splash-play-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
   /* Sleek minimalist audio toggle button styling */
   .audio-control-btn {
     position: absolute;
@@ -167,27 +223,27 @@
         <div class="nav-grid">
             <div class="nav-column">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Index</a></li>
+                    <li class="nav-item"><a href="riverrunnerindex.html">Index</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>On Emotions</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Megan</a></li>
-                    <li class="nav-item"><a href="#">Hannah Tidsdale</a></li>
+                    <li class="nav-item"><a href="megan_eq.html">Megan Billings</a></li>
+                    <li class="nav-item"><a href="hannah_eq.html">Hannah Tidsdale</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>Intermission</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">UBC Tryouts</a></li>
+                    <li class="nav-item"><a href="intermezzo_eq.html">UBC Tryouts</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>On Veracity</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Neema Maenpaa</a></li>
-                    <li class="nav-item"><a href="#">Natalie Adler</a></li>
+                    <li class="nav-item"><a href="nema_eq.html">Neema Maenpaa</a></li>
+                    <li class="nav-item"><a href="nat_eq.html">Natalie Adler</a></li>
                 </ul>
             </div>
         </div>
@@ -197,14 +253,21 @@
 <section class="hero-video-section">
   <video 
     id="heroVideo"
-    autoplay 
-    muted 
     playsinline 
     webkit-playsinline
     poster="img/MEGAN_EQ.PNG">
     <source src="img/Riverrunner/intermezzo_optimized.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+
+  <div id="videoSplash" class="video-splash">
+    <button id="splashPlay" class="splash-play-button" type="button" aria-label="Play video">
+      <span class="splash-play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>Play</span>
+    </button>
+  </div>
 
   <!-- Mute / Unmute Button -->
   <button id="audioToggle" class="audio-control-btn">Unmute</button>
@@ -213,17 +276,37 @@
 <script>
   const video = document.getElementById('heroVideo');
   const audioBtn = document.getElementById('audioToggle');
+  const videoSplash = document.getElementById('videoSplash');
+  const splashPlayBtn = document.getElementById('splashPlay');
+
+  video.muted = false;
+
+  function updateAudioButton() {
+    audioBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+  }
+
+  splashPlayBtn.addEventListener('click', async function() {
+    video.muted = false;
+    updateAudioButton();
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error('Video playback failed:', error);
+        return;
+      }
+    }
+
+    videoSplash.classList.add('hidden');
+  });
 
   // Toggle audio state
   audioBtn.addEventListener('click', function() {
-    if (video.muted) {
-      video.muted = false;
-      audioBtn.textContent = 'Mute';
-    } else {
-      video.muted = true;
-      audioBtn.textContent = 'Unmute';
-    }
+    video.muted = !video.muted;
   });
+  video.addEventListener('volumechange', updateAudioButton);
+  updateAudioButton();
 
   // 15-Second Inactivity Fade-Out Logic
   let fadeTimeout;
