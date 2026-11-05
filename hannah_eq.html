@@ -29,6 +29,7 @@
     width: 100vw;
     height: 100dvh;
     overflow: hidden;
+    cursor: pointer; /* Indicate interactivity */
   }
 
   .hero-video-section video {
@@ -51,23 +52,15 @@
     position: absolute;
     top: 25px;
     left: 25px;
-    z-index: 30;
+    z-index: 50;
   }
 
   /* Permanent Editorial Dropdown Menu with Subtle Gradient & Fade Transition */
   .editorial-nav {
     position: relative;
     font-size: 0.75rem;
-    /* Subtle vertical gradient background */
-    /* Gradient: Solid black at top -> clear black in middle -> completely transparent at bottom */
-   /* background: radial-gradient(circle at 0% 0%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 35%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0) 100%); */
-    /* backdrop-filter: blur(12px); */
-    /* -webkit-backdrop-filter: blur(12px); */
-    /* border: 1px solid rgba(255, 255, 255, 0.08); */
-    /* border-radius: 12px; */
     padding: 24px;
     box-sizing: border-box;
-    /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); */
     
     /* Fade transition configuration */
     opacity: 1;
@@ -124,7 +117,63 @@
     transform: translateX(3px);
   }
 
-  /* Sleek minimalist audio toggle button styling */
+  .video-splash {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    background: url("img/Riverrunner/untitled-0406.JPG") center / cover no-repeat;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .video-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .splash-play-button {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .splash-play-icon {
+    display: grid;
+    width: 84px;
+    height: 84px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .splash-play-button:hover .splash-play-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.08);
+  }
+
+  .splash-play-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 6px;
+  }
+
+  .splash-play-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  /* Sleek minimalist audio toggle button styling (Bottom-Right) */
   .audio-control-btn {
     position: absolute;
     bottom: 30px;
@@ -147,6 +196,52 @@
     border-color: rgba(255, 255, 255, 0.8);
   }
 
+  /* Visual Play/Pause Indicator Styling (Centered) */
+  .visual-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 50%;
+    pointer-events: none; /* Let clicks pass through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Fade Transition Configuration */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.3s ease;
+  }
+
+  /* State classes triggered by JS */
+  .visual-indicator.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1.1); /* Slightly pop in */
+  }
+
+  /* SVG Icon Styles */
+  .indicator-icon {
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+  }
+
+  /* Hide the pause icon by default; show it only when 'paused' class is present */
+  .icon-pause {
+    display: none;
+  }
+  .visual-indicator.paused .icon-play {
+    display: none;
+  }
+  .visual-indicator.paused .icon-pause {
+    display: block;
+  }
+
   @media (max-width: 600px) {
     .editorial-nav {
       width: calc(100vw - 50px);
@@ -156,6 +251,13 @@
       grid-template-columns: 1fr;
       gap: 16px;
     }
+      .visual-indicator {
+          padding: 20px;
+      }
+      .indicator-icon {
+          width: 30px;
+          height: 30px;
+      }
   }
 </style>
 </head>
@@ -167,38 +269,36 @@
         <div class="nav-grid">
             <div class="nav-column">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Index</a></li>
+                    <li class="nav-item"><a href="riverrunnerindex.html">Index</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>On Emotions</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Megan</a></li>
-                    <li class="nav-item"><a href="#">Hannah Tidsdale</a></li>
+                    <li class="nav-item"><a href="megan_eq.html">Megan Billings</a></li>
+                    <li class="nav-item"><a href="hannah_eq.html">Hannah Tidsdale</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>Intermission</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">UBC Tryouts</a></li>
+                    <li class="nav-item"><a href="intermezzo_eq.html">UBC Tryouts</a></li>
                 </ul>
             </div>
             <div class="nav-column">
                 <span class="nav-header"><b>On Veracity</b></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Neema Maenpaa</a></li>
-                    <li class="nav-item"><a href="#">Natalie Adler</a></li>
+                    <li class="nav-item"><a href="nema_eq.html">Neema Maenpaa</a></li>
+                    <li class="nav-item"><a href="nat_eq.html">Natalie Adler</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
 
-<section class="hero-video-section">
+<section class="hero-video-section" id="heroSection">
   <video 
     id="heroVideo"
-    autoplay 
-    muted 
     playsinline 
     webkit-playsinline
     poster="img/MEGAN_EQ.PNG">
@@ -206,16 +306,65 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Mute / Unmute Button -->
+  <div id="videoSplash" class="video-splash">
+    <button id="splashPlay" class="splash-play-button" type="button" aria-label="Play video">
+      <span class="splash-play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>Play</span>
+    </button>
+  </div>
+
+  <!-- Centered Visual Play/Pause Indicator -->
+  <div id="visualIndicator" class="visual-indicator">
+      <!-- Play Icon (SVG) -->
+      <svg class="indicator-icon icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <!-- Pause Icon (SVG) -->
+      <svg class="indicator-icon icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </div>
+
+  <!-- Mute / Unmute Button (Bottom-Right) -->
   <button id="audioToggle" class="audio-control-btn">Unmute</button>
 </section>
 
 <script>
+  const heroSection = document.getElementById('heroSection');
   const video = document.getElementById('heroVideo');
   const audioBtn = document.getElementById('audioToggle');
+  const visualIndicator = document.getElementById('visualIndicator');
+  const videoSplash = document.getElementById('videoSplash');
+  const splashPlayBtn = document.getElementById('splashPlay');
 
-  // Toggle audio state
-  audioBtn.addEventListener('click', function() {
+  video.muted = false;
+
+  function updateAudioButton() {
+    audioBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+  }
+
+  splashPlayBtn.addEventListener('click', async function(event) {
+    event.stopPropagation();
+    video.muted = false;
+    updateAudioButton();
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error('Video playback failed:', error);
+        return;
+      }
+    }
+
+    videoSplash.classList.add('hidden');
+  });
+  videoSplash.addEventListener('click', function(event) {
+    event.stopPropagation();
+  });
+
+  // --- Audio Toggle Logic ---
+  audioBtn.addEventListener('click', function(e) {
+    // Prevent the click from bubbling up to the section (which toggles video)
+    e.stopPropagation();
     if (video.muted) {
       video.muted = false;
       audioBtn.textContent = 'Mute';
@@ -223,9 +372,55 @@
       video.muted = true;
       audioBtn.textContent = 'Unmute';
     }
+    // Also reset the menu timer on interaction
+    resetMenuTimer();
+  });
+  video.addEventListener('volumechange', updateAudioButton);
+  updateAudioButton();
+
+  // --- Play/Pause Logic (Click anywhere on section) ---
+
+  let indicatorTimeout;
+
+  function showIndicator() {
+      // Update visual state of the indicator
+      if (video.paused) {
+          visualIndicator.classList.add('paused');
+      } else {
+          visualIndicator.classList.remove('paused');
+      }
+
+      // Show the indicator
+      visualIndicator.classList.add('visible');
+
+      // Clear any existing hide timer
+      clearTimeout(indicatorTimeout);
+
+      // Set a new timer to hide it after 5 seconds
+      indicatorTimeout = setTimeout(() => {
+          visualIndicator.classList.remove('visible');
+      }, 5000);
+  }
+
+  heroSection.addEventListener('click', function() {
+      if (video.paused) {
+          video.play();
+      } else {
+          video.pause();
+      }
+      showIndicator();
+      resetMenuTimer();
   });
 
-  // 15-Second Inactivity Fade-Out Logic
+  // Show the indicator when playback starts after a user action.
+  video.addEventListener('play', () => {
+      if (video.currentTime > 0 && !video.paused && !visualIndicator.classList.contains('visible')) {
+         showIndicator();
+      }
+  });
+
+
+  // --- 15-Second Menu Inactivity Fade-Out Logic ---
   let fadeTimeout;
   const menuNav = document.querySelector('.editorial-nav');
 
