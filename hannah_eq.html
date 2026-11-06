@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,4 +448,455 @@
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4EZDL5MHN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T4EZDL5MHN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jonathan Lee - Portfolio</title>
+<link href="css/horse-main.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" href="img/favicon.ico">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .hero-video-section {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    cursor: pointer; /* Indicate interactivity */
+  }
+
+  .hero-video-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  :root {
+    --text-main: #c4c4c4;
+    --text-muted: #888888;
+    --text-hover: #c2c2c2;
+  }
+
+  .nav-container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 50;
+  }
+
+  /* Permanent Editorial Dropdown Menu with Subtle Gradient & Fade Transition */
+  .editorial-nav {
+    position: relative;
+    font-size: 0.75rem;
+    padding: 24px;
+    box-sizing: border-box;
+    
+    /* Fade transition configuration */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  /* Hidden state triggered by JS after 15 seconds of inactivity */
+  .editorial-nav.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(110px, 1fr));
+    gap: 4rem;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .nav-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-header {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-item a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .nav-item a:hover {
+    color: var(--text-hover);
+    transform: translateX(3px);
+  }
+
+  .video-splash {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    background: url("img/Riverrunner/untitled-0406.JPG") center / cover no-repeat;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .video-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .splash-play-button {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .splash-play-icon {
+    display: grid;
+    width: 84px;
+    height: 84px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .splash-play-button:hover .splash-play-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.08);
+  }
+
+  .splash-play-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 6px;
+  }
+
+  .splash-play-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  /* Sleek minimalist audio toggle button styling (Bottom-Right) */
+  .audio-control-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .audio-control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Visual Play/Pause Indicator Styling (Centered) */
+  .visual-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 50%;
+    pointer-events: none; /* Let clicks pass through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Fade Transition Configuration */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.3s ease;
+  }
+
+  /* State classes triggered by JS */
+  .visual-indicator.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1.1); /* Slightly pop in */
+  }
+
+  /* SVG Icon Styles */
+  .indicator-icon {
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+  }
+
+  /* Hide the pause icon by default; show it only when 'paused' class is present */
+  .icon-pause {
+    display: none;
+  }
+  .visual-indicator.paused .icon-play {
+    display: none;
+  }
+  .visual-indicator.paused .icon-pause {
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .editorial-nav {
+      width: calc(100vw - 50px);
+      max-width: 320px;
+    }
+    .nav-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+      .visual-indicator {
+          padding: 20px;
+      }
+      .indicator-icon {
+          width: 30px;
+          height: 30px;
+      }
+  }
+</style>
+</head>
+<body class="splash-river">
+
+<!-- Top-Left Navigation Wrapper -->
+<div class="nav-container">
+    <nav class="editorial-nav">
+        <div class="nav-grid">
+            <div class="nav-column">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="riverrunnerindex.html">Index</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>On Emotions</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="megan_eq.html">Megan Billings</a></li>
+                    <li class="nav-item"><a href="hannah_eq.html">Hannah Tidsdale</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>Intermission</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="intermezzo_eq.html">UBC Tryouts</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>On Veracity</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="nema_eq.html">Neema Maenpaa</a></li>
+                    <li class="nav-item"><a href="nat_eq.html">Natalie Adler</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section class="hero-video-section" id="heroSection">
+  <video 
+    id="heroVideo"
+    playsinline 
+    webkit-playsinline
+    poster="img/MEGAN_EQ.PNG">
+    <source src="img/Riverrunner/hannah_t.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="videoSplash" class="video-splash">
+    <button id="splashPlay" class="splash-play-button" type="button" aria-label="Play video">
+      <span class="splash-play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>Play</span>
+    </button>
+  </div>
+
+  <!-- Centered Visual Play/Pause Indicator -->
+  <div id="visualIndicator" class="visual-indicator">
+      <!-- Play Icon (SVG) -->
+      <svg class="indicator-icon icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <!-- Pause Icon (SVG) -->
+      <svg class="indicator-icon icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </div>
+
+  <!-- Mute / Unmute Button (Bottom-Right) -->
+  <button id="audioToggle" class="audio-control-btn">Unmute</button>
+</section>
+
+<script>
+  const heroSection = document.getElementById('heroSection');
+  const video = document.getElementById('heroVideo');
+  const audioBtn = document.getElementById('audioToggle');
+  const visualIndicator = document.getElementById('visualIndicator');
+  const videoSplash = document.getElementById('videoSplash');
+  const splashPlayBtn = document.getElementById('splashPlay');
+
+  video.muted = false;
+
+  function updateAudioButton() {
+    audioBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+  }
+
+  splashPlayBtn.addEventListener('click', async function(event) {
+    event.stopPropagation();
+    video.muted = false;
+    updateAudioButton();
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error('Video playback failed:', error);
+        return;
+      }
+    }
+
+    videoSplash.classList.add('hidden');
+  });
+  videoSplash.addEventListener('click', function(event) {
+    event.stopPropagation();
+  });
+
+  // --- Audio Toggle Logic ---
+  audioBtn.addEventListener('click', function(e) {
+    // Prevent the click from bubbling up to the section (which toggles video)
+    e.stopPropagation();
+    if (video.muted) {
+      video.muted = false;
+      audioBtn.textContent = 'Mute';
+    } else {
+      video.muted = true;
+      audioBtn.textContent = 'Unmute';
+    }
+    // Also reset the menu timer on interaction
+    resetMenuTimer();
+  });
+  video.addEventListener('volumechange', updateAudioButton);
+  updateAudioButton();
+
+  // --- Play/Pause Logic (Click anywhere on section) ---
+
+  let indicatorTimeout;
+
+  function showIndicator() {
+      // Update visual state of the indicator
+      if (video.paused) {
+          visualIndicator.classList.add('paused');
+      } else {
+          visualIndicator.classList.remove('paused');
+      }
+
+      // Show the indicator
+      visualIndicator.classList.add('visible');
+
+      // Clear any existing hide timer
+      clearTimeout(indicatorTimeout);
+
+      // Set a new timer to hide it after 5 seconds
+      indicatorTimeout = setTimeout(() => {
+          visualIndicator.classList.remove('visible');
+      }, 5000);
+  }
+
+  heroSection.addEventListener('click', function() {
+      if (video.paused) {
+          video.play();
+      } else {
+          video.pause();
+      }
+      showIndicator();
+      resetMenuTimer();
+  });
+
+  // Show the indicator when playback starts after a user action.
+  video.addEventListener('play', () => {
+      if (video.currentTime > 0 && !video.paused && !visualIndicator.classList.contains('visible')) {
+         showIndicator();
+      }
+  });
+
+
+  // --- 15-Second Menu Inactivity Fade-Out Logic ---
+  let fadeTimeout;
+  const menuNav = document.querySelector('.editorial-nav');
+
+  function resetMenuTimer() {
+    // Show the menu immediately on activity
+    menuNav.classList.remove('hidden');
+    
+    // Clear any existing countdown
+    clearTimeout(fadeTimeout);
+    
+    // Start a new 15-second timer (15000 milliseconds)
+    fadeTimeout = setTimeout(() => {
+      menuNav.classList.add('hidden');
+    }, 15000);
+  }
+
+  // Initialize the timer when the page loads
+  resetMenuTimer();
+
+  // Reset the timer whenever the user moves the mouse, presses a key, or touches the screen
+  window.addEventListener('mousemove', resetMenuTimer);
+  window.addEventListener('keydown', resetMenuTimer);
+  window.addEventListener('touchstart', resetMenuTimer);
+</script>
+
+</body>
+>>>>>>> 2cbf7b23a025bb13267ce9d1749e6e6b19bccc39
 </html>
