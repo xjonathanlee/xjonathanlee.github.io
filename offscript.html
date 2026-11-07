@@ -100,6 +100,18 @@ var items=[
  {img:'img/riverrunner/nema.jpg'},
  {quote:'Reno thinks its a Grand prix'},
  {img:'img/riverrunner/untitled-0406.jpg'},
+  {img:'img/riverrunner/horse_picture (1).png'},
+  {img:'img/riverrunner/horse_picture (2).png'},
+  {img:'img/riverrunner/horse_picture (3).png'},
+  {img:'img/riverrunner/horse_picture (4).png'},
+  {img:'img/riverrunner/horse_picture (5).png'},
+  {img:'img/riverrunner/horse_picture (6).png'},
+  {img:'img/riverrunner/horse_picture (7).png'},
+  {img:'img/riverrunner/horse_picture (8).png'},
+  {img:'img/riverrunner/horse_picture (9).png'},
+  {img:'img/riverrunner/horse_picture (10).png'},
+  {img:'img/riverrunner/horse_picture (12).png'},
+  {img:'img/riverrunner/horse_picture (13).png'},
  {quote:'I am not as bouncy as I used to be'}
 ];
 // Placeholder images drawn in code. Replace ph(...) with 'images/your-file.jpg' for real photos.
@@ -135,7 +147,22 @@ document.addEventListener('click',function(e){
  document.body.appendChild(el);
  var x=e.clientX,y=e.clientY;
  function fit(){el.style.left=Math.max(0,Math.min(x,innerWidth-el.offsetWidth))+'px';el.style.top=Math.max(0,Math.min(y,innerHeight-el.offsetHeight))+'px'}
- fit();var im=el.querySelector('img');if(im&&!im.complete)im.onload=fit;
+ var im=el.querySelector('img');
+ if(im){
+  // Random size per placed image: both sides >= 120px, aspect ratio preserved
+  var size=function(){
+   var r=im.naturalWidth/im.naturalHeight||1;      // aspect ratio
+   var MIN=120;
+   var minW=Math.max(MIN,MIN*r);                    // keeps both sides >= 120
+   var maxW=Math.min(350,innerWidth*0.9,500*r,innerHeight*0.7*r);
+   if(maxW<minW)maxW=minW;                          // never go below the minimum
+   var w=minW+Math.random()*(maxW-minW);
+   im.style.maxWidth='none';im.style.maxHeight='none';
+   im.style.width=w+'px';im.style.height=(w/r)+'px';
+   fit();
+  };
+  if(im.complete&&im.naturalWidth)size();else im.onload=size;
+ }else{fit()}
  advance();
 });
 </script>
