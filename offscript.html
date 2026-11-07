@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>River Runners – Offscript</title>
+<style>
+html,body{height:100%;margin:0}
+body{overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.p{position:absolute;max-width:90vw}
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* Ensures the 8vw padding doesn't cause horizontal overflow */
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 24px 8vw;
+  z-index: 10;
+}
+
+.nav-item-alt {
+  color: var(--fg, #000); /* Falls back to black if --fg is not defined */
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: opacity 200ms ease;
+}
+
+.nav-item-alt:hover {
+  opacity: 1;
+}
+.p img{max-width:min(350px,90vw);max-height:min(500px,70vh)}
+#pv{position:fixed;pointer-events:none;opacity:.5;font-size:11px;max-width:120px;display:none;z-index:99999}
+#pv img{max-width:80px;max-height:115px}
+@media (hover:none){#pv{display:block;left:8px;bottom:8px;max-width:90px}}
+</style>
+</head>
+<body>
+<nav class="header-nav">
+  <a href="riverrunnerindex.html" class="nav-item-alt">INDEX</a>
+  <a href="#" class="nav-item-alt">ABOUT</a>
+</nav>
+<div id="pv"></div>
+<script>
+// Pictures appear in this order. Quotes are picked at random from the quotes in the list.
+var items=[
+ {img:ph(350,500,'Photo 1 · 350×500','#2f5d46')},
+ {quote:'Your first quote goes here.'},
+ {img:ph(350,233,'Photo 2 · 350×233','#8a5a3c')},
+ {quote:'Your second quote goes here.'},
+ {img:ph(300,400,'Photo 3 · 300×400','#3d5a80')},
+ {quote:'Your third quote goes here.'},
+ {img:ph(350,350,'Photo 4 · 350×350','#7a4e6d')},
+ {quote:'Your fourth quote goes here.'}
+];
+// Placeholder images drawn in code. Replace ph(...) with 'images/your-file.jpg' for real photos.
+function ph(w,h,t,c){return 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'"><rect width="100%" height="100%" fill="'+c+'"/><text x="50%" y="50%" font-family="Georgia" font-size="22" fill="#fff" text-anchor="middle">'+t+'</text></svg>')}
+var quotes=items.filter(function(i){return i.quote}).map(function(i){return i.quote});
+var n=0,z=1,last='',pv=document.getElementById('pv'),next=pick();
+function pick(){
+ var it=items[n%items.length];
+ if(!it.quote)return it;
+ var q;do{q=quotes[Math.floor(Math.random()*quotes.length)]}while(q===last&&quotes.length>1);
+ last=q;return {quote:q};
+}
+function fill(el,it){
+ el.textContent='';
+ if(it.img){var i=new Image();i.src=it.img;i.alt='';el.appendChild(i)}
+ else{el.textContent=it.quote}
+}
+fill(pv,next);
+var CYCLE_MS=700,timer;
+function advance(){n++;next=pick();fill(pv,next);clearInterval(timer);timer=setInterval(advance,CYCLE_MS)}
+timer=setInterval(advance,CYCLE_MS);
+// With a mouse the preview follows the cursor. On touch screens it sits in the bottom-left corner.
+if(!matchMedia('(hover: none)').matches){
+ document.addEventListener('mousemove',function(e){
+  pv.style.display='block';pv.style.left=(e.clientX+14)+'px';pv.style.top=(e.clientY+14)+'px';
+ });
+ document.documentElement.addEventListener('mouseleave',function(){pv.style.display='none'});
+}
+document.addEventListener('click',function(e){
+ var el=document.createElement('div');
+ el.className='p';el.style.zIndex=z++;
+ fill(el,next);
+ document.body.appendChild(el);
+ var x=e.clientX,y=e.clientY;
+ function fit(){el.style.left=Math.max(0,Math.min(x,innerWidth-el.offsetWidth))+'px';el.style.top=Math.max(0,Math.min(y,innerHeight-el.offsetHeight))+'px'}
+ fit();var im=el.querySelector('img');if(im&&!im.complete)im.onload=fit;
+ advance();
+});
+</script>
+</body>
+</html>
