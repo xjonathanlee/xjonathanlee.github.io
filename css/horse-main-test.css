@@ -1,0 +1,438 @@
+@font-face {
+    font-family: helveticaNeueReg;
+    src: url(HelveticaNeue-Regular.otf);
+}
+@font-face {
+    font-family: helveticaNeueLight;
+    src: url(HelveticaNeue-Light.otf);
+}
+@font-face {
+    font-family: helveticaNeueItal;
+    src: url(HelveticaNeue-RegularItalic.otf);
+}
+@font-face {
+    font-family: helveticaNeueBold;
+    src: url(HelveticaNeue-Bold.otf);
+}
+@font-face{
+    font-family:PPEditorialRegular;
+    src: url(PPEditorialNew-Ultralight.otf);
+}
+@font-face{
+    font-family:PPEditorialItalic;
+    src: url(PPEditorialNew-Italic.otf);
+}
+@font-face{
+    font-family: PPEditorialUltra;
+    src: url(PPEditorialNew-Ultrabold.otf);
+}
+
+/* -----------------------------------------------------------------
+   horse-main.css
+   Jonathan Lee — Portfolio / Equestrian Documentary
+----------------------------------------------------------------- */
+
+:root {
+  --bg: #0e0e0e;
+  --fg: #f4f4f2;
+  --dim: rgba(244, 244, 242, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---- Hero / splash background ------------------------------------ */
+
+body.splash-river {
+  min-height: 100vh;
+  background-image: url("/img/Riverrunner/Capture.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---- Top nav ------------------------------------------------------ */
+
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 24px 8vw;
+  z-index: 10;
+}
+
+.nav-item-alt {
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: opacity 200ms ease;
+}
+
+.nav-item-alt:hover {
+  opacity: 1;
+}
+
+/* ---- Splash intro --------------------------------------------------- */
+
+.splash {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: 28px;
+  padding: 0 8vw;
+  opacity: 0;
+  animation: splash-in 1400ms ease forwards;
+}
+
+.splash-title {
+  margin: 0;
+  font-family: PPEditorialRegular;
+  font-size: 6rem;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.splash-copy {
+  max-width: 560px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--dim);
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: splash-in 1000ms ease forwards;
+  animation-delay: 900ms;
+}
+
+.scroll-cue::after {
+  content: '';
+  width: 1px;
+  height: 34px;
+  background: var(--dim);
+  animation: cue-pulse 1800ms ease-in-out infinite;
+}
+
+@keyframes splash-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cue-pulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50%      { transform: scaleY(0.5); opacity: 1; }
+}
+
+/* ---- Section intro copy ------------------------------------------- */
+
+section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 0 60px;
+}
+
+.index2h122 {
+  position: relative;
+  z-index: 3;
+  margin: 0 8vw 8px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+section > h2 {
+  position: relative;
+  z-index: 3;
+  margin: 0 8vw 40px;
+  font-size: clamp(24px, 3.4vw, 40px);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* ---- Name list ------------------------------------------------------ */
+
+.name-list {
+  position: relative;
+  z-index: 3;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0 8vw;
+}
+
+.name-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.designer-link {
+  color: var(--fg);
+  font-family: PPEditorialRegular;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 1;
+  transition: opacity 250ms ease;
+}
+
+.name-item:hover .designer-link {
+  opacity: 0.85;
+}
+
+.hover-copy {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.name-item:hover .hover-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Fullscreen video player -------------------------------------- */
+
+video-player {
+  display: block;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+video-skin {
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius:0rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+youtube-video,
+video-player [slot="poster"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100vw, 177.78dvh);
+  height: max(100dvh, 56.25vw);
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+video-player [slot="poster"] {
+  object-fit: cover;
+  object-position: center;
+}
+
+
+video-skin {
+  --media-border-radius: 0rem;
+}
+
+/* ---- Bio panel (bottom left) --------------------------------------- */
+
+.bio-panel {
+  position: fixed;
+  bottom: 32px;
+  left: 8vw;
+  z-index: 5;
+  width: min(360px, 34vw);
+}
+
+.bio {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 15px;
+  color: var(--dim);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 500ms ease, transform 500ms ease;
+  pointer-events: none;
+}
+
+.bio.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Portrait panel -------------------------------------------------- */
+
+.portrait-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.portrait {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(8%);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+}
+
+.portrait.is-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.portrait[data-portrait="megan"] { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
+.portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
+.portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
+.portrait[data-portrait="stav"] { background-image: url("../img/Riverrunner/Capture.PNG"); }
+.portrait[data-portrait="nema"] { background-image: url("../img/Riverrunner/nema.jpg"); }
+
+/* ---- Mobile ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .header-nav {
+    padding: 18px 6vw;
+    gap: 18px;
+  }
+
+  .splash {
+    padding: 0 6vw;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .splash-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.2;
+  }
+
+  section {
+    padding: 80px 0 40px;
+  }
+
+  .index2h122,
+  section > h2 {
+    margin-left: 6vw;
+    margin-right: 6vw;
+  }
+
+  .name-list {
+    width: 100%;
+    padding: 0 6vw;
+    gap: 22px;
+  }
+
+  .designer-link {
+    font-size: 1.5rem;
+  }
+
+  .portrait-layer {
+    width: 100%;
+    z-index: 0;
+  }
+
+  .portrait::before {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  }
+
+  .bio-panel {
+    left: 6vw;
+    right: 6vw;
+    bottom: 24px;
+    width: auto;
+  }
+
+  .bio {
+    font-size: 13px;
+  }
+
+  /* Video player remains true fullscreen on mobile */
+  video-player {
+    width: 100%;
+    height: 100dvh;
+    aspect-ratio: auto;
+  }
+
+  video-skin {
+    width: 100%;
+    height: 100%;
+  }
+
+  youtube-video,
+  video-player [slot="poster"] {
+    width: max(100vw, 177.78dvh);
+    height: max(100dvh, 56.25vw);
+  }
+
+  .video-overlay {
+    height: 100dvh;
+  }
+}

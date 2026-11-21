@@ -1,35 +1,21 @@
-@font-face {
-    font-family: helveticaNeueReg;
-    src: url(HelveticaNeue-Regular.otf);
-}
-@font-face {
-    font-family: helveticaNeueLight;
-    src: url(HelveticaNeue-Light.otf);
-}
-@font-face {
-    font-family: helveticaNeueItal;
-    src: url(HelveticaNeue-RegularItalic.otf);
-}
-@font-face {
-    font-family: helveticaNeueBold;
-    src: url(HelveticaNeue-Bold.otf);
-}
-@font-face{
-    font-family:PPEditorialRegular;
-    src: url(PPEditorialNew-Ultralight.otf);
-}
-@font-face{
-    font-family:PPEditorialItalic;
-    src: url(PPEditorialNew-Italic.otf);
-}
-@font-face{
-    font-family: PPEditorialUltra;
-    src: url(PPEditorialNew-Ultrabold.otf);
-}
+@font-face { font-family: helveticaNeueReg;    src: url(HelveticaNeue-Regular.otf);       font-display: swap; }
+@font-face { font-family: helveticaNeueLight;  src: url(HelveticaNeue-Light.otf);         font-display: swap; }
+@font-face { font-family: helveticaNeueItal;   src: url(HelveticaNeue-RegularItalic.otf); font-display: swap; }
+@font-face { font-family: helveticaNeueBold;   src: url(HelveticaNeue-Bold.otf);          font-display: swap; }
+@font-face { font-family: PPEditorialRegular;  src: url(PPEditorialNew-Ultralight.otf);   font-display: swap; }
+@font-face { font-family: PPEditorialItalic;   src: url(PPEditorialNew-Italic.otf);       font-display: swap; }
+@font-face { font-family: PPEditorialUltra;    src: url(PPEditorialNew-Ultrabold.otf);    font-display: swap; }
 
 /* -----------------------------------------------------------------
    horse-main.css
    Jonathan Lee — Portfolio / Equestrian Documentary
+
+   BREAKPOINTS (desktop-first, base styles = desktop)
+     max-width 1024px  tablet landscape / small laptop (tighten spacing)
+     max-width  900px  tablet portrait + phones (stacked layout)
+     max-width  480px  small phones
+     max-height 500px + landscape   phone held sideways
+     hover: none       touch devices (no hover previews)
 ----------------------------------------------------------------- */
 
 :root {
@@ -47,13 +33,16 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* ---- Hero / splash background ------------------------------------ */
 
 body.splash-river {
   min-height: 100vh;
-  background-image: url("/img/Riverrunner/Capture.png");
+  min-height: 100svh;
+  /* relative path (was "/img/...", which only works at the domain root) */
+  background-image: url("../img/Riverrunner/Capture.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,15 +72,22 @@ body.splash-river {
   transition: opacity 200ms ease;
 }
 
-.nav-item-alt:hover {
-  opacity: 1;
-}
-
 /* ---- Splash intro --------------------------------------------------- */
+
+.page-megan      .video-splash { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
+.page-hannah     .video-splash { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
+.page-nema       .video-splash { 
+  filter:grayscale(100);
+  background-image: url("../img/Riverrunner/nema.jpg"); }
+.page-nat        .video-splash { 
+    filter:grayscale(100);
+  background-image: url("../img/Riverrunner/n_reno.JPG"); }
+.page-intermezzo .video-splash { background-image: url("../img/Riverrunner/Capture.PNG"); }
 
 .splash {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,9 +102,11 @@ body.splash-river {
 .splash-title {
   margin: 0;
   font-family: PPEditorialRegular;
-  font-size: 6rem;
+  /* scales smoothly from phone (28px) to desktop (96px) */
+  font-size: clamp(1.75rem, 0.75rem + 4.4vw, 6rem);
   letter-spacing: 0.01em;
   line-height: 1.1;
+  overflow-wrap: break-word;
 }
 
 .splash-copy {
@@ -161,6 +159,7 @@ body.splash-river {
 section {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,18 +208,14 @@ section > h2 {
   color: var(--fg);
   font-family: PPEditorialRegular;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
   line-height: 1;
   transition: opacity 250ms ease;
 }
 
-.name-item:hover .designer-link {
-  opacity: 0.85;
-}
-
 .hover-copy {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: clamp(13px, 0.6rem + 0.6vw, 18px);
   letter-spacing: 0.06em;
   color: var(--dim);
   opacity: 0;
@@ -228,18 +223,28 @@ section > h2 {
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
-.name-item:hover .hover-copy {
-  opacity: 1;
-  transform: translateY(0);
+/* Hover effects only on devices that can actually hover (stops "sticky hover" on phones) */
+@media (hover: hover) {
+  .nav-item-alt:hover { opacity: 1; }
+  .name-item:hover .designer-link { opacity: 0.85; }
+  .name-item:hover .hover-copy { opacity: 1; transform: translateY(0); }
 }
 
-/* ---- Fullscreen video player -------------------------------------- */
+/* Touch devices can't hover, so the subtitle is always visible */
+@media (hover: none) {
+  .nav-item-alt { opacity: 1; padding: 12px 0; }   /* bigger tap target */
+  .designer-link { padding: 4px 0; }
+  .hover-copy { opacity: 0.75; transform: none; }
+}
+
+/* ---- Fullscreen video player (used by older video.js pages) ------- */
 
 video-player {
   display: block;
   position: fixed;
   inset: 0;
   width: 100%;
+  height: 100vh;
   height: 100dvh;
   overflow: hidden;
 }
@@ -248,10 +253,11 @@ video-skin {
   display: block;
   position: absolute;
   inset: 0;
-  border-radius:0rem;
+  border-radius: 0rem;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  --media-border-radius: 0rem;
 }
 
 youtube-video,
@@ -269,11 +275,6 @@ video-player [slot="poster"] {
 video-player [slot="poster"] {
   object-fit: cover;
   object-position: center;
-}
-
-
-video-skin {
-  --media-border-radius: 0rem;
 }
 
 /* ---- Bio panel (bottom left) --------------------------------------- */
@@ -325,7 +326,6 @@ video-skin {
   transform: translateX(8%);
   transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
               transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-
   background-size: cover;
   background-position: center;
   display: flex;
@@ -349,90 +349,416 @@ video-skin {
   transform: translateX(0);
 }
 
-.portrait[data-portrait="megan"] { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
+.portrait[data-portrait="megan"]  { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
 .portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
-.portrait[data-portrait="nata"] { background-image: url("../img/Riverrunner/n_reno.JPG"); }
-.portrait[data-portrait="stav"] { background-image: url("../img/Riverrunner/Capture.PNG"); }
-.portrait[data-portrait="nema"] { background-image: url("../img/Riverrunner/nema.jpg"); }
+.portrait[data-portrait="nata"]   { background-image: url("../img/Riverrunner/n_reno.JPG"); }
+.portrait[data-portrait="stav"]   { background-image: url("../img/Riverrunner/Capture.PNG"); }
+.portrait[data-portrait="nema"]   { background-image: url("../img/Riverrunner/nema.jpg"); }
 
-/* ---- Mobile ---------------------------------------------------- */
 
-@media (max-width: 768px) {
-  .header-nav {
-    padding: 18px 6vw;
-    gap: 18px;
-  }
+/* =================================================================
+   RESPONSIVE
+================================================================= */
 
-  .splash {
-    padding: 0 6vw;
-    gap: 20px;
-    text-align: left;
-  }
+/* ---- Tablet landscape / small laptop: max 1024px ------------------- */
+@media (max-width: 1024px) {
+  .header-nav { padding: 22px 6vw; }
 
-  .splash-title {
-    font-size: clamp(2rem, 9vw, 3rem);
-    line-height: 1.2;
-  }
-
-  section {
-    padding: 80px 0 40px;
-  }
+  .splash { padding: 0 6vw; }
 
   .index2h122,
-  section > h2 {
-    margin-left: 6vw;
-    margin-right: 6vw;
-  }
+  section > h2 { margin-left: 6vw; margin-right: 6vw; }
 
-  .name-list {
-    width: 100%;
-    padding: 0 6vw;
-    gap: 22px;
-  }
+  .name-list { width: 52vw; padding: 0 6vw; gap: 24px; }
+  .bio-panel { left: 6vw; width: min(340px, 40vw); }
+  .portrait { padding: 28px; }
+}
 
-  .designer-link {
-    font-size: 1.5rem;
-  }
+/* ---- Tablet portrait + phones: max 900px --------------------------- */
+@media (max-width: 900px) {
+  .header-nav { padding: 18px 6vw; gap: 18px; }
 
-  .portrait-layer {
-    width: 100%;
-    z-index: 0;
-  }
+  .splash { padding: 0 6vw; gap: 20px; }
 
+  section { padding: 80px 0 40px; }
+
+  .index2h122,
+  section > h2 { margin-left: 6vw; margin-right: 6vw; }
+
+  /* names go full width, portraits sit behind them */
+  .name-list { width: 100%; padding: 0 6vw; gap: 22px; }
+  .portrait-layer { width: 100%; z-index: 0; }
   .portrait::before {
     background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
   }
 
-  .bio-panel {
-    left: 6vw;
-    right: 6vw;
-    bottom: 24px;
-    width: auto;
-  }
+  .bio-panel { left: 6vw; right: 6vw; bottom: 24px; width: auto; }
+  .bio { font-size: 14px; }
 
-  .bio {
-    font-size: 13px;
-  }
-
-  /* Video player remains true fullscreen on mobile */
-  video-player {
-    width: 100%;
-    height: 100dvh;
-    aspect-ratio: auto;
-  }
-
-  video-skin {
-    width: 100%;
-    height: 100%;
-  }
-
+  /* video.js player stays true fullscreen */
+  video-player { width: 100%; height: 100dvh; aspect-ratio: auto; }
+  video-skin { width: 100%; height: 100%; }
   youtube-video,
   video-player [slot="poster"] {
     width: max(100vw, 177.78dvh);
     height: max(100dvh, 56.25vw);
   }
+  .video-overlay { height: 100dvh; }
+}
 
-  .video-overlay {
-    height: 100dvh;
+/* ---- Small phones: max 480px --------------------------------------- */
+@media (max-width: 480px) {
+  .header-nav { padding: 14px 5vw; gap: 14px; }
+  .splash,
+  .name-list { padding-left: 5vw; padding-right: 5vw; }
+  .index2h122,
+  section > h2 { margin-left: 5vw; margin-right: 5vw; }
+  .bio-panel { left: 5vw; right: 5vw; }
+  .bio { font-size: 13px; }
+  .portrait { padding: 20px; }
+}
+
+/* ---- Short screens (small phones in portrait, e.g. iPhone SE) ------- */
+@media (max-width: 900px) and (max-height: 700px) {
+  .name-list { gap: 14px; }
+  section { padding: 64px 0 32px; }
+}
+
+/* ---- Phones held sideways ------------------------------------------ */
+@media (orientation: landscape) and (max-height: 500px) {
+  .header-nav { padding: 10px 5vw; }
+  .splash { gap: 12px; }
+  .splash-title { font-size: clamp(1.25rem, 3.4vw, 2rem); }
+
+  section { padding: 56px 0 20px; min-height: 100vh; min-height: 100svh; }
+
+  /* two columns so all five names fit without scrolling */
+  .name-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 24px;
+    padding: 0 5vw;
   }
+  .designer-link { font-size: 1.25rem; }
+  .hover-copy { font-size: 12px; }
+
+  .portrait-layer { width: 100%; z-index: 0; }
+  .bio-panel { display: none; }   /* would sit on top of the names */
+}
+
+/* ---- Large screens -------------------------------------------------- */
+@media (min-width: 1800px) {
+  .name-list { padding-left: 10vw; }
+  .bio-panel { left: 10vw; }
+}
+
+/* ---- Reduced motion ------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .splash,
+  .scroll-cue { animation: none; opacity: 1; }
+  .scroll-cue::after { animation: none; }
+  .portrait,
+  .bio,
+  .hover-copy { transition: none; }
+}
+
+
+/* =================================================================
+   VIDEO PAGES  (megan_eq.html and the other *_eq.html pages)
+   All rules below are scoped by class, so they only affect pages
+   with <body class="video-page">.
+================================================================= */
+
+body.video-page {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-video-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.hero-video-section video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Any portrait screen (phones AND tablets): show the whole frame instead of cropping a 16:9 video */
+@media (orientation: portrait) {
+  .hero-video-section video { object-fit: contain; }
+}
+
+:root {
+  --text-main: #c4c4c4;
+  --text-muted: #888888;
+  --text-hover: #c2c2c2;
+}
+
+.nav-container {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 50;
+}
+
+.menu-btn {
+  display: none;
+}
+
+/* Permanent Editorial Dropdown Menu with Subtle Gradient & Fade Transition */
+.editorial-nav {
+  position: relative;
+  font-size: 0.75rem;
+  padding: 24px;
+  box-sizing: border-box;
+  
+  /* Fade transition configuration */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Hidden state triggered by JS after 15 seconds of inactivity */
+.editorial-nav.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  justify-content: start;
+}
+
+.nav-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+@media (hover: hover) {
+  .nav-item a:hover {
+    color: var(--text-hover);
+    transform: translateX(10px);
+  }
+}
+
+.video-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  background: url("../img/Riverrunner/untitled-0406.JPG") center / cover no-repeat;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-play-button {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 0;
+  color: #fff;
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.splash-play-icon {
+  display: grid;
+  width: 84px;
+  height: 84px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.splash-play-button:hover .splash-play-icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+}
+
+.splash-play-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 6px;
+}
+
+.splash-play-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.video-controls {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+#playToggle,
+#audioToggle {
+  position: absolute;
+  bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+  min-height: 44px;
+  pointer-events: auto;
+}
+
+#playToggle {
+  left: calc(30px + env(safe-area-inset-left, 0px));
+}
+
+#audioToggle {
+  right: calc(30px + env(safe-area-inset-right, 0px));
+}
+
+/* Sleek minimalist video control button styling */
+.audio-control-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.audio-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hamburger menu on tablets/phones, and on phones held sideways */
+@media (max-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  .nav-container {
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    left: calc(12px + env(safe-area-inset-left, 0px));
+  }
+
+  .menu-btn {
+    display: block;
+    min-height: 44px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font: inherit;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+
+  .editorial-nav {
+    display: none;
+    margin-top: 8px;
+    padding: 12px 16px;
+    width: calc(100vw - 24px);
+    max-width: 320px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+  }
+
+  .editorial-nav.open {
+    display: block;
+    max-height: calc(100dvh - 90px);
+    overflow-y: auto;
+  }
+
+  .nav-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nav-item a {
+    padding: 10px 0;
+  }
+
+  #playToggle {
+    left: calc(16px + env(safe-area-inset-left, 0px));
+  }
+
+  #audioToggle {
+    right: calc(16px + env(safe-area-inset-right, 0px));
+  }
+
+  #playToggle,
+  #audioToggle {
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+}
+/* =================================================================
+   SNAP SCROLLING  (index + about)
+   One scroll gesture jumps from the intro straight to the names,
+   with no in-between dead space. Enabled by <body class="snap-scroll">.
+================================================================= */
+html:has(body.snap-scroll) {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-scroll section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;   /* one flick = one section, never skips */
+}
+
+/* Sideways phones: the name list can be taller than the screen, so don't force snapping */
+@media (orientation: landscape) and (max-height: 500px) {
+  html:has(body.snap-scroll) { scroll-snap-type: y proximity; }
 }
