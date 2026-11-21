@@ -82,7 +82,9 @@ body.splash-river {
 .page-nat        .video-splash { 
     filter:grayscale(100);
   background-image: url("../img/Riverrunner/n_reno.JPG"); }
-.page-intermezzo .video-splash { background-image: url("../img/Riverrunner/Capture.PNG"); }
+.page-intermezzo .video-splash { 
+  filter: grayscale(100);
+  background-image: url("../img/Riverrunner/horse8.png"); }
 
 .splash {
   position: relative;
