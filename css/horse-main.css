@@ -351,11 +351,11 @@ video-player [slot="poster"] {
   transform: translateX(0);
 }
 
-.portrait[data-portrait="megan"]  { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
-.portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
-.portrait[data-portrait="nata"]   { background-image: url("../img/Riverrunner/n_reno.JPG"); }
-.portrait[data-portrait="stav"]   { background-image: url("../img/Riverrunner/Capture.PNG"); }
-.portrait[data-portrait="nema"]   { background-image: url("../img/Riverrunner/nema.jpg"); }
+.portrait[data-portrait="megan"]  { background-image: url("../img/Riverrunner/untitled-0406.webp"); }
+.portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.webp"); }
+.portrait[data-portrait="nata"]   { background-image: url("../img/Riverrunner/n_reno.webp"); }
+.portrait[data-portrait="stav"]   { background-image: url("../img/Riverrunner/horse8.webp"); }
+.portrait[data-portrait="nema"]   { background-image: url("../img/Riverrunner/nema.webp"); }
 
 
 /* =================================================================
