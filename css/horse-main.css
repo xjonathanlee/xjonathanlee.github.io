@@ -74,17 +74,17 @@ body.splash-river {
 
 /* ---- Splash intro --------------------------------------------------- */
 
-.page-megan      .video-splash { background-image: url("../img/Riverrunner/untitled-0406.JPG"); }
-.page-hannah     .video-splash { background-image: url("../img/Riverrunner/h_nemo.JPG"); }
+.page-megan      .video-splash { background-image: url("../img/Riverrunner/untitled-0406.webp"); }
+.page-hannah     .video-splash { background-image: url("../img/Riverrunner/h_nemo.webp"); }
 .page-nema       .video-splash { 
   filter:grayscale(100);
-  background-image: url("../img/Riverrunner/nema.jpg"); }
+  background-image: url("../img/Riverrunner/nema.webp"); }
 .page-nat        .video-splash { 
     filter:grayscale(100);
-  background-image: url("../img/Riverrunner/n_reno.JPG"); }
+  background-image: url("../img/Riverrunner/n_reno.webp"); }
 .page-intermezzo .video-splash { 
   filter: grayscale(100);
-  background-image: url("../img/Riverrunner/horse8.png"); }
+  background-image: url("../img/Riverrunner/horse8.webp"); }
 
 .splash {
   position: relative;
