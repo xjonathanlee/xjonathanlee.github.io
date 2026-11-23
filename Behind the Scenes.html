@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Behind the Scenes</title>
+<link href="css/horse-main.css" rel="stylesheet">
+</head>
+<body>
+<nav class="header-nav">
+  <a href="riverrunnerindex.html" class="nav-item-alt">Index</a>
+  <a href="about.html" class="nav-item-alt">ABOUT</a>
+</nav>
+
+<section class="pin" id="pin" aria-label="Behind the scenes gallery">
+  <div class="stage">
+
+    <div class="track" id="track">
+      <!-- The subtitle shows each photo's data-caption, or its <span> text if there isn't one -->
+      <figure class="item-tall"><img src="img/Riverrunner/horse8.webp" alt=""><span>Reno</span></figure>
+      <figure class="item-short"><img src="img/Riverrunner/horse7.webp" alt=""><span>Piper, Gem</span></figure>
+      <figure class="item-tall"><img src="img/Riverrunner/horse6.webp" alt=""><span>Leoni, O Caparo</span></figure>
+      <figure class="item"><img src="img/Riverrunner/horse5.webp" alt=""><span>Casino</span></figure>
+      <figure class="item-short"><img src="img/Riverrunner/horse4.webp" alt=""><span>Wiggles</span></figure>
+      <figure class="item-short"><img src="img/Riverrunner/horse3.webp" alt=""><span>Skittles</span></figure>
+      <figure class="item-tall"><img src="img/Riverrunner/horse2.webp" alt=""><span>Nemo, Piper, Maizy</span></figure>
+      <figure class="item"><img src="img/Riverrunner/horse1.webp" alt=""><span>Jellybean</span></figure>
+    </div>
+
+    <!-- Title block floats over the photos, bottom-left; inside .stage so it stays pinned -->
+    <div class="foot">
+      <div class="meta">
+        <h1>Behind the Scenes</h1>
+        <p id="caption">The making of Riverrunners</p>
+      </div>
+      <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  var pin=document.getElementById('pin'),track=document.getElementById('track'),
+      fill=document.getElementById('fill'),cap=document.getElementById('caption');
+  var figs=[].slice.call(track.querySelectorAll('figure'));
+  var base=cap.textContent,shown=base,timer;
+
+  function captionOf(f){
+    var s=f.querySelector('span');
+    return f.getAttribute('data-caption')||(s&&s.textContent.trim())||base;
+  }
+
+  // reduced motion: the track scrolls natively, so just follow it
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    track.addEventListener('scroll',function(){updateCaption(track.scrollLeft);},{passive:true});
+    return;
+  }
+
+  var dist=0,ticking=false;
+  function measure(){
+    dist=Math.max(0,track.scrollWidth-window.innerWidth);
+    pin.style.height=(dist+window.innerHeight)+'px';
+    update();
+  }
+  function update(){
+    ticking=false;
+    var p=dist?Math.min(1,Math.max(0,(window.scrollY-pin.offsetTop)/dist)):0;
+    track.style.transform='translate3d('+(-p*dist)+'px,0,0)';
+    fill.style.width=(p*100)+'%';
+    updateCaption(p);
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+  window.addEventListener('resize',measure);
+  window.addEventListener('load',measure);
+  measure();
+})();
+</script>
+</body>
+</html>

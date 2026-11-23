@@ -764,3 +764,215 @@ html:has(body.snap-scroll) {
 @media (orientation: landscape) and (max-height: 500px) {
   html:has(body.snap-scroll) { scroll-snap-type: y proximity; }
 }
+
+
+/* =================================================================
+   BEHIND THE SCENES PAGE: pinned horizontal-scroll gallery
+   Scoped with body:has(.pin), so it only applies to pages that contain
+   the gallery (no body class needed) and nothing leaks to other pages.
+   Vertical scroll is turned into sideways movement by the script in the page.
+
+   Markup this expects:
+     section.pin > .stage > .track > figure.item | .item-tall | .item-short | .item-wide
+                         > .foot > .meta (h1 + p#caption) + .bar > i#fill   (floats over .track, bottom-left)
+                         > .end > h2
+================================================================= */
+body:has(.pin) {
+  --gap: 10px;
+  --pad: 8vw;
+  --serif: PPEditorialRegular, "Times New Roman", Georgia, serif;
+  --sans: helveticaNeueReg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans-light: helveticaNeueLight, helveticaNeueReg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans-bold: helveticaNeueBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  font-family: var(--sans);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html:has(.pin) { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+/* ---- corner links over the photos, inverted so they read on light or dark images ---- */
+body:has(.pin) {
+  justify-content: space-between;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 26px 12px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+body:has(.pin) {
+  pointer-events: auto;
+  color: #fff;
+  opacity: 1;
+  font-family: var(--sans-bold);
+  font-weight: 400;              /* the bold file is already bold; 700 would fake-bold it twice */
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid currentColor;
+  padding: 8px 0 2px;
+}
+body:has(.pin) { outline: 2px solid #fff; outline-offset: 4px; }
+
+/* ---- title block over the photos, bottom-left: title + subtitle, progress line across the rest ---- */
+body:has(.pin) .foot {
+  position: absolute;            /* floats over the photos, bottom-left */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 26px calc(18px + env(safe-area-inset-bottom, 0px));
+  color: #fff;
+  mix-blend-mode: difference;    /* stays readable on light or dark photos, like the corner links */
+  pointer-events: none;
+}
+body:has(.pin) .meta { flex: 0 0 500px; display: flex; flex-direction: column; }
+body:has(.pin) .meta h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 35px;
+  line-height: 1.2;
+}
+body:has(.pin) .meta p {
+  margin: 6px 0 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.3;
+  transition: opacity 180ms ease;
+}
+body:has(.pin) .meta p.swap { opacity: 0; }
+body:has(.pin) .meta small {      /* optional line at the bottom, e.g. a location */
+  margin-top: auto;
+  font-family: var(--sans-bold);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* ---- pinned scroll: .pin height is set by the script ----
+   The global "section" rule (flex, overflow:hidden, min-height:100vh, padding)
+   was what broke this: overflow:hidden on an ancestor kills position:sticky,
+   so the stage never pinned and nothing moved sideways. Reset it here. */
+body:has(.pin) .pin {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+  justify-content: normal;
+}
+body:has(.pin) .stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body:has(.pin) .track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--gap);
+  flex: 1;
+  min-height: 0;
+  width: max-content;            /* lets scrollWidth reflect every photo, so the script can measure it */
+  padding: 0;
+  will-change: transform;
+}
+
+/* ---- photos: height varies by class, width follows the image ---- */
+body:has(.pin) :is(.item, .item-tall, .item-short, .item-wide) {
+  --h: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  height: var(--h);
+  margin: 0;
+  background: #222;
+}
+/* all photos run full height; set --h (e.g. 70%) on one of these to vary it */
+body:has(.pin) .item-tall  { --h: 100%; }
+body:has(.pin) .item-short { --h: 100%; }
+body:has(.pin) .item-wide  { --h: 100%; }
+
+/* leave room after the last photo only when there is a "That's a wrap" block to fill it */
+body:has(.pin) .stage:has(.end) .track { padding-right: 55vw; }
+
+body:has(.pin) .track img,
+body:has(.pin) .track video {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  filter: grayscale(1);          /* remove for color */
+}
+body:has(.pin) .track figure span {   /* visually hidden: the subtitle shows this text */
+  position: absolute;
+  width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---- closing line: sits in the empty space after the last photo and fades in at the end ---- */
+body:has(.pin) .stage > .end {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50vw;
+  display: grid;
+  place-items: center;
+  padding: 0 var(--pad);
+  pointer-events: none;
+  opacity: 0;
+}
+body:has(.pin) .end h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 1rem + 4vw, 5rem);
+  line-height: 1.05;
+  text-align: center;
+}
+@supports (animation-timeline: scroll()) {
+  body:has(.pin) .stage > .end {
+    animation: bts-end linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 88% 100%;
+  }
+}
+@keyframes bts-end {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- progress line ---- */
+body:has(.pin) .bar {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  margin: 0 7vw 8px 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+body:has(.pin) .bar i {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  display: block;
+  height: 3px;
+  width: 0;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  body:has(.pin) { --pad: 6vw; }
+  body:has(.pin) .header-nav { padding-left: 6vw; padding-right: 6vw; }
+  body:has(.pin) .foot { flex-direction: column; align-items: stretch; padding-left: 6vw; padding-right: 6vw; gap: 12px; }
+  body:has(.pin) .bar { flex: none; width: 100%; margin: 0; }
+  body:has(.pin) .meta { flex: none; }
+}
+
+/* reduced motion: native sideways scrolling instead of the pinned effect */
+@media (prefers-reduced-motion: reduce) {
+  body:has(.pin) .pin { height: auto !important; }
+  body:has(.pin) .track { width: auto; overflow-x: auto; transform: none !important; padding-right: 0; }
+  body:has(.pin) .stage > .end,
+  body:has(.pin) .bar { display: none; }
+}
