@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jonathan Lee - Portfolio</title>
 <link href="css/horse-main.css" rel="stylesheet">
+<script src="js/video-player.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="icon" href="img/favicon.ico">
 </head>
@@ -71,91 +72,51 @@
     </button>
   </div>
 
-  <!-- Mute / Unmute Button -->
-  <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
+  <!-- Video controls: play/pause, scrubber, time, mute -->
+  <div class="video-controls" id="videoControls">
+    <div class="vc-bar">
+      <button id="vcPlay" class="vc-play" type="button" aria-label="Play">
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+
+      <div id="vcScrub" class="vc-scrub" role="slider" tabindex="0" aria-label="Seek"
+           aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
+        <div class="vc-track">
+          <div id="vcBuffered" class="vc-buffered"></div>
+          <div id="vcFill" class="vc-fill"></div>
+        </div>
+        <div id="vcThumb" class="vc-thumb"></div>
+        <div id="vcTip" class="vc-tip" aria-hidden="true">
+          <canvas id="vcThumbCanvas" width="320" height="180"></canvas>
+          <span id="vcTipTime">0:00</span>
+        </div>
+      </div>
+
+      <span id="vcTime" class="vc-time">0:00 / 0:00</span>
+
+      <!-- Mute / Unmute Button -->
+      <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
+    </div>
+  </div>
+  <!-- Up next: 10s countdown after the video ends -->
+  <div id="upNext" class="up-next" role="status" aria-live="polite">
+    <div class="up-next-card">
+      <p id="upNextLabel" class="up-next-label">Up next</p>
+      <p id="upNextTitle" class="up-next-title"></p>
+      <div class="up-next-count">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="ring-bg" cx="24" cy="24" r="21"/>
+          <circle id="upNextRing" class="ring" cx="24" cy="24" r="21"/>
+        </svg>
+        <span id="upNextSecs">10</span>
+      </div>
+      <div class="up-next-actions">
+        <button id="upNextGo" class="audio-control-btn" type="button">Play now</button>
+        <button id="upNextCancel" class="audio-control-btn" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
 </section>
-
-<script>
-  const video = document.getElementById('heroVideo');
-  const audioBtn = document.getElementById('audioToggle');
-  const videoSplash = document.getElementById('videoSplash');
-  const splashPlayBtn = document.getElementById('splashPlay');
-  const menuNav = document.querySelector('.editorial-nav');
-  const menuBtn = document.getElementById('menuBtn');
-
-  video.muted = false;
-
-  function updateAudioButton() {
-    audioBtn.textContent = video.muted ? 'Unmute' : 'Mute';
-  }
-
-  splashPlayBtn.addEventListener('click', async function() {
-    video.muted = false;
-    updateAudioButton();
-
-    if (video.paused) {
-      try {
-        await video.play();
-      } catch (error) {
-        console.error('Video playback failed:', error);
-        return;
-      }
-    }
-
-    videoSplash.classList.add('hidden');
-  });
-
-  // Toggle audio state
-  audioBtn.addEventListener('click', function() {
-    video.muted = !video.muted;
-  });
-  video.addEventListener('volumechange', updateAudioButton);
-  updateAudioButton();
-
-  function closeMenu() {
-    menuNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  menuBtn.addEventListener('click', function() {
-    const isOpen = menuNav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  video.addEventListener('click', function() {
-    if (menuNav.classList.contains('open')) {
-      closeMenu();
-      return;
-    }
-    if (video.paused) { video.play(); } else { video.pause(); }
-  });
-
-  // 15-Second Inactivity Fade-Out Logic
-  let fadeTimeout;
-
-  function resetMenuTimer() {
-    // Show the menu immediately on activity
-    menuNav.classList.remove('hidden');
-    
-    // Clear any existing countdown
-    clearTimeout(fadeTimeout);
-    
-    // Keep an open mobile menu visible until it is closed.
-    fadeTimeout = setTimeout(() => {
-      if (!menuNav.classList.contains('open')) {
-        menuNav.classList.add('hidden');
-      }
-    }, 15000);
-  }
-
-  // Initialize the timer when the page loads
-  resetMenuTimer();
-
-  // Reset the timer whenever the user moves the mouse, presses a key, or touches the screen
-  window.addEventListener('mousemove', resetMenuTimer);
-  window.addEventListener('keydown', resetMenuTimer);
-  window.addEventListener('touchstart', resetMenuTimer, { passive: true });
-</script>
-
 </body>
 </html>

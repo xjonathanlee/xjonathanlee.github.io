@@ -976,3 +976,356 @@ body:has(.pin) .bar i {
   body:has(.pin) .stage > .end,
   body:has(.pin) .bar { display: none; }
 }
+
+
+/* =================================================================
+   VIDEO CONTROLS  (play/pause + scrubber + time + mute)
+   Lives inside the existing .video-controls overlay, so clicks on
+   empty areas still reach the <video> (tap to play/pause).
+
+   Markup (intermezzo_eq.html):
+     .video-controls > .vc-bar
+        > button.vc-play
+        > .vc-scrub[role=slider] > .vc-track > .vc-buffered + .vc-fill
+                                 > .vc-thumb + .vc-tip
+        > .vc-time
+        > #audioToggle
+   Fades out after a few seconds of inactivity while playing
+   (.video-controls.is-idle, toggled by the page script).
+================================================================= */
+
+.vc-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0
+           calc(30px + env(safe-area-inset-right, 0px))
+           calc(30px + env(safe-area-inset-bottom, 0px))
+           calc(30px + env(safe-area-inset-left, 0px));
+  isolation: isolate;
+  pointer-events: none;            /* only the controls themselves catch clicks */
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.vc-bar > * { pointer-events: auto; }
+
+/* soft shadow behind the bar so it reads over bright frames */
+.vc-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -90px;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.video-controls.is-idle .vc-bar {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hero-video-section:has(.video-controls.is-idle) { cursor: none; }
+
+/* the mute pill keeps its look; it just flows in the bar instead of floating */
+.vc-bar #audioToggle {
+  position: static;
+  flex: none;
+}
+
+/* ---- play / pause ---- */
+.vc-play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.vc-play svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.vc-play .icon-pause { display: none; }
+.vc-play.is-playing .icon-play  { display: none; }
+.vc-play.is-playing .icon-pause { display: block; }
+
+@media (hover: hover) {
+  .vc-play:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.vc-play:focus-visible,
+.vc-bar .audio-control-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ---- scrubber ---- */
+.vc-scrub {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 44px;                    /* tall hit area, thin visible line */
+  cursor: pointer;
+  touch-action: none;              /* dragging must not scroll the page */
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+.vc-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: height 0.15s ease, margin-top 0.15s ease;
+}
+
+.vc-buffered,
+.vc-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: inherit;
+}
+
+.vc-buffered { background: rgba(255, 255, 255, 0.3); }
+.vc-fill     { background: #fff; }
+
+.vc-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.25);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+  pointer-events: none;
+}
+
+.vc-scrub:hover .vc-track,
+.vc-scrub.is-dragging .vc-track,
+.vc-scrub:focus-visible .vc-track {
+  height: 6px;
+  margin-top: -3px;
+}
+
+.vc-scrub:hover .vc-thumb,
+.vc-scrub.is-dragging .vc-thumb,
+.vc-scrub:focus-visible .vc-thumb {
+  transform: scale(1);
+}
+
+/* touch screens have no hover, so keep the handle visible */
+@media (hover: none) {
+  .vc-thumb { transform: scale(1); }
+}
+
+/* preview bubble (picture + time) that follows the pointer */
+.vc-tip {
+  position: absolute;
+  bottom: calc(50% + 20px);
+  left: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.vc-tip canvas {
+  display: block;
+  width: 160px;
+  height: auto;                    /* follows the canvas's aspect ratio */
+  border-radius: 4px;
+  background: #000;
+}
+
+.vc-tip.show { opacity: 1; }
+
+/* ---- time readout ---- */
+.vc-time {
+  flex: none;
+  color: #fff;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Tablets/phones and sideways phones: tighter margins, matching the menu button */
+@media (max-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  .vc-bar {
+    padding: 0
+             calc(16px + env(safe-area-inset-right, 0px))
+             calc(20px + env(safe-area-inset-bottom, 0px))
+             calc(16px + env(safe-area-inset-left, 0px));
+  }
+}
+
+/* Narrow phones: scrubber gets its own full-width row above the buttons */
+@media (max-width: 700px) {
+  .vc-bar {
+    flex-wrap: wrap;
+    gap: 2px 12px;
+  }
+  .vc-scrub {
+    order: -1;
+    flex: 1 0 100%;
+  }
+  .vc-time {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vc-bar,
+  .vc-track,
+  .vc-thumb,
+  .vc-tip { transition: none; }
+}
+
+
+/* =================================================================
+   UP NEXT  (10-second countdown after the video ends)
+   Sits below the control bar (z-index 25 vs 30) so the scrubber still
+   works; the dimmed area lets clicks through to the video.
+================================================================= */
+.up-next {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.up-next.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.up-next-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 420px;
+  text-align: center;
+  color: #fff;
+  pointer-events: auto;
+}
+
+.up-next-label {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.up-next-title {
+  margin: 0;
+  font-family: PPEditorialRegular, "Times New Roman", Georgia, serif;
+  font-size: clamp(1.75rem, 1rem + 3vw, 3rem);
+  line-height: 1.1;
+}
+
+.up-next-count {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 12px 0 8px;
+  display: grid;
+  place-items: center;
+}
+
+.up-next-count svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);       /* ring starts at 12 o'clock */
+}
+
+.up-next-count circle {
+  fill: none;
+  stroke-width: 3;
+}
+
+.up-next-count .ring-bg { stroke: rgba(255, 255, 255, 0.2); }
+
+.up-next-count .ring {
+  stroke: #fff;
+  stroke-linecap: round;
+}
+
+.up-next-count span {
+  font-size: 38px;
+  font-variant-numeric: tabular-nums;
+}
+
+.up-next-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.up-next-actions .audio-control-btn { min-height: 44px; }
+
+.up-next-actions .audio-control-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .up-next { transition: none; }
+}

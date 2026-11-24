@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4EZDL5MHN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T4EZDL5MHN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jonathan Lee - Portfolio</title>
+<link href="css/horse-main.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" href="img/favicon.ico">
+</head>
+<body class="splash-river video-page page-intermezzo">
+
+<!-- Top-Left Navigation Wrapper -->
+<div class="nav-container">
+    <button id="menuBtn" class="menu-btn" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="editorial-nav" id="siteNav">
+        <div class="nav-grid">
+            <div class="nav-column">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="riverrunnerindex.html">Index</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>On Emotions</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="megan_eq.html">Megan Billings</a></li>
+                    <li class="nav-item"><a href="hannah_eq.html">Hannah Tidsdale</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>Intermission</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="intermezzo_eq.html">UBC Tryouts</a></li>
+                </ul>
+            </div>
+            <div class="nav-column">
+                <span class="nav-header"><b>On Veracity</b></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="nema_eq.html">Neema Maenpaa</a></li>
+                    <li class="nav-item"><a href="nat_eq.html">Natalie Adler</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section class="hero-video-section">
+  <video 
+    id="heroVideo"
+    playsinline 
+    webkit-playsinline
+    preload="metadata"
+    poster="img/MEGAN_EQ.PNG">
+    <source src="img/Riverrunner/intermezzo_optimized.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="videoSplash" class="video-splash">
+    <button id="splashPlay" class="splash-play-button" type="button" aria-label="Play video">
+      <span class="splash-play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>Play</span>
+    </button>
+  </div>
+
+  <!-- Mute / Unmute Button -->
+  <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
+</section>
+
+<script>
+  const video = document.getElementById('heroVideo');
+  const audioBtn = document.getElementById('audioToggle');
+  const videoSplash = document.getElementById('videoSplash');
+  const splashPlayBtn = document.getElementById('splashPlay');
+  const menuNav = document.querySelector('.editorial-nav');
+  const menuBtn = document.getElementById('menuBtn');
+
+  video.muted = false;
+
+  function updateAudioButton() {
+    audioBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+  }
+
+  splashPlayBtn.addEventListener('click', async function() {
+    video.muted = false;
+    updateAudioButton();
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error('Video playback failed:', error);
+        return;
+      }
+    }
+
+    videoSplash.classList.add('hidden');
+  });
+
+  // Toggle audio state
+  audioBtn.addEventListener('click', function() {
+    video.muted = !video.muted;
+  });
+  video.addEventListener('volumechange', updateAudioButton);
+  updateAudioButton();
+
+  function closeMenu() {
+    menuNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  menuBtn.addEventListener('click', function() {
+    const isOpen = menuNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  video.addEventListener('click', function() {
+    if (menuNav.classList.contains('open')) {
+      closeMenu();
+      return;
+    }
+    if (video.paused) { video.play(); } else { video.pause(); }
+  });
+
+  // 15-Second Inactivity Fade-Out Logic
+  let fadeTimeout;
+
+  function resetMenuTimer() {
+    // Show the menu immediately on activity
+    menuNav.classList.remove('hidden');
+    
+    // Clear any existing countdown
+    clearTimeout(fadeTimeout);
+    
+    // Keep an open mobile menu visible until it is closed.
+    fadeTimeout = setTimeout(() => {
+      if (!menuNav.classList.contains('open')) {
+        menuNav.classList.add('hidden');
+      }
+    }, 15000);
+  }
+
+  // Initialize the timer when the page loads
+  resetMenuTimer();
+
+  // Reset the timer whenever the user moves the mouse, presses a key, or touches the screen
+  window.addEventListener('mousemove', resetMenuTimer);
+  window.addEventListener('keydown', resetMenuTimer);
+  window.addEventListener('touchstart', resetMenuTimer, { passive: true });
+</script>
+
+</body>
+</html>
