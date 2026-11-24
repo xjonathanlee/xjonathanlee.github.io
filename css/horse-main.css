@@ -77,14 +77,12 @@ body.splash-river {
 .page-megan      .video-splash { background-image: url("../img/Riverrunner/untitled-0406.webp"); }
 .page-hannah     .video-splash { background-image: url("../img/Riverrunner/h_nemo.webp"); }
 .page-nema       .video-splash { 
-  filter:grayscale(100);
-  background-image: url("../img/Riverrunner/nema.webp"); }
-.page-nat        .video-splash { 
-    filter:grayscale(100);
-  background-image: url("../img/Riverrunner/n_reno.webp"); }
-.page-intermezzo .video-splash { 
   filter: grayscale(100);
-  background-image: url("../img/Riverrunner/horse8.webp"); }
+  background-image: url("../img/Riverrunner/nema.webp"); }
+.page-nat .video-splash { 
+  filter: grayscale(100);
+  background-image: url("../img/Riverrunner/n_reno.webp"); }
+.page-intermezzo .video-splash { background-image: url("../img/Riverrunner/horse8.webp"); }
 
 .splash {
   position: relative;
@@ -353,9 +351,13 @@ video-player [slot="poster"] {
 
 .portrait[data-portrait="megan"]  { background-image: url("../img/Riverrunner/untitled-0406.webp"); }
 .portrait[data-portrait="hannah"] { background-image: url("../img/Riverrunner/h_nemo.webp"); }
-.portrait[data-portrait="nata"]   { background-image: url("../img/Riverrunner/n_reno.webp"); }
+.portrait[data-portrait="nata"]   { 
+  filter:grayscale(100);
+  background-image: url("../img/Riverrunner/n_reno.webp"); }
 .portrait[data-portrait="stav"]   { background-image: url("../img/Riverrunner/horse8.webp"); }
-.portrait[data-portrait="nema"]   { background-image: url("../img/Riverrunner/nema.webp"); }
+.portrait[data-portrait="nema"]   { 
+  filter:grayscale(100);
+  background-image: url("../img/Riverrunner/nema.webp"); }
 
 
 /* =================================================================
