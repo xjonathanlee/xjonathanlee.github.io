@@ -47,19 +47,20 @@
       <a class="designer-link" data-target="stav" href="intermezzo_eq.html">Tryout Day</a>
       <span class="hover-copy">UBC Equestrian Tryouts</span>
     </div>
+    
+    <div class="name-item">
+      <a class="designer-link" data-target="nata" href="nat_eq.html">Nat Adler</a>
+      <span class="hover-copy">On Teaching and Excitement</span>
+    </div>
 
     <div class="name-item">
       <a class="designer-link" data-target="nema" href="nema_eq.html">Linda "Neema" Maenpaa</a>
       <span class="hover-copy">To Ride is to Make a Choice</span>
     </div>
 
-    <div class="name-item">
-      <a class="designer-link" data-target="nata" href="nat_eq.html">Nat Adler</a>
-      <span class="hover-copy">On Teaching and Excitement</span>
-    </div>
+
 
   </nav>
-
   <div class="portrait-layer">
     <div class="portrait" data-portrait="megan"><span>Megan Billings </span></div>
     <div class="portrait" data-portrait="hannah"><span>Hannah Tadsen</span></div>
@@ -104,6 +105,12 @@
   document.querySelector('.name-list').addEventListener('mouseleave', hideAll);
 </script>
 <script src="js/istouch.js"></script>
-
+<script>
+  if (location.hash === '#work') {
+    window.addEventListener('load', () => {
+      document.getElementById('work').scrollIntoView();
+    });
+  }
+</script>
 </body>
 </html>
