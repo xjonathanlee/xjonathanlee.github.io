@@ -72,8 +72,6 @@
     </button>
   </div>
 
-  <!-- Mute / Unmute Button -->
-  <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
  <!-- Video controls: play/pause, scrubber, time, mute -->
   <div class="video-controls" id="videoControls">
     <div class="vc-bar">
@@ -97,10 +95,124 @@
 
       <span id="vcTime" class="vc-time">0:00 / 0:00</span>
 
+      <!-- Transcript Toggle Button -->
+      <button id="transcriptToggle" class="audio-control-btn" type="button"
+              aria-expanded="false" aria-controls="transcriptDrawer">Key Points</button>
+
       <!-- Mute / Unmute Button -->
       <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
     </div>
   </div>
+
+  <aside id="transcriptDrawer" class="tx-drawer" aria-label="Interview transcript" hidden>
+    <div class="tx-head">
+      <h2 class="tx-title">Nat Adler — Key Points</h2>
+      <button id="transcriptClose" class="tx-close" type="button" aria-label="Close transcript">&times;</button>
+    </div>
+
+    <div class="tx-body">
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="25">00:25</button>
+        <span>And I remember being out there and </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Walking a Course &amp; Finding Strides"
+                data-copy="Riders walk a jumping course on foot before mounting to plan approach angles, count strides between fences, and judge rhythm and distance.">
+          walking a course
+        </button>
+        <span> and having my teammates with me and they were like, “How do I figure out the strides? Like, how do I prepare and walk the line?” And I was like, “Oh, I can teach you that.”</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="38">00:38</button>
+        <span>And it was just one of these moments and I was like, “Oh my gosh, I’ve got something that I can offer to someone else, and I can help them with that.”</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="84">01:24</button>
+        <span>But at the end of the day, it’s about the </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Riding School vs. Show Circuit"
+                data-copy="Day-to-day lesson programs, horse care, and barn culture at home versus weekend competition and performance goals.">
+          riding school
+        </button>
+        <span> and it’s about what we do at home here and the training and the day-in and day-out of working with horses and working with students, and sharing the privilege that we’ve got to have horses and have other people join our community.</span>
+      </p>
+
+      <h3 class="tx-moment">01:47 · Precision in the Hunter Ring vs. Speed in the Low Jumpers</h3>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="107">01:47</button>
+        <span>So when I’m teaching younger students or new riders to enter into the show circuit, we very often start them in the </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Hunter Arena"
+                data-copy="A judged division emphasizing style, rhythm, straightness, manners, and smoothness over fences rather than raw speed.">
+          hunter arena
+        </button>
+        <span> because it teaches them how to be very precise about what they’re doing.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="118">01:58</button>
+        <span>They end up going slower. We end up teaching them to go, you know, all the way into a corner and to set the horse up straight and correct to a jump, so that the horse jumps well. They need to get a </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Lead Change in Corners"
+                data-copy="Transitioning the horse’s canter lead cleanly through turns and corners so the horse stays balanced and organized toward the next obstacle.">
+          lead change in corners
+        </button>
+        <span>, right? They don’t get to go around chaotically pulling here and there and be unbalanced and still get a ribbon.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="140">02:20</button>
+        <span>Um, and so when new riders are coming into the show circuit, they will be rewarded in the hunter ring for correct riding. But if you start them in the </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Jumper Ring"
+                data-copy="An objective division decided primarily by faults (rails/refusals) and time on the clock rather than style or form marks.">
+          jumper ring
+        </button>
+        <span>, you can emphasize the correct riding, but they’re not going to be rewarded for it.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="176">02:56</button>
+        <span>So a lot of it depends on the horses that are available and whether or not the students are going to take some success from just me saying </span>
+        <button class="tx-anchor" type="button"
+                data-kind="frame"
+                data-time="176"
+                data-label="02:56"
+                data-img="img/Riverrunner/n_reno.webp"
+                data-title="02:56 · Reframing Success Without Ribbons"
+                data-copy="Recognizing sound, steady riding in the low jumpers even when fast rounds take the placings.">
+          “you did an amazing job in the jumper ring”
+        </button>
+        <span> even though they didn’t come out with a big ribbon.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="264">04:24</button>
+        <span>And you don’t know if five years down the road they’re going to be your best friend and we’re going to be off going to horse shows together. But that’s really what keeps this place so exciting, so meaningful, and so special to all of us.</span>
+      </p>
+    </div>
+
+    <div id="txBridge" class="tx-bridge" role="region" aria-live="polite" hidden>
+      <div class="tx-bridge-top">
+        <span id="txBridgeKind" class="tx-bridge-kind"></span>
+        <button id="txBridgeClose" class="tx-close" type="button" aria-label="Close note">&times;</button>
+      </div>
+      <img id="txBridgeImg" class="tx-bridge-img" alt="" hidden>
+      <h3 id="txBridgeTitle" class="tx-bridge-title"></h3>
+      <p id="txBridgeCopy" class="tx-bridge-copy"></p>
+      <button id="txBridgeJump" class="audio-control-btn tx-bridge-jump" type="button" hidden>
+        Jump to frame
+      </button>
+    </div>
+  </aside>
+
   <!-- Up next: 10s countdown after the video ends -->
   <div id="upNext" class="up-next" role="status" aria-live="polite">
     <div class="up-next-card">
@@ -120,5 +232,177 @@
     </div>
   </div>
 </section>
+<script>
+(() => {
+  const video = document.getElementById('heroVideo');
+  const controls = document.getElementById('videoControls');
+  const splash = document.getElementById('videoSplash');
+  const toggleBtn = document.getElementById('transcriptToggle');
+  const drawer = document.getElementById('transcriptDrawer');
+  const closeBtn = document.getElementById('transcriptClose');
+
+  const bridge = document.getElementById('txBridge');
+  const bridgeKind = document.getElementById('txBridgeKind');
+  const bridgeImg = document.getElementById('txBridgeImg');
+  const bridgeTitle = document.getElementById('txBridgeTitle');
+const bridgeCopy = document.getElementById('txBridgeCopy');
+  const bridgeJump = document.getElementById('txBridgeJump');
+  const bridgeClose = document.getElementById('txBridgeClose');
+
+  if (!video || !toggleBtn || !drawer) return;
+
+  let pendingSeek = null;
+
+  function setDrawerOpen(open) {
+    drawer.hidden = !open;
+    toggleBtn.setAttribute('aria-expanded', String(open));
+    if (open && splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    if (open && controls) {
+      controls.classList.remove('is-idle');
+    }
+  }
+
+  function closeBridge() {
+    if (!bridge) return;
+    bridge.hidden = true;
+    pendingSeek = null;
+    if (bridgeImg) {
+      bridgeImg.hidden = true;
+      bridgeImg.removeAttribute('src');
+      bridgeImg.alt = '';
+    }
+    if (bridgeJump) {
+      bridgeJump.hidden = true;
+    }
+    drawer.querySelectorAll('.tx-anchor[aria-pressed="true"]').forEach((el) => {
+      el.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  function seekVideo(seconds) {
+    const target = Number(seconds);
+    if (!Number.isFinite(target) || target < 0) return;
+    if (splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    video.currentTime = target;
+    if (video.paused) {
+      video.play().catch(() => {});
+    }
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const nextState = drawer.hidden;
+    setDrawerOpen(nextState);
+    if (!nextState) closeBridge();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setDrawerOpen(false);
+      closeBridge();
+    });
+  }
+
+  if (bridgeClose) {
+    bridgeClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeBridge();
+    });
+  }
+
+  if (bridgeJump) {
+    bridgeJump.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (pendingSeek !== null) {
+        seekVideo(pendingSeek);
+      }
+    });
+  }
+
+  // Prevent pointer events inside the drawer from triggering video play/pause or control hiding
+  ['pointerdown', 'mousedown', 'touchstart'].forEach((evt) => {
+    drawer.addEventListener(evt, (e) => e.stopPropagation());
+  });
+
+  drawer.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    if (e.target.closest('#transcriptClose')) {
+      setDrawerOpen(false);
+      closeBridge();
+      return;
+    }
+
+    if (e.target.closest('#txBridgeClose')) {
+      closeBridge();
+      return;
+    }
+
+    const timeBtn = e.target.closest('.tx-time[data-seek]');
+    if (timeBtn) {
+      seekVideo(timeBtn.dataset.seek);
+      return;
+    }
+
+    const anchor = e.target.closest('.tx-anchor');
+    if (!anchor || !bridge) return;
+
+    const wasActive = anchor.getAttribute('aria-pressed') === 'true';
+    closeBridge();
+    if (wasActive) return;
+
+    anchor.setAttribute('aria-pressed', 'true');
+
+    const kind = anchor.dataset.kind || 'note';
+    const title = anchor.dataset.title || '';
+    const copy = anchor.dataset.copy || '';
+    const imgSrc = anchor.dataset.img || '';
+    const jumpTime = anchor.dataset.time;
+
+    bridgeKind.textContent = kind === 'frame' ? 'Frame / Clip' : 'Concept';
+    bridgeTitle.textContent = title;
+    bridgeCopy.textContent = copy;
+
+    if (bridgeImg) {
+      if (imgSrc) {
+        bridgeImg.src = imgSrc;
+        bridgeImg.alt = title;
+        bridgeImg.hidden = false;
+      } else {
+        bridgeImg.hidden = true;
+      }
+    }
+
+    if (bridgeJump) {
+      if (jumpTime !== undefined && jumpTime !== '') {
+        pendingSeek = Number(jumpTime);
+        bridgeJump.textContent = `Jump to ${anchor.dataset.label || 'moment'}`;
+        bridgeJump.hidden = false;
+      } else {
+        pendingSeek = null;
+        bridgeJump.hidden = true;
+      }
+    }
+
+    bridge.hidden = false;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (bridge && !bridge.hidden) {
+      closeBridge();
+    } else if (!drawer.hidden) {
+      setDrawerOpen(false);
+    }
+  });
+})();
+</script>
 </body>
 </html>

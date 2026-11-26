@@ -94,11 +94,97 @@
       </div>
 
       <span id="vcTime" class="vc-time">0:00 / 0:00</span>
-
+      <!-- Transcript Toggle Button -->
+      <button id="transcriptToggle" class="audio-control-btn" type="button"
+              aria-expanded="false" aria-controls="transcriptDrawer">Key Points</button>
       <!-- Mute / Unmute Button -->
       <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
     </div>
   </div>
+
+   <aside id="transcriptDrawer" class="tx-drawer" aria-label="Interview transcript" hidden>
+    <div class="tx-head">
+      <h2 class="tx-title">Linda "Neema" Maenpaa — Keypoints</h2>
+      <button id="transcriptClose" class="tx-close" type="button" aria-label="Close transcript">&times;</button>
+    </div>
+
+    <div class="tx-body">
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="0">0:00</button>
+        <span>Um, I think if you did your homework and you can kind of like work with your horse and develop the confidence and the fitness, you should be able to trust the </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Bloodlines"
+                data-copy="A horse’s pedigree and breeding lineage associated in riding with inherited temperament, sensitivity, and athletic traits.">
+          bloodline
+        </button>
+        <span>. There’s not really a lot you can do. Like after your like </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Three Strides Out"
+                data-copy="The final three strides approaching a fence, where balance, rhythm, and take-off distance are already set and late adjustments become harder.">
+          three strides out
+        </button>
+        <span>, you’re kind of just in it. Like whatever you have there, it’s what you got.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="21">0:21</button>
+        <span>Yeah, I think there’s different personality types. I think bloodlines can play a role like some bloodlines are naturally going to be like </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Bloody vs. Cold-Blooded"
+                data-copy="Barn shorthand for temperament and energy: 'bloodier' horses tend to be hotter, quicker, and more reactive, while 'cold-blooded' or steadier types often require more deliberate leg and rider support.">
+          bloodier, which means like hotter, more forward, stronger
+        </button>
+        <span>, those types. And some are more of like </span>
+        <button class="tx-anchor" type="button"
+                data-kind="frame"
+                data-time="30"
+                data-label="0:30"
+                data-img="../img/Riverrunner/nema.webp"
+                data-title="0:30 · Matching Rider &amp; Temperament"
+                data-copy="Comparing a push ride that asks for steady leg and spur support against what suits a given rider’s feel.">
+          cold blooded, which is more of like a push ride
+        </button>
+        <span>, you have to put more leg on, you might need to use a spur more.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="61">1:01</button>
+        <span>Patience with Cappy is that even though some days he comes out on his hind legs, I don’t ever get mad at him. Like he does some questionable things sometimes and he gets like a little bit upset or he gets stressed or he doesn’t really think his way through things, but I can’t get mad.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="104">1:44</button>
+        <span>Sometimes in equestrianism the </span>
+        <button class="tx-anchor" type="button"
+                data-kind="frame"
+                data-time="112"
+                data-label="1:52"
+                data-img="../img/Riverrunner/nema.webp"
+                data-title="1:52 · Horsemanship Before Spectacle"
+                data-copy="Returning to why riders start out: care for the animal—rather than letting competition overshadow horsemanship.">
+          horsemanship is lost
+        </button>
+        <span>, because equestrian it’s a lot of like the sport, right? So it’s about like the competition and like the building like a connection with the horse for a competitive purpose. We can’t forget like that these are animals that did not ask to do this. And we have to keep the horse’s interests in mind.</span>
+      </p>
+    </div>
+
+    <div id="txBridge" class="tx-bridge" role="region" aria-live="polite" hidden>
+      <div class="tx-bridge-top">
+        <span id="txBridgeKind" class="tx-bridge-kind"></span>
+        <button id="txBridgeClose" class="tx-close" type="button" aria-label="Close note">&times;</button>
+      </div>
+      <img id="txBridgeImg" class="tx-bridge-img" alt="" hidden>
+      <h3 id="txBridgeTitle" class="tx-bridge-title"></h3>
+      <p id="txBridgeCopy" class="tx-bridge-copy"></p>
+      <button id="txBridgeJump" class="audio-control-btn tx-bridge-jump" type="button" hidden>
+        Jump to frame
+      </button>
+    </div>
+  </aside>
+
   <!-- Up next: 10s countdown after the video ends -->
   <div id="upNext" class="up-next" role="status" aria-live="polite">
     <div class="up-next-card">
@@ -117,5 +203,178 @@
       </div>
     </div>
   </div>
+</section>
+<script>
+(() => {
+  const video = document.getElementById('heroVideo');
+  const controls = document.getElementById('videoControls');
+  const splash = document.getElementById('videoSplash');
+  const toggleBtn = document.getElementById('transcriptToggle');
+  const drawer = document.getElementById('transcriptDrawer');
+  const closeBtn = document.getElementById('transcriptClose');
+
+  const bridge = document.getElementById('txBridge');
+  const bridgeKind = document.getElementById('txBridgeKind');
+  const bridgeImg = document.getElementById('txBridgeImg');
+  const bridgeTitle = document.getElementById('txBridgeTitle');
+const bridgeCopy = document.getElementById('txBridgeCopy');
+  const bridgeJump = document.getElementById('txBridgeJump');
+  const bridgeClose = document.getElementById('txBridgeClose');
+
+  if (!video || !toggleBtn || !drawer) return;
+
+  let pendingSeek = null;
+
+  function setDrawerOpen(open) {
+    drawer.hidden = !open;
+    toggleBtn.setAttribute('aria-expanded', String(open));
+    if (open && splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    if (open && controls) {
+      controls.classList.remove('is-idle');
+    }
+  }
+
+  function closeBridge() {
+    if (!bridge) return;
+    bridge.hidden = true;
+    pendingSeek = null;
+    if (bridgeImg) {
+      bridgeImg.hidden = true;
+      bridgeImg.removeAttribute('src');
+      bridgeImg.alt = '';
+    }
+    if (bridgeJump) {
+      bridgeJump.hidden = true;
+    }
+    drawer.querySelectorAll('.tx-anchor[aria-pressed="true"]').forEach((el) => {
+      el.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  function seekVideo(seconds) {
+    const target = Number(seconds);
+    if (!Number.isFinite(target) || target < 0) return;
+    if (splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    video.currentTime = target;
+    if (video.paused) {
+      video.play().catch(() => {});
+    }
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const nextState = drawer.hidden;
+    setDrawerOpen(nextState);
+    if (!nextState) closeBridge();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setDrawerOpen(false);
+      closeBridge();
+    });
+  }
+
+  if (bridgeClose) {
+    bridgeClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeBridge();
+    });
+  }
+
+  if (bridgeJump) {
+    bridgeJump.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (pendingSeek !== null) {
+        seekVideo(pendingSeek);
+      }
+    });
+  }
+
+  // Prevent pointer events inside the drawer from triggering video play/pause or control hiding
+  ['pointerdown', 'mousedown', 'touchstart'].forEach((evt) => {
+    drawer.addEventListener(evt, (e) => e.stopPropagation());
+  });
+
+  drawer.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    if (e.target.closest('#transcriptClose')) {
+      setDrawerOpen(false);
+      closeBridge();
+      return;
+    }
+
+    if (e.target.closest('#txBridgeClose')) {
+      closeBridge();
+      return;
+    }
+
+    const timeBtn = e.target.closest('.tx-time[data-seek]');
+    if (timeBtn) {
+      seekVideo(timeBtn.dataset.seek);
+      return;
+    }
+
+    const anchor = e.target.closest('.tx-anchor');
+    if (!anchor || !bridge) return;
+
+    const wasActive = anchor.getAttribute('aria-pressed') === 'true';
+    closeBridge();
+    if (wasActive) return;
+
+    anchor.setAttribute('aria-pressed', 'true');
+
+    const kind = anchor.dataset.kind || 'note';
+    const title = anchor.dataset.title || '';
+    const copy = anchor.dataset.copy || '';
+    const imgSrc = anchor.dataset.img || '';
+    const jumpTime = anchor.dataset.time;
+
+    bridgeKind.textContent = kind === 'frame' ? 'Frame / Clip' : 'Concept';
+    bridgeTitle.textContent = title;
+    bridgeCopy.textContent = copy;
+
+    if (bridgeImg) {
+      if (imgSrc) {
+        bridgeImg.src = imgSrc;
+        bridgeImg.alt = title;
+        bridgeImg.hidden = false;
+      } else {
+        bridgeImg.hidden = true;
+      }
+    }
+
+    if (bridgeJump) {
+      if (jumpTime !== undefined && jumpTime !== '') {
+        pendingSeek = Number(jumpTime);
+        bridgeJump.textContent = `Jump to ${anchor.dataset.label || 'moment'}`;
+        bridgeJump.hidden = false;
+      } else {
+        pendingSeek = null;
+        bridgeJump.hidden = true;
+      }
+    }
+
+    bridge.hidden = false;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (bridge && !bridge.hidden) {
+      closeBridge();
+    } else if (!drawer.hidden) {
+      setDrawerOpen(false);
+    }
+  });
+})();
+</script>
 </body>
 </html>

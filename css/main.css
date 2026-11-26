@@ -565,7 +565,7 @@ a:hover {
 color: #c1c1c0;
 }
 ul {
-    padding: 0;
+    padding: 15px;
     list-style-type: none;
 }
 em {
