@@ -104,11 +104,73 @@
       </div>
 
       <span id="vcTime" class="vc-time">0:00 / 0:00</span>
-
+      <!-- Transcript Toggle Button -->
+      <button id="transcriptToggle" class="audio-control-btn" type="button"
+              aria-expanded="false" aria-controls="transcriptDrawer">Key Points</button>
       <!-- Mute / Unmute Button -->
       <button id="audioToggle" class="audio-control-btn" type="button">Unmute</button>
     </div>
   </div>
+
+    <!-- Collapsible Transcript Drawer & Single Connection Popover -->
+  <aside id="transcriptDrawer" class="tx-drawer" aria-label="Interview transcript" hidden>
+    <div class="tx-head">
+      <h2 class="tx-title">Linda "Neema" Maenpaa — Keypoints</h2>
+      <button id="transcriptClose" class="tx-close" type="button" aria-label="Close transcript">&times;</button>
+    </div>
+
+    <div class="tx-body">
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="21">00:21</button>
+        <span>Yeah, I mean, I think there's always an opportunity to learn. I think that depending where you are, if you've got a rail in the Hunter ring, you're probably not in the ribbons that day, but you can </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Schooling a Ride"
+                data-copy="The purpose of schooling is to make sure that horses are performing to the best of their ability by getting enough exercise, utilizing all their muscles to ensure they maintain strength and balance, working through any behavioral issues, and maintaining their confidence and variety of work.">
+school the rest of the ride
+        </button>
+        <span> and there's still a lot for you to take away from it.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="41">0:41</button>
+        <span>In the jumper ring, maybe you're the fastest for </span>
+        <button class="tx-anchor" type="button"
+                data-kind="concept"
+                data-title="Falter"
+                data-copy=" Major hunter faults include a fall, refusal, running out on a fence, going off course, kicking, adding a stride, trotting to change canter leads, cantering on the wrong lead, and knocking down a fence."
+>
+Falter.
+        </button>
+        <span>, maybe you get a couple ribbons, but ultimately I think it's important to ride with the intention to learn and take away, from that ride rather than to ride for a ribbon every single time</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="65">1:05</button>
+        <span>Usually when I'm at a horse show, the goal is always to have fun. I do this because I love it.</span>
+      </p>
+
+      <p class="tx-line">
+        <button class="tx-time" type="button" data-seek="104">1:44</button>
+        <span>If I get a ribbon, it's the icing on top of the cake and I go to put all my hard work
+into practice. I don't necessarily think, I think I'm really grateful for the trainers I've had in the
+past who have given me the foundation to get me where I am today and I think I'm very determined
+and I love riding and I like to put in the work to make myself better, to make my horses better.</span>
+      </p>
+    </div>
+    <div id="txBridge" class="tx-bridge" role="region" aria-live="polite" hidden>
+      <div class="tx-bridge-top">
+        <span id="txBridgeKind" class="tx-bridge-kind"></span>
+        <button id="txBridgeClose" class="tx-close" type="button" aria-label="Close note">&times;</button>
+      </div>
+      <img id="txBridgeImg" class="tx-bridge-img" alt="" hidden>
+      <h3 id="txBridgeTitle" class="tx-bridge-title"></h3>
+      <p id="txBridgeCopy" class="tx-bridge-copy"></p>
+      <button id="txBridgeJump" class="audio-control-btn tx-bridge-jump" type="button" hidden>
+        Jump to frame
+      </button>
+    </div>
+  </aside>
   <!-- Up next: 10s countdown after the video ends -->
   <div id="upNext" class="up-next" role="status" aria-live="polite">
     <div class="up-next-card">
@@ -128,5 +190,177 @@
     </div>
   </div>
 </section>
+<script>
+(() => {
+  const video = document.getElementById('heroVideo');
+  const controls = document.getElementById('videoControls');
+  const splash = document.getElementById('videoSplash');
+  const toggleBtn = document.getElementById('transcriptToggle');
+  const drawer = document.getElementById('transcriptDrawer');
+  const closeBtn = document.getElementById('transcriptClose');
+
+  const bridge = document.getElementById('txBridge');
+  const bridgeKind = document.getElementById('txBridgeKind');
+  const bridgeImg = document.getElementById('txBridgeImg');
+  const bridgeTitle = document.getElementById('txBridgeTitle');
+  const bridgeCopy = document.getElementById('txBridgeCopy');
+  const bridgeJump = document.getElementById('txBridgeJump');
+  const bridgeClose = document.getElementById('txBridgeClose');
+
+  if (!video || !toggleBtn || !drawer) return;
+
+  let pendingSeek = null;
+
+  function setDrawerOpen(open) {
+    drawer.hidden = !open;
+    toggleBtn.setAttribute('aria-expanded', String(open));
+    if (open && splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    if (open && controls) {
+      controls.classList.remove('is-idle');
+    }
+  }
+
+  function closeBridge() {
+    if (!bridge) return;
+    bridge.hidden = true;
+    pendingSeek = null;
+    if (bridgeImg) {
+      bridgeImg.hidden = true;
+      bridgeImg.removeAttribute('src');
+      bridgeImg.alt = '';
+    }
+    if (bridgeJump) {
+      bridgeJump.hidden = true;
+    }
+    drawer.querySelectorAll('.tx-anchor[aria-pressed="true"]').forEach((el) => {
+      el.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  function seekVideo(seconds) {
+    const target = Number(seconds);
+    if (!Number.isFinite(target) || target < 0) return;
+    if (splash && !splash.classList.contains('hidden')) {
+      splash.classList.add('hidden');
+    }
+    video.currentTime = target;
+    if (video.paused) {
+      video.play().catch(() => {});
+    }
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const nextState = drawer.hidden;
+    setDrawerOpen(nextState);
+    if (!nextState) closeBridge();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setDrawerOpen(false);
+      closeBridge();
+    });
+  }
+
+  if (bridgeClose) {
+    bridgeClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeBridge();
+    });
+  }
+
+  if (bridgeJump) {
+    bridgeJump.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (pendingSeek !== null) {
+        seekVideo(pendingSeek);
+      }
+    });
+  }
+
+  // Prevent pointer events inside the drawer from triggering video play/pause or control hiding
+  ['pointerdown', 'mousedown', 'touchstart'].forEach((evt) => {
+    drawer.addEventListener(evt, (e) => e.stopPropagation());
+  });
+
+  drawer.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    if (e.target.closest('#transcriptClose')) {
+      setDrawerOpen(false);
+      closeBridge();
+      return;
+    }
+
+    if (e.target.closest('#txBridgeClose')) {
+      closeBridge();
+      return;
+    }
+
+    const timeBtn = e.target.closest('.tx-time[data-seek]');
+    if (timeBtn) {
+      seekVideo(timeBtn.dataset.seek);
+      return;
+    }
+
+    const anchor = e.target.closest('.tx-anchor');
+    if (!anchor || !bridge) return;
+
+    const wasActive = anchor.getAttribute('aria-pressed') === 'true';
+    closeBridge();
+    if (wasActive) return;
+
+    anchor.setAttribute('aria-pressed', 'true');
+
+    const kind = anchor.dataset.kind || 'note';
+    const title = anchor.dataset.title || '';
+    const copy = anchor.dataset.copy || '';
+    const imgSrc = anchor.dataset.img || '';
+    const jumpTime = anchor.dataset.time;
+
+    bridgeKind.textContent = kind === 'frame' ? 'Frame / Clip' : 'Concept';
+    bridgeTitle.textContent = title;
+    bridgeCopy.textContent = copy;
+
+    if (bridgeImg) {
+      if (imgSrc) {
+        bridgeImg.src = imgSrc;
+        bridgeImg.alt = title;
+        bridgeImg.hidden = false;
+      } else {
+        bridgeImg.hidden = true;
+      }
+    }
+
+    if (bridgeJump) {
+      if (jumpTime !== undefined && jumpTime !== '') {
+        pendingSeek = Number(jumpTime);
+        bridgeJump.textContent = `Jump to ${anchor.dataset.label || 'moment'}`;
+        bridgeJump.hidden = false;
+      } else {
+        pendingSeek = null;
+        bridgeJump.hidden = true;
+      }
+    }
+
+    bridge.hidden = false;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (bridge && !bridge.hidden) {
+      closeBridge();
+    } else if (!drawer.hidden) {
+      setDrawerOpen(false);
+    }
+  });
+})();
+</script>
 </body>
 </html>

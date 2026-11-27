@@ -1407,15 +1407,24 @@ body:has(.pin) .bar i {
 }
 
 .tx-line {
+  --tx-time-w: 64px;   /* width of the timestamp column */
+  --tx-gap: 14px;      /* space between timestamp and words */
+  position: relative;
   margin: 0;
+  padding-left: calc(var(--tx-time-w) + var(--tx-gap));
   font-size: 15px;
   line-height: 1.65;
   color: rgba(244, 244, 242, 0.9);
 }
 
 .tx-time {
-  margin-right: 8px;
-  padding: 2px 6px;
+  position: absolute;
+  left: 0;
+  top: 2px;            /* lines the button up with the first text line */
+  width: var(--tx-time-w);
+  margin: 0;
+  padding: 2px 0;
+  text-align: center;
   background: none;
   border: 1px solid rgba(244, 244, 242, 0.22);
   border-radius: 4px;
